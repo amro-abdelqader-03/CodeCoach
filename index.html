@@ -1,633 +1,573 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="web_standard" name="shell-type">
-  <title>CodeCoach</title>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="web_standard" name="shell-type" />
+  <title>CodeCoach - Developer Platform</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/home.css" rel="stylesheet" />
 </head>
-
-<body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-vh-100 d-flex flex-column justify-content-between">
-  <header class="position-fixed top-0 start-0 w-100 z-50 bg-[#0B0F17]/90 backdrop-blur-md border-bottom border-white/10">
-    <div class="h-16 max-w-[1440px] mx-auto px-4 lg:px-12 d-flex align-items-center justify-content-between">
-      <div class="d-flex align-items-center gap-3"><a class="d-flex align-items-center gap-3 group" data-path="home" href="#"><img alt="CodeCoach Logo" class="h-8 w-auto object-fit-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XKdAN8Yh78jCCc-ap_HUe-CvnJYKe7zp8vc2HiT86hqQJ12nkEu572iiyYspDawyv2FZOevHwRPkuHP67Yp2nLdAFUzmtwlSYCS3g9DNSU2fSVcXU0EQo9WphRMwaIJMo-uPCuV4lBzDNy3x5IlNnYfGdgXaydiqdctAHY5b_It9YlL2ANzeS5AqITiTCLyXf3an3eI8-sBxucwuMS0NHA1KWUT1SJrIxVPFNpObr-1mP1nJZoVet4Nw"><span class="font-headline-sm text-headline-sm text-on-surface fw-bold tracking-tight">CodeCoach</span></a><span class="d-inline-flex align-items-center gap-2 px-2 py-1 rounded-pill border border-primary/20 bg-primary/10 text-primary font-label-code-sm text-label-code-sm"><span class="h-1.5 w-1.5 rounded-pill bg-primary animate-pulse"></span>AI Beta</span></div>
-      <nav class="d-none d-md-flex align-items-center gap-1 p-1 rounded-lg bg-surface-container-lowest/40 border border-white/5" data-active-classes="text-on-surface bg-surface-container-high/60"><a aria-current="page" class="px-3.5 py-2 rounded-md font-label-ui transition-all text-on-surface bg-surface-container-high/60" data-path="home" href="#">Home</a><a class="px-3.5 py-2 rounded-md font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="challenges" href="#">Challenges</a><a class="px-3.5 py-2 rounded-md font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="ai-tasks" href="#">AI Tasks</a><a class="px-3.5 py-2 rounded-md font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="progress" href="#">Progress</a></nav>
-      <div class="d-flex align-items-center gap-3"><a class="d-none d-sm-inline-flex px-3 py-2 rounded-lg font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 transition-all" data-path="login" href="#">Log in</a><a class="d-inline-flex align-items-center justify-content-center px-3 py-2 rounded-lg font-label-ui text-label-ui fw-semibold bg-primary text-on-primary shadow-[0_0_20px_rgba(6,182,212,0.35)] hover:shadow-[0_0_25px_rgba(6,182,212,0.55)] hover:bg-primary-fixed-dim transition-all" data-path="register" href="#">Get Started</a>
-        <div class="w-8 h-8 rounded-pill bg-primary d-flex align-items-center justify-content-center ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+<body class="page">
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="flex center gap-lg"><a class="brand-link" data-path="home" href="#"><img alt="CodeCoach logo" class="brand-logo"
+            src="https://lh3.googleusercontent.com/aida/AEtjO1VJ5GtFy6K-s_FyEzOONr5R-SZncTy11yVYJ8H2UyyuCWq7J7DMuosuwy4gRg5UJbOiv_uuoHZmSwheVTNgEBrccnmi4aklo6yKYTnKQGXfbVwESV_YP4Xkt82n8eLhMHFrZGnPN1jlHov0WpFYS2W7o92Glv5D8XyORrH-ebNtE5r8Xs964Bc0amHFkrVdIuJpMBWIzqiYDZys1GOoo_V88NYB9UI_TK0XCWMjivXo5ekUGDefg9xPXA" /><span class="font-heading heading-small font-semibold tracking-tight main-text">CodeCoach</span><span class="beta-badge">
+            AI
+            Beta</span></a>
+        <nav class="main-nav" data-active-classes="panel-high accent-text font-medium round-md"><a aria-current="page" class="nav-link nav-link--active" data-path="home" href="#">Home</a><a class="nav-link" data-path="challenges" href="#">Challenges</a><a class="nav-link" data-path="ai-tasks" href="#">AI Tasks</a><a class="nav-link" data-path="progress" href="#">Progress</a></nav>
       </div>
+      <div class="flex center gap-md"><a class="login-link" href="#">
+        <div class="w-8 h-8 round-full accent-bg flex center centered shrink"><span class="material-symbols-outlined button-text size-18">person</span></div>
+      </div></a>
     </div>
   </header>
-  <main class="w-100 pt-5 flex-fill bg-surface">
-    <div class="d-flex flex-column w-100">
-      <!-- AMBIENT CANVAS BACKGROUND LAYER (Decorations contained) -->
-      <div class="position-relative w-100 overflow-hidden">
-        <!-- Atmospheric glows -->
-        <div class="position-absolute -top-32 left-1/2 -translate-x-1/2 w-[980px] h-[520px] bg-primary/10 rounded-pill blur-[140px] pe-none">
+  <main class="w-full pt-16 page-bg page-min-height">
+    <div class="flex column w-full">
+      <div class="relative w-full overflow-hidden">
+        <div class="ambient-glow">
         </div>
-        <div class="position-absolute top-[480px] -right-48 w-[640px] h-[420px] bg-secondary-container/15 rounded-pill blur-[150px] pe-none">
-        </div>
-        <div class="position-absolute top-[1380px] -left-48 w-[560px] h-[480px] bg-primary-container/10 rounded-pill blur-[160px] pe-none">
-        </div>
-        <!-- Subdued Developer Dot Grid Pattern Overlay -->
-        <div class="position-absolute top-0 start-0 bottom-0 end-0 bg-[radial-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:24px_24px] pe-none opacity-80">
-        </div>
-        <!-- ======================================================== -->
-        <!-- SECTION 1: HERO SECTION -->
-        <!-- ======================================================== -->
-        <section class="position-relative w-100 max-w-[1400px] mx-auto px-4 lg:px-12 pt-5 pb-24 lg:pt-16 lg:pb-32">
-          <div class="d-grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 align-items-center">
-            <!-- Left Column: Value Proposition & Conversion -->
-            <div class="lg:col-span-6 d-flex flex-column align-items-start space-y-6">
-              <!-- Micro Badge -->
-              <div class="d-inline-flex align-items-center gap-2 px-3.5 py-2 rounded-pill bg-surface-container-high/80 backdrop-blur-md shadow-sm">
-                <span class="d-inline-flex align-items-center justify-content-center w-4 h-4 rounded-pill bg-primary/20 text-primary">
-                  <span class="material-symbols-outlined text-[13px] animate-pulse">auto_awesome</span>
-                </span>
-                <span class="font-label-code-sm text-label-code-sm text-primary tracking-wide fw-medium">AI-Powered Frontend Coach</span>
-                <span class="w-1 h-1 rounded-pill bg-primary/40"></span>
-                <span class="font-label-code-sm text-label-code-sm text-on-surface-variant fw-medium">v2.4 Engine</span>
+        <!-- 1. HERO SECTION -->
+        <section class="hero-section">
+          <div class="grid grid-cols-1 lg-grid-cols-12 gap-12 lg-gap-8 center">
+            <div class="lg-col-span-6 flex column start stack-6">
+              <div class="ai-badge">
+                <span class="accent-text text-xs font-semibold leading-none">✦</span>
+                <span class="font-code code-small accent-text tracking-wide">AI-Powered Frontend
+                  Coach</span>
               </div>
-              <!-- Main Hero Display Headline -->
-              <div class="space-y-2">
-                <h1 class="font-display-hero text-display-hero text-on-surface tracking-tight leading-[1.08]"> Build. Compare. <br>
-                  <span class="bg-gradient-to-r from-primary via-primary-container to-secondary-container bg-clip-text text-transparent drop-shadow-[0_4px_24px_rgba(6,182,212,0.3)]"> Improve. </span>
-                </h1>
-              </div>
-              <!-- Supporting Pitch -->
-              <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed"> Master frontend engineering by recreating production-grade interfaces. Get frame-accurate visual diffs, semantic code reviews, and instant actionable remediation. </p>
-              <!-- CTAs Cluster -->
-              <div class="d-flex flex-wrap align-items-center gap-3 pt-2 w-100 sm:w-auto">
-                <a class="group position-relative d-inline-flex align-items-center justify-content-center gap-2 px-7 py-3.5 rounded-xl font-label-ui text-label-ui fw-semibold text-on-primary bg-gradient-to-r from-primary-container via-primary to-primary-fixed-dim shadow-[0_0_28px_rgba(6,182,212,0.45)] hover:shadow-[0_0_36px_rgba(6,182,212,0.7)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.99]" data-path="ai-tasks" href="#">
-                  <span class="material-symbols-outlined text-[19px] transition-transform group-hover:rotate-12">bolt</span>
-                  <span>Generate Challenge</span>
-                  <span class="material-symbols-outlined text-[16px] -mr-1 transition-transform group-hover:translate-x-0.5">arrow_forward</span>
+              <h1 class="font-display display-title main-text tracking-tight">
+                Build. Compare. <span class="accent-text font-bold">Improve.</span>
+              </h1>
+              <p class="font-body large-text muted-text max-w-xl leading-relaxed">
+                Master frontend development by recreating real-world interfaces and getting sub-pixel AI-powered visual
+                evaluations in real time.
+              </p>
+              <div class="flex wrap center gap-4 pt-2 w-full sm-w-auto">
+                <a class="primary-button" data-path="ai-tasks" href="#">
+                  <span class="material-symbols-outlined size-18">auto_awesome</span>
+                  <span>Generate AI Challenge</span>
+                  <span class="material-symbols-outlined size-18">arrow_forward</span>
                 </a>
-                <a class="d-inline-flex align-items-center justify-content-center gap-2 px-4 py-3.5 rounded-xl font-label-ui text-label-ui fw-medium text-on-surface bg-surface-container-high/70 hover:bg-surface-container-highest/90 transition-all duration-200 shadow-sm backdrop-blur-md" href="#practice-library">
-                  <span class="material-symbols-outlined text-on-surface-variant text-[18px]">code</span>
+                <a class="nav-link" href="#popular-challenges">
                   <span>Explore Challenges</span>
-                  <span class="font-label-code-sm text-label-code-sm px-2 py-1 rounded bg-surface-container-lowest text-primary">150+</span>
+                  <span class="material-symbols-outlined size-18 muted-text">arrow_downward</span>
                 </a>
               </div>
-              
-            </div>
-            <!-- Right Column: Interactive Comparison Workbench Mockup -->
-            <div class="lg:col-span-6 position-relative">
-              <!-- Outer Ambient Glow behind Mockup -->
-              <div class="position-absolute -inset-1.5 bg-gradient-to-tr from-primary/30 to-secondary-container/20 rounded-2xl blur-xl opacity-70">
+              <div class="pt-4 flex wrap center gap-6 muted-text">
+                <div class="flex center gap-2">
+                  <span class="w-1-5 h-1-5 round-full accent-bg"></span>
+                  <span class="font-code code-small main-text">150+ Frontend Tasks</span>
+                </div>
+                <div class="flex center gap-2">
+                  <span class="w-1-5 h-1-5 round-full accent-bg"></span>
+                  <span class="font-code code-small main-text">Sub-pixel Precision</span>
+                </div>
+                <div class="flex center gap-2">
+                  <span class="w-1-5 h-1-5 round-full accent-bg"></span>
+                  <span class="font-code code-small main-text">Instant Visual Diff</span>
+                </div>
               </div>
-              <!-- Main Terminal Workbench Frame -->
-              <div class="position-relative rounded-2xl bg-surface-container-lowest/90 backdrop-blur-xl shadow-lg overflow-hidden">
-                <!-- Window Titlebar -->
-                <div class="px-3 py-3 bg-surface-container-low d-flex align-items-center justify-content-between">
-                  <div class="d-flex align-items-center gap-2">
-                    <span class="w-3 h-3 rounded-pill bg-[#EF4444]/80"></span>
-                    <span class="w-3 h-3 rounded-pill bg-[#F59E0B]/80"></span>
-                    <span class="w-3 h-3 rounded-pill bg-[#10B981]/80"></span>
-                    <span class="font-label-code-sm text-label-code-sm text-on-surface-variant ml-2 fw-medium tracking-tight">challenge-042: stripe-billing-ui // evaluation</span>
+            </div>
+            <div class="lg-col-span-6 w-full">
+              <div class="demo-panel">
+                <div class="px-4 py-3 panel-low-80 border-b border-soft-40 flex center between">
+                  <div class="flex center gap-2">
+                    <span class="w-2-5 h-2-5 round-full bg-error-70"></span>
+                    <span class="w-2-5 h-2-5 round-full bg-yellow-500-70"></span>
+                    <span class="w-2-5 h-2-5 round-full bg-emerald-500-70"></span>
+                    <span class="ml-2 font-code code-small accent-text">challenge-042 //
+                      visual-diff-inspector</span>
                   </div>
-                  <div class="d-flex align-items-center gap-2">
-                    <span class="d-inline-flex align-items-center gap-2 px-2 py-1 rounded-pill bg-primary/10 text-primary font-label-code-sm text-label-code-sm">
-                      <span class="w-1.5 h-1.5 rounded-pill bg-primary animate-ping"></span> Live Diff </span>
+                  <div class="flex center gap-2">
+                    <span class="live-badge">LIVE
+                      EVAL</span>
                   </div>
                 </div>
-                <!-- Split Preview Canvas Area -->
-                <div class="p-3 sm:p-5 d-grid grid-cols-1 sm:grid-cols-2 gap-3 bg-surface-container-lowest">
-                  <!-- Split 1: Target Design -->
-                  <div class="d-flex flex-column space-y-2">
-                    <div class="d-flex align-items-center justify-content-between px-1">
-                      <div class="d-flex align-items-center gap-2">
-                        <span class="material-symbols-outlined text-primary text-[14px]">flag</span>
-                        <span class="font-label-ui text-label-ui fw-semibold text-on-surface text-[12px] text-uppercase tracking-wider">Target Design</span>
-                      </div>
-                      <span class="font-label-code-sm text-label-code-sm text-on-surface-variant text-[11px]">Figma Spec</span>
+                <div class="p-4 grid grid-cols-1 sm-grid-cols-2 gap-3 dark-bg">
+                  <div class="flex column round-md panel-60 border border-soft-30 p-3">
+                    <div class="flex center between pb-2 mb-3 border-b border-soft-20">
+                      <span class="font-code size-11 muted-text uppercase tracking-wider">Target
+                        Spec</span>
+                      <span class="font-code size-11 text-emerald-400 font-medium">100% Reference</span>
                     </div>
-                    <!-- Target Spec Preview Card -->
-                    <div class="position-relative rounded-xl p-3 bg-surface-container-low shadow-inner d-flex flex-column justify-content-between h-[210px] overflow-hidden">
-                      <div class="d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center gap-2">
-                          <div class="w-6 h-6 rounded-md bg-secondary-container/40 d-flex align-items-center justify-content-center">
-                            <span class="material-symbols-outlined text-primary text-[14px]">credit_card</span>
-                          </div>
-                          <span class="font-label-ui text-label-ui fw-semibold text-on-surface text-[13px]">Pro Billing</span>
+                    <div class="round-md panel-high-70 p-4 border border-soft-30 flex column gap-3">
+                      <div class="flex center gap-3">
+                        <div class="metric-avatar">
+                          ED
                         </div>
-                        <span class="px-2 py-1 rounded-pill bg-primary/15 text-primary font-label-code-sm text-[11px] fw-medium">$29/mo</span>
-                      </div>
-                      <div class="space-y-2 my-auto">
-                        <div class="h-2 w-75 bg-surface-container-highest rounded-pill"></div>
-                        <div class="h-2 w-50 bg-surface-container-high rounded-pill"></div>
-                        <div class="d-flex align-items-center gap-2 pt-1">
-                          <span class="w-2.5 h-2.5 rounded-pill bg-primary"></span>
-                          <span class="font-body-sm text-[11px] text-on-surface-variant">Unlimited API calls &amp; telemetry</span>
+                        <div>
+                          <div class="h-3 w-20 main-bg-90 round-xs mb-1-5"></div>
+                          <div class="h-2 w-14 muted-bg-60 round-xs"></div>
                         </div>
                       </div>
-                      <div class="w-100 py-2 rounded-lg bg-primary text-on-primary font-label-ui text-[12px] fw-semibold text-center shadow-sm"> Upgrade Subscription </div>
+                      <div class="stack-1-5 pt-1">
+                        <div class="h-2 w-full bg-surface-variant round-xs"></div>
+                        <div class="h-2 w-4-5 bg-surface-variant round-xs"></div>
+                      </div>
+                      <div class="flex center between pt-2 mt-1 border-t border-soft-20">
+                        <div class="h-4 w-12 accent-bg-30 round-xs size-9 flex center centered font-code accent-text">
+                          PRO</div>
+                        <div class="h-5 w-14 bg-surface-bright round-xs size-9 flex center centered main-text">
+                          Follow</div>
+                      </div>
                     </div>
                   </div>
-                  <!-- Split 2: User Implementation with Visual Diff -->
-                  <div class="d-flex flex-column space-y-2">
-                    <div class="d-flex align-items-center justify-content-between px-1">
-                      <div class="d-flex align-items-center gap-2">
-                        <span class="material-symbols-outlined text-secondary text-[14px]">code_blocks</span>
-                        <span class="font-label-ui text-label-ui fw-semibold text-on-surface text-[12px] text-uppercase tracking-wider">Your Code (DOM)</span>
-                      </div>
-                      <span class="font-label-code-sm text-label-code-sm text-primary text-[11px]">4 Diff Anchors</span>
+                  <div class="flex column round-md panel-60 border border-soft-30 p-3 relative">
+                    <div class="flex center between pb-2 mb-3 border-b border-soft-20">
+                      <span class="font-code size-11 muted-text uppercase tracking-wider">Your
+                        Code (DOM)</span>
+                      <span class="font-code size-11 accent-text font-medium">Local Output</span>
                     </div>
-                    <!-- User Render with Overlaid Diff Highlights -->
-                    <div class="position-relative rounded-xl p-3 bg-surface-container-low shadow-inner d-flex flex-column justify-content-between h-[210px] overflow-hidden">
-                      <!-- Visual Diff highlight overlays -->
-                      <div class="position-absolute top-0 start-0 bottom-0 end-0 bg-primary/5 pe-none"></div>
-                      <div class="d-flex align-items-center justify-content-between position-relative">
-                        <div class="d-flex align-items-center gap-2">
-                          <div class="w-6 h-6 rounded-md bg-secondary-container/30 d-flex align-items-center justify-content-center">
-                            <span class="material-symbols-outlined text-primary text-[14px]">credit_card</span>
-                          </div>
-                          <span class="font-label-ui text-label-ui fw-semibold text-on-surface text-[13px]">Pro Billing</span>
-                        </div>
-                        <!-- Diff callout tag -->
-                        <span class="px-2 py-1 rounded-pill bg-error-container/30 text-error font-label-code-sm text-[10px] fw-medium animate-pulse"> gap: 16px ≠ 24px </span>
+                    <div class="relative round-md panel-high-70 p-3 border border-soft-30 flex column gap-3">
+                      <div class="difference-badge">
+                        Δ 4px padding diff
                       </div>
-                      <div class="space-y-2 my-auto position-relative">
-                        <div class="h-2 w-75 bg-surface-container-highest rounded-pill"></div>
-                        <div class="h-2 w-2/5 bg-surface-container-high rounded-pill"></div>
-                        <div class="d-flex align-items-center gap-2 pt-1">
-                          <span class="w-2.5 h-2.5 rounded-pill bg-primary/70"></span>
-                          <span class="font-body-sm text-[11px] text-on-surface-variant">Unlimited API calls &amp; telemetry</span>
+                      <div class="flex center gap-3">
+                        <div class="metric-avatar">
+                          ED
+                        </div>
+                        <div>
+                          <div class="h-3 w-20 main-bg-90 round-xs mb-1-5"></div>
+                          <div class="h-2 w-14 muted-bg-60 round-xs"></div>
                         </div>
                       </div>
-                      <div class="w-100 py-2 rounded-lg bg-primary-fixed-dim/90 text-on-primary font-label-ui text-[12px] fw-medium text-center"> Upgrade Subscription </div>
-                      <!-- Diff bounding box overlay marker -->
-                      <div class="position-absolute top-2 right-2 bottom-2 left-2 rounded-lg pe-none bg-primary/[0.03]">
+                      <div class="stack-1-5 pt-1 border border-dashed border-accent-60 round-xs p-1 accent-bg-5">
+                        <div class="h-2 w-full bg-surface-variant round-xs"></div>
+                        <div class="h-2 w-3-4 bg-surface-variant round-xs"></div>
+                      </div>
+                      <div class="flex center between pt-2 mt-1 border-t border-soft-20">
+                        <div class="h-4 w-12 accent-bg-30 round-xs size-9 flex center centered font-code accent-text">
+                          PRO</div>
+                        <div class="h-5 w-14 bg-surface-bright round-xs size-9 flex center centered main-text">
+                          Follow</div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <!-- Floating AI Evaluation Telemetry HUD -->
-                <div class="p-3 sm:p-5 bg-surface-container/95 backdrop-blur-md">
-                  <!-- Score Header & Radial Progress -->
-                  <div class="d-flex flex-column sm:flex-row sm:items-center justify-content-between gap-3 pb-3">
-                    <div class="d-flex align-items-center gap-3.5">
-                      <!-- SVG Mini Circular Progress Arc -->
-                      <div class="position-relative w-14 h-14 d-flex align-items-center justify-content-center flex-shrink-0">
-                        <svg class="w-14 h-14 -rotate-90" viewBox="0 0 48 48">
-                          <circle class="text-surface-container-highest" cx="24" cy="24" fill="none" r="20" stroke="currentColor" stroke-width="3.5"></circle>
-                          <circle class="text-primary transition-all duration-1000 ease-out" cx="24" cy="24" fill="none" r="20" stroke="currentColor" stroke-dasharray="125.6" stroke-dashoffset="16.3" stroke-linecap="round" stroke-width="3.5"></circle>
+                <div class="p-4 panel-low border-t border-soft-40">
+                  <div class="grid grid-cols-1 md-grid-cols-12 gap-4 center">
+                    <div class="md-col-span-4 flex center gap-3-5 dark-bg-70 p-3 round-md border border-soft-30">
+                      <div class="relative w-14 h-14 shrink flex center centered">
+                        <svg class="w-14 h-14 -rotate-90" viewbox="0 0 36 36">
+                          <path class="text-surface-variant"
+                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                            fill="none" stroke="currentColor" stroke-width="3.5"></path>
+                          <path class="accent-text"
+                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                            fill="none" stroke="currentColor" stroke-dasharray="87, 100" stroke-linecap="round"
+                            stroke-width="3.5"></path>
                         </svg>
-                        <span class="position-absolute font-headline-sm text-headline-sm fw-bold text-on-surface text-[15px]">87%</span>
+                        <span class="absolute font-code code-medium font-bold main-text">87%</span>
                       </div>
-                      <div class="space-y-0.5">
-                        <div class="d-flex align-items-center gap-2">
-                          <span class="font-headline-sm text-headline-sm text-[15px] fw-semibold text-on-surface">Visual Similarity Score</span>
-                          <span class="px-2 py-1 rounded-pill bg-primary/15 text-primary font-label-code-sm text-[11px] fw-medium">B+ Match</span>
+                      <div class="flex column">
+                        <span class="font-heading size-14 main-text font-semibold leading-tight">Visual
+                          Similarity</span>
+                        <span class="font-code size-11 text-emerald-400 mt-0-5">Passing (≥80%)</span>
+                      </div>
+                    </div>
+                    <div class="score-grid">
+                      <div>
+                        <div class="flex between center mb-1">
+                          <span class="font-code size-11 muted-text">Layout</span>
+                          <span class="font-code size-11 font-semibold main-text">92%</span>
                         </div>
-                        <p class="font-body-sm text-body-sm text-on-surface-variant text-[12px]"> AI Review Complete • <span class="text-primary fw-medium">4 improvements detected</span>
-                        </p>
+                        <div class="w-full bg-surface-variant h-1-5 round-full overflow-hidden">
+                          <div class="accent-bg h-1-5 round-full" style="width: 92%"></div>
+                        </div>
                       </div>
-                    </div>
-                    <div class="d-flex align-items-center gap-2 self-start sm:self-auto">
-                      <span class="px-2 py-1 rounded-md bg-surface-container-highest text-on-surface-variant font-label-code-sm text-[11px]"> Sub-pixel Analysis </span>
-                    </div>
-                  </div>
-                  <!-- Metrics Breakdown Mini Bars -->
-                  <div class="d-grid grid-cols-2 sm:grid-cols-4 gap-3 py-3">
-                    <div class="p-2 rounded-lg bg-surface-container-low d-flex flex-column space-y-1.5">
-                      <div class="d-flex justify-content-between align-items-center text-[11px] font-label-code-sm">
-                        <span class="text-on-surface-variant">Layout</span>
-                        <span class="text-primary fw-semibold">92%</span>
+                      <div>
+                        <div class="flex between center mb-1">
+                          <span class="font-code size-11 muted-text">Spacing</span>
+                          <span class="font-code size-11 font-semibold main-text">84%</span>
+                        </div>
+                        <div class="w-full bg-surface-variant h-1-5 round-full overflow-hidden">
+                          <div class="accent-bg h-1-5 round-full" style="width: 84%"></div>
+                        </div>
                       </div>
-                      <div class="w-100 h-1.5 bg-surface-container-highest rounded-pill overflow-hidden">
-                        <div class="h-100 bg-primary rounded-pill progress-92"></div>
+                      <div>
+                        <div class="flex between center mb-1">
+                          <span class="font-code size-11 muted-text">Typography</span>
+                          <span class="font-code size-11 font-semibold main-text">88%</span>
+                        </div>
+                        <div class="w-full bg-surface-variant h-1-5 round-full overflow-hidden">
+                          <div class="accent-bg h-1-5 round-full" style="width: 88%"></div>
+                        </div>
                       </div>
-                    </div>
-                    <div class="p-2 rounded-lg bg-surface-container-low d-flex flex-column space-y-1.5">
-                      <div class="d-flex justify-content-between align-items-center text-[11px] font-label-code-sm">
-                        <span class="text-on-surface-variant">Spacing</span>
-                        <span class="text-primary fw-semibold">84%</span>
-                      </div>
-                      <div class="w-100 h-1.5 bg-surface-container-highest rounded-pill overflow-hidden">
-                        <div class="h-100 bg-primary-container rounded-pill progress-84"></div>
-                      </div>
-                    </div>
-                    <div class="p-2 rounded-lg bg-surface-container-low d-flex flex-column space-y-1.5">
-                      <div class="d-flex justify-content-between align-items-center text-[11px] font-label-code-sm">
-                        <span class="text-on-surface-variant">Typography</span>
-                        <span class="text-primary fw-semibold">88%</span>
-                      </div>
-                      <div class="w-100 h-1.5 bg-surface-container-highest rounded-pill overflow-hidden">
-                        <div class="h-100 bg-primary rounded-pill progress-88"></div>
-                      </div>
-                    </div>
-                    <div class="p-2 rounded-lg bg-surface-container-low d-flex flex-column space-y-1.5">
-                      <div class="d-flex justify-content-between align-items-center text-[11px] font-label-code-sm">
-                        <span class="text-on-surface-variant">Responsive</span>
-                        <span class="text-primary fw-semibold">85%</span>
-                      </div>
-                      <div class="w-100 h-1.5 bg-surface-container-highest rounded-pill overflow-hidden">
-                        <div class="h-100 bg-primary-container rounded-pill progress-85"></div>
+                      <div>
+                        <div class="flex between center mb-1">
+                          <span class="font-code size-11 muted-text">Responsive</span>
+                          <span class="font-code size-11 font-semibold main-text">85%</span>
+                        </div>
+                        <div class="w-full bg-surface-variant h-1-5 round-full overflow-hidden">
+                          <div class="accent-bg h-1-5 round-full" style="width: 85%"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <!-- AI Coach Live Diagnostic Bubble -->
-                  <div class="mt-3 p-3 rounded-xl bg-surface-container-highest/80 d-flex align-items-start gap-2 shadow-sm">
-                    <span class="material-symbols-outlined text-primary text-[18px] flex-shrink-0 mt-1">smart_toy</span>
-                    <p class="font-label-code-sm text-label-code-sm text-on-surface text-[12px] leading-relaxed">
-                      <span class="text-primary fw-semibold">AI Coach:</span> Adjust container <code class="px-2 py-1 rounded bg-surface-container-lowest text-primary">gap-4</code> to <code class="px-2 py-1 rounded bg-surface-container-lowest text-primary">gap-6 (24px)</code> and apply <code class="px-2 py-1 rounded bg-surface-container-lowest text-primary">font-medium</code> to pricing subheadings for a <span class="text-secondary fw-bold">95%+ spec match</span>. </p>
+                  <div class="mt-3 p-2-5 round-xs accent-bg-5 border border-accent-20 flex start gap-2-5">
+                    <span class="material-symbols-outlined accent-text size-18 shrink mt-0-5">smart_toy</span>
+                    <p class="font-body small-text main-text leading-normal">
+                      <strong class="accent-text font-medium">AI Coach:</strong> Increase container padding from <code class="font-code text-xs panel px-1 py-0-5 round-xs accent-text">16px</code>
+                      to <code class="font-code text-xs panel px-1 py-0-5 round-xs accent-text">20px</code>
+                      and adjust heading letter-spacing to reach 95%+ fidelity.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <!-- ======================================================== -->
-        <!-- SECTION 2: HOW IT WORKS / UX FLOW TIMELINE -->
-        <!-- ======================================================== -->
-        <section class="position-relative w-100 max-w-[1400px] mx-auto px-4 lg:px-12 py-20 lg:py-28">
-          <!-- Section Title & Narrative -->
-          <div class="d-flex flex-column align-items-center text-center max-w-2xl mx-auto space-y-3 mb-5">
-            <span class="px-3 py-1 rounded-pill bg-primary/10 text-primary font-label-code-sm text-label-code-sm fw-semibold tracking-wider text-uppercase"> Continuous Velocity Loop </span>
-            <h2 class="font-headline-lg text-headline-lg text-on-surface"> How CodeCoach Accelerates Mastery </h2>
-            <p class="font-body-md text-body-md text-on-surface-variant"> Break out of passive video tutorial hell with tight, AI-assisted feedback loops engineered for muscle memory. </p>
-          </div>
-          <!-- 5-Step Horizontal Timeline Grid -->
-          <div class="d-grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-5 position-relative">
-            <!-- Step 1 -->
-            <div class="process-step">
-              <div class="process-step__content">
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="font-label-code-md text-label-code-md text-primary fw-bold">01</span>
-                  <div class="process-step__icon process-step__icon--muted">
-                    <span class="material-symbols-outlined text-[20px]">explore</span>
-                  </div>
-                </div>
-                <h3 class="process-step__title">Discover / Goal</h3>
-                <p class="process-step__description"> Select your focus: CSS Subgrid, dynamic states, responsive navbar transitions, or mobile-first typography. </p>
-              </div>
-              <div class="process-step__status">
-                <span>Spec initialized</span>
-                <span class="material-symbols-outlined text-[14px]">check</span>
-              </div>
+      </div>
+      <!-- 2. POPULAR CHALLENGES SECTION -->
+      <section class="w-full dark-bg-50 border-y border-soft-30 py-20 md-py-28" id="popular-challenges">
+        <div class="max-w-7xl mx-auto page-pad-mobile md-page-pad">
+          <div class="flex column md-flex-row md-end between gap-6 mb-12">
+            <div>
+              <div class="font-code code-small accent-text mb-2 uppercase tracking-wider">Curated
+                Curriculum</div>
+              <h2 class="font-heading heading-large main-text font-bold tracking-tight">Popular Challenges
+              </h2>
+              <p class="font-body body-text muted-text mt-1">Practice the frontend skills that matter
+                most across modern web standards.</p>
             </div>
-            <!-- Step 2 -->
-            <div class="process-step">
-              <div class="process-step__content">
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="font-label-code-md text-label-code-md text-primary fw-bold">02</span>
-                  <div class="w-10 h-10 rounded-xl bg-primary/10 d-flex align-items-center justify-content-center text-primary group-hover:scale-110 transition-transform">
-                    <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
-                  </div>
-                </div>
-                <h3 class="process-step__title">Generate Challenge</h3>
-                <p class="process-step__description"> Our agent generates pixel-perfect interactive specs, color schemes, and exact viewport acceptance criteria. </p>
-              </div>
-              <div class="process-step__status">
-                <span>Prompt engineered</span>
-                <span class="material-symbols-outlined text-[14px]">check</span>
-              </div>
-            </div>
-            <!-- Step 3 -->
-            <div class="process-step">
-              <div class="process-step__content">
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="font-label-code-md text-label-code-md text-primary fw-bold">03</span>
-                  <div class="process-step__icon process-step__icon--muted">
-                    <span class="material-symbols-outlined text-[20px]">terminal</span>
-                  </div>
-                </div>
-                <h3 class="process-step__title">Code &amp; Build</h3>
-                <p class="process-step__description"> Write clean HTML, modern CSS, and JS inside the sandboxed web editor or connect your local VS Code terminal. </p>
-              </div>
-              <div class="process-step__status">
-                <span>Hot reload active</span>
-                <span class="material-symbols-outlined text-[14px]">check</span>
-              </div>
-            </div>
-            <!-- Step 4 -->
-            <div class="process-step">
-              <div class="process-step__content">
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="font-label-code-md text-label-code-md text-primary fw-bold">04</span>
-                  <div class="process-step__icon process-step__icon--muted">
-                    <span class="material-symbols-outlined text-[20px]">difference</span>
-                  </div>
-                </div>
-                <h3 class="process-step__title">Instant Visual Diff</h3>
-                <p class="process-step__description"> Computer-vision algorithms flag padding discrepancies, contrast failures, and misaligned baseline grids. </p>
-              </div>
-              <div class="process-step__status">
-                <span>Telemetry analyzed</span>
-                <span class="material-symbols-outlined text-[14px]">check</span>
-              </div>
-            </div>
-            <!-- Step 5 -->
-            <div class="process-step">
-              <div class="process-step__content">
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="font-label-code-md text-label-code-md text-primary fw-bold">05</span>
-                  <div class="process-step__icon process-step__icon--primary">
-                    <span class="material-symbols-outlined text-[20px]">military_tech</span>
-                  </div>
-                </div>
-                <h3 class="process-step__title">Level Up &amp; Master</h3>
-                <p class="process-step__description"> Implement prioritized fixes, push your visual match to 98%+, and unlock verified architecture milestones. </p>
-              </div>
-              <div class="process-step__status">
-                <span>Production ready</span>
-                <span class="material-symbols-outlined text-[14px]">verified</span>
-              </div>
+            <div class="category-filters">
+              <button class="category-button category-button--active" type="button">All</button>
+              <button class="category-button" type="button">Flexbox</button>
+              <button class="category-button" type="button">CSS Grid</button>
+              <button class="category-button" type="button">Components</button>
+              <button class="category-button" type="button">Layouts</button>
             </div>
           </div>
-        </section>
-        <!-- ======================================================== -->
-        <!-- SECTION 3: POPULAR CHALLENGES PRACTICE LIBRARY -->
-        <!-- ======================================================== -->
-        <section class="position-relative w-100 max-w-[1400px] mx-auto px-4 lg:px-12 py-20 lg:py-28" id="practice-library">
-          <!-- Section Header -->
-          <div class="d-flex flex-column md:flex-row md:items-end justify-content-between gap-4 mb-14">
-            <div class="space-y-3">
-              <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-md bg-surface-container-high font-label-code-sm text-label-code-sm text-primary text-uppercase tracking-wider fw-semibold">
-                <span class="w-1.5 h-1.5 rounded-pill bg-primary"></span> Practice Library </div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface"> Popular Challenges </h2>
-              <p class="font-body-md text-body-md text-on-surface-variant max-w-xl"> Practice the frontend competencies tech teams test for. Build responsive prototypes inspired by iconic developer tools and design systems. </p>
-            </div>
-            <div class="d-flex align-items-center gap-2">
-              <span class="font-label-code-sm text-label-code-sm text-on-surface-variant">Filter by:</span>
-              <div class="d-flex align-items-center gap-1 bg-surface-container p-1 rounded-lg">
-                <button class="px-3 py-1 rounded bg-surface-container-highest text-on-surface font-label-ui text-[12px] fw-medium">All</button>
-                <button class="px-3 py-1 rounded hover:bg-surface-container-high text-on-surface-variant font-label-ui text-[12px]">Flexbox</button>
-                <button class="px-3 py-1 rounded hover:bg-surface-container-high text-on-surface-variant font-label-ui text-[12px]">Subgrid</button>
-                <button class="px-3 py-1 rounded hover:bg-surface-container-high text-on-surface-variant font-label-ui text-[12px]">JavaScript</button>
-              </div>
-            </div>
-          </div>
-          <!-- 6 Challenge Cards Grid (3 cols x 2 rows) -->
-          <div class="d-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <!-- Challenge Card 1 -->
+          <div class="challenge-grid">
             <div class="challenge-card">
-              <div>
-                <!-- Card Thumbnail Mockup Visual -->
-                <div class="challenge-card__image">
-                  <img class="challenge-card__thumbnail" data-alt="High tech developer SaaS marketing hero with dark slate background, glowing electric cyan grid lines, responsive card mockups, clean typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQVNH7ekGbsnEpniY1jipjjXQ9aH-YnQ-GrrKu6ac6zQpER-dZDLGooSHdmeQ85Qbvtp8YffLDZM2imn503yuwQwPUuq5_C4IR4krK0mJM6gOSPPVITmVGFqH6dDW8x6-Ip3VW8z30ixRbhsDGF9njTAPAPGRHIzBr5U1WiVU31hzPSV-aHQ7Z1LdPbFIBQkkocXFrIQe-CCeEhYaiTaT06ZnThwaE6XhVdQkhpmcHlCRoWypqyVg">
-                  <div class="challenge-card__scrim">
+              <div class="challenge-preview">
+                <div class="preview-window">
+                  <div class="h-2 w-16 accent-bg-80 round-xs mb-2"></div>
+                  <div class="h-3 w-32 main-bg-90 round-xs mb-2"></div>
+                  <div class="grid grid-cols-3 gap-1-5 pt-2 border-t border-soft-30">
+                    <div class="h-5 muted-bg-70 round-xs"></div>
+                    <div class="h-5 muted-bg-70 round-xs"></div>
+                    <div class="h-5 accent-bg-30 round-xs"></div>
                   </div>
-                  <div class="challenge-card__badges">
-                    <span class="px-2 py-1 rounded-pill bg-secondary-container/80 backdrop-blur-md text-on-secondary-container font-label-code-sm text-[11px] fw-semibold"> Intermediate </span>
-                    <span class="challenge-card__technology"> HTML • CSS </span>
-                  </div>
-                </div>
-                <!-- Card Content Body -->
-                <div class="challenge-card__body">
-                  <div class="d-flex align-items-center gap-2">
-                    <span class="challenge-card__category"># Layout &amp; Flexbox</span>
-                  </div>
-                  <h3 class="challenge-card__title"> SaaS Landing Page </h3>
-                  <p class="challenge-card__description"> Recreate a high-converting B2B SaaS marketing hero with sticky nav, interactive pricing toggle, and responsive grid layout. </p>
                 </div>
               </div>
-              <div class="challenge-card__footer">
-                <span class="challenge-card__duration">
-                  <span class="material-symbols-outlined text-[14px]">timer</span> 45 mins </span>
-                <a class="challenge-card__link" data-path="challenges" href="#">
-                  <span>View Challenge</span>
-                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                </a>
-              </div>
-            </div>
-            <!-- Challenge Card 2 -->
-            <div class="challenge-card">
-              <div>
-                <div class="challenge-card__image">
-                  <img class="challenge-card__thumbnail" data-alt="Creative interactive design portfolio showcase with Bento grid cards, dark mode UI, glowing cyan highlights, high contrast typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBncX0S5eeXReJ8fvEcWwjbeeKLbLWtFteeLJ7sKVHIplU_ECKnDSN-_mlpJIXaPjDiM4_A_DRiRh0QSjNpRCkVuQ_0yQYDhxKKncFhSp3dwLvPw9j6xCHiqPXYWmQO1A954Q9fXk1I2oHbfWCYB8eZfQUXNswxgMwhxWamBdtX-X4UicWoLqFwaq1yKMB1ds8u0rUjNcRFAEbuXPhITzqx8eU2NGVLlPD9L1UkACUW8G6hUVD6GDY">
-                  <div class="challenge-card__scrim">
+              <div class="challenge-content">
+                <div>
+                  <div class="challenge-tags">
+                    <span class="level-badge level-badge--intermediate">Intermediate</span>
+                    <span class="challenge-tech">HTML • CSS</span>
                   </div>
-                  <div class="challenge-card__badges">
-                    <span class="px-2 py-1 rounded-pill bg-primary/20 backdrop-blur-md text-primary font-label-code-sm text-[11px] fw-semibold"> Beginner </span>
-                    <span class="challenge-card__technology"> HTML • CSS </span>
-                  </div>
+                  <h3 class="challenge-title">
+                    SaaS Landing Page</h3>
+                  <p class="challenge-description">Recreate an
+                    asymmetric product hero with navigation, feature metrics, and floating UI callouts.</p>
                 </div>
-                <div class="challenge-card__body">
-                  <div class="d-flex align-items-center gap-2">
-                    <span class="challenge-card__category"># Responsive Design</span>
-                  </div>
-                  <h3 class="challenge-card__title"> Responsive Portfolio </h3>
-                  <p class="challenge-card__description"> Build an adaptive personal portfolio Bento grid that transitions seamlessly from mobile slide-out drawer to fluid desktop view. </p>
+                <div class="challenge-footer">
+                  <span class="challenge-skill">Skill: Layout
+                    &amp; Flexbox</span>
+                  <a class="challenge-link" data-path="challenges" href="#">
+                    View Challenge <span class="material-symbols-outlined size-16">arrow_forward</span>
+                  </a>
                 </div>
-              </div>
-              <div class="challenge-card__footer">
-                <span class="challenge-card__duration">
-                  <span class="material-symbols-outlined text-[14px]">timer</span> 30 mins </span>
-                <a class="challenge-card__link" data-path="challenges" href="#">
-                  <span>View Challenge</span>
-                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                </a>
               </div>
             </div>
-            <!-- Challenge Card 3 -->
             <div class="challenge-card">
-              <div>
-                <div class="challenge-card__image">
-                  <img class="challenge-card__thumbnail" data-alt="Minimalist modern cyber sneaker e-commerce product page with dynamic variant chips, dark charcoal background, floating image gallery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUJ4hU0GcmnRm-LYB-NpO5LuszTeGxzqVVm2st8OLhc_hWhWqfuJ9YoEBOw_4wlbrEbuo3MTMjPicPJEWdvDuYMX3R314TcAApCkOaJ_jANS4WuMJhwK-bRR1cgIgTQ5KquMozkxxnSDNz_aFlyjslvgVVfbmIINv0ImpEu_aZgm3FqqTIV-U0KaHuZRCTeTEixn4fkElwvOFSC_sIf7rFXVg8dR7F50IL8j88HduLLpN2ZT2jfjc">
-                  <div class="challenge-card__scrim">
+              <div class="challenge-preview">
+                <div class="preview-window">
+                  <div class="flex center gap-2 mb-3">
+                    <div class="w-6 h-6 round-full bg-secondary-container-50"></div>
+                    <div class="h-2 w-20 main-bg-80 round-xs"></div>
                   </div>
-                  <div class="challenge-card__badges">
-                    <span class="px-2 py-1 rounded-pill bg-secondary-container/80 backdrop-blur-md text-on-secondary-container font-label-code-sm text-[11px] fw-semibold"> Intermediate </span>
-                    <span class="challenge-card__technology"> HTML • CSS • JS </span>
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="h-10 bg-surface-variant round-xs"></div>
+                    <div class="h-10 bg-surface-variant round-xs"></div>
                   </div>
-                </div>
-                <div class="challenge-card__body">
-                  <div class="d-flex align-items-center gap-2">
-                    <span class="challenge-card__category"># Grid &amp; Components</span>
-                  </div>
-                  <h3 class="challenge-card__title"> E-Commerce Product Page </h3>
-                  <p class="challenge-card__description"> Craft an interactive gallery, dynamic cart drawer, sticky purchase summary card, and synchronized thumbnail previews. </p>
                 </div>
               </div>
-              <div class="challenge-card__footer">
-                <span class="challenge-card__duration">
-                  <span class="material-symbols-outlined text-[14px]">timer</span> 60 mins </span>
-                <a class="challenge-card__link" data-path="challenges" href="#">
-                  <span>View Challenge</span>
-                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                </a>
+              <div class="challenge-content">
+                <div>
+                  <div class="challenge-tags">
+                    <span class="level-badge level-badge--beginner">Beginner</span>
+                    <span class="challenge-tech">CSS Grid • HTML5</span>
+                  </div>
+                  <h3 class="challenge-title">
+                    Responsive Portfolio</h3>
+                  <p class="challenge-description">Construct a clean
+                    multi-column personal brand portfolio that dynamically reflows across screens.</p>
+                </div>
+                <div class="challenge-footer">
+                  <span class="challenge-skill">Skill: Responsive
+                    Design</span>
+                  <a class="challenge-link" data-path="challenges" href="#">
+                    View Challenge <span class="material-symbols-outlined size-16">arrow_forward</span>
+                  </a>
+                </div>
               </div>
             </div>
-            <!-- Challenge Card 4 -->
             <div class="challenge-card">
-              <div>
-                <div class="challenge-card__image">
-                  <img class="challenge-card__thumbnail" data-alt="Dense analytics developer dashboard with telemetry line graphs, status pills, dark slate tables, electric cyan metrics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkoKS9iw1m5JAFb9lD3JS-F2cmOzD6IViTpkFFf9EmrKETyarUciyoInZ3KYrhWb4zNgLTnxrqzhf0KHc0yFEMkl0Ol0Xidg_ol-EmRz-ahMVR1_oiXhYiKbrBOgGAhl_-1RTRZpThwnzy15hHnCbQszPpvwbZsotkPx1HQNZ6rDFgnk3Y30e89XtlXMx6qM8BjEixWF7aVvyRM1gM3n_WsXeCX1mbg37_2g9EmmHsk0pgdo9EVW4">
-                  <div class="challenge-card__scrim">
+              <div class="challenge-preview">
+                <div class="preview-window">
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="h-14 muted-bg-80 round-xs flex center centered">
+                      <span class="material-symbols-outlined size-20 muted-text-50">image</span>
+                    </div>
+                    <div class="stack-1-5">
+                      <div class="h-2 w-14 bg-on-surface round-xs"></div>
+                      <div class="h-2 w-10 accent-bg-70 round-xs"></div>
+                      <div class="h-4 w-full accent-bg-20 round-xs mt-2"></div>
+                    </div>
                   </div>
-                  <div class="challenge-card__badges">
-                    <span class="px-2 py-1 rounded-pill bg-error-container/80 backdrop-blur-md text-error font-label-code-sm text-[11px] fw-semibold"> Advanced </span>
-                    <span class="challenge-card__technology"> HTML • CSS • JS </span>
-                  </div>
-                </div>
-                <div class="challenge-card__body">
-                  <div class="d-flex align-items-center gap-2">
-                    <span class="challenge-card__category"># Complex Layouts</span>
-                  </div>
-                  <h3 class="challenge-card__title"> Dashboard Interface </h3>
-                  <p class="challenge-card__description"> Master CSS subgrid, collapsible multi-tier sidebar navigation, sticky table headers, and dense data card presentation. </p>
                 </div>
               </div>
-              <div class="challenge-card__footer">
-                <span class="challenge-card__duration">
-                  <span class="material-symbols-outlined text-[14px]">timer</span> 90 mins </span>
-                <a class="challenge-card__link" data-path="challenges" href="#">
-                  <span>View Challenge</span>
-                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                </a>
+              <div class="challenge-content">
+                <div>
+                  <div class="challenge-tags">
+                    <span class="level-badge level-badge--intermediate">Intermediate</span>
+                    <span class="challenge-tech">React • CSS
+                      Modules</span>
+                  </div>
+                  <h3 class="challenge-title">
+                    E-Commerce Product Page</h3>
+                  <p class="challenge-description">Implement a gallery
+                    thumbnail switcher, dynamic variant badges, and sticky cart actions.</p>
+                </div>
+                <div class="challenge-footer">
+                  <span class="challenge-skill">Skill: Grid &amp;
+                    Components</span>
+                  <a class="challenge-link" data-path="challenges" href="#">
+                    View Challenge <span class="material-symbols-outlined size-16">arrow_forward</span>
+                  </a>
+                </div>
               </div>
             </div>
-            <!-- Challenge Card 5 -->
             <div class="challenge-card">
-              <div>
-                <div class="challenge-card__image">
-                  <img class="challenge-card__thumbnail" data-alt="Sophisticated artisanal bistro menu landing screen with elegant typography pairings, dark moody warm lighting, food photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzHzEtgU-1yNySKtmFFwS_NyaO7UFrNIO6OfdXkWIddv9CJc1FjIhiS4fzIb0qXTmN_RdX_zvLSfILFOS6Y_zU7tBvi-80jdm9bHZDpwt2s7muMBSw0gbKGoQL643xgtqIxdCJ2hUr3VZ3MQXFDOyk5NxinjQR7HZqiypWquMY-Hje_aTN2Ul8n13BI0GmBtTlOxsp9pshj32S_YwaA99xGFOn4jzyFnKC3oYiuR0tmE6K0KP9GXE">
-                  <div class="challenge-card__scrim">
+              <div class="challenge-preview">
+                <div class="preview-window preview-window--compact">
+                  <div class="flex gap-2">
+                    <div class="w-8 h-14 muted-bg-40 round-xs flex column gap-1 p-1">
+                      <div class="h-1-5 w-full accent-bg-60 rounded-xs"></div>
+                      <div class="h-1-5 w-full muted-bg-40 rounded-xs"></div>
+                    </div>
+                    <div class="grow stack-1-5">
+                      <div class="grid grid-cols-2 gap-1">
+                        <div class="h-6 bg-surface-variant round-xs"></div>
+                        <div class="h-6 bg-surface-variant round-xs"></div>
+                      </div>
+                      <div class="h-7 muted-bg-60 round-xs"></div>
+                    </div>
                   </div>
-                  <div class="challenge-card__badges">
-                    <span class="px-2 py-1 rounded-pill bg-primary/20 backdrop-blur-md text-primary font-label-code-sm text-[11px] fw-semibold"> Beginner </span>
-                    <span class="challenge-card__technology"> HTML • CSS </span>
-                  </div>
-                </div>
-                <div class="challenge-card__body">
-                  <div class="d-flex align-items-center gap-2">
-                    <span class="challenge-card__category"># Typography &amp; Spacing</span>
-                  </div>
-                  <h3 class="challenge-card__title"> Restaurant Website </h3>
-                  <p class="challenge-card__description"> Focus on vertical rhythm, serif-sans font pairings, responsive menu price lists, and embedded reservation date pickers. </p>
                 </div>
               </div>
-              <div class="challenge-card__footer">
-                <span class="challenge-card__duration">
-                  <span class="material-symbols-outlined text-[14px]">timer</span> 40 mins </span>
-                <a class="challenge-card__link" data-path="challenges" href="#">
-                  <span>View Challenge</span>
-                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                </a>
+              <div class="challenge-content">
+                <div>
+                  <div class="challenge-tags">
+                    <span class="level-badge level-badge--advanced">Advanced</span>
+                    <span class="challenge-tech">TypeScript •
+                      Recharts</span>
+                  </div>
+                  <h3 class="challenge-title">
+                    Dashboard Interface</h3>
+                  <p class="challenge-description">Assemble a dense
+                    developer telemetry analytics console with collapsible sidebars and data grids.</p>
+                </div>
+                <div class="challenge-footer">
+                  <span class="challenge-skill">Skill: Complex
+                    Layouts</span>
+                  <a class="challenge-link" data-path="challenges" href="#">
+                    View Challenge <span class="material-symbols-outlined size-16">arrow_forward</span>
+                  </a>
+                </div>
               </div>
             </div>
-            <!-- Challenge Card 6 -->
             <div class="challenge-card">
-              <div>
-                <div class="challenge-card__image">
-                  <img class="challenge-card__thumbnail" data-alt="Split-screen modern authentication portal with glowing animated border, OTP pin inputs, dark obsidian aesthetic, biometric login buttons" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoD9uIkd7p7ampqojxA0nqBqQwtJgyanr6wo8Z9On30jdp33XOzhrhgjtqXbYOL1O8NJ5QKfamTiuVSHaTX-mgJUKOqSANQNYMMMQBB2w_K-bhdU5xJ-ND-bCA74m-glKELKpeUxCTXd9xTZcFRNT8a3HTGFYAZ_0VSKHyYcQR8vW95l3wQ2AJxx0EfgYgTQrpPZ9MsbTNnFAK1mGHIvcAsN_KXv3vC1mfarYCfu9FAvYBQA_-KjA">
-                  <div class="challenge-card__scrim">
+              <div class="challenge-preview">
+                <div class="preview-window">
+                  <div class="text-center stack-1-5 mb-2">
+                    <div class="h-2 w-24 bg-on-surface mx-auto round-xs"></div>
+                    <div class="h-1-5 w-16 muted-bg-60 mx-auto round-xs"></div>
                   </div>
-                  <div class="challenge-card__badges">
-                    <span class="px-2 py-1 rounded-pill bg-primary/20 backdrop-blur-md text-primary font-label-code-sm text-[11px] fw-semibold"> Beginner </span>
-                    <span class="challenge-card__technology"> HTML • CSS </span>
+                  <div class="grid grid-cols-3 gap-1 pt-2 border-t border-soft-20">
+                    <div class="h-8 bg-surface-variant round-xs"></div>
+                    <div class="h-8 bg-surface-variant round-xs"></div>
+                    <div class="h-8 bg-surface-variant round-xs"></div>
                   </div>
-                </div>
-                <div class="challenge-card__body">
-                  <div class="d-flex align-items-center gap-2">
-                    <span class="challenge-card__category"># Forms &amp; UI Design</span>
-                  </div>
-                  <h3 class="challenge-card__title"> Modern Login Page </h3>
-                  <p class="challenge-card__description"> Build accessible input states, floating label interactions, password reveal toggles, and clean OAuth provider buttons. </p>
                 </div>
               </div>
-              <div class="challenge-card__footer">
-                <span class="challenge-card__duration">
-                  <span class="material-symbols-outlined text-[14px]">timer</span> 25 mins </span>
-                <a class="challenge-card__link" data-path="challenges" href="#">
-                  <span>View Challenge</span>
-                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                </a>
+              <div class="challenge-content">
+                <div>
+                  <div class="challenge-tags">
+                    <span class="level-badge level-badge--beginner">Beginner</span>
+                    <span class="challenge-tech">HTML5 • Modern
+                      CSS</span>
+                  </div>
+                  <h3 class="challenge-title">
+                    Restaurant Website</h3>
+                  <p class="challenge-description">Master whitespace,
+                    editorial typography rules, and menu section alignment standards.</p>
+                </div>
+                <div class="challenge-footer">
+                  <span class="challenge-skill">Skill: Typography
+                    &amp; Spacing</span>
+                  <a class="challenge-link" data-path="challenges" href="#">
+                    View Challenge <span class="material-symbols-outlined size-16">arrow_forward</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-preview">
+                <div class="preview-window preview-window--narrow">
+                  <div class="w-4 h-4 round-xs accent-bg-40 mb-1"></div>
+                  <div class="h-2 w-16 bg-on-surface round-xs"></div>
+                  <div class="h-5 w-full panel border border-soft-40 round-xs"></div>
+                  <div class="h-5 w-full panel border border-soft-40 round-xs"></div>
+                  <div class="h-4 w-full accent-bg-80 round-xs mt-1"></div>
+                </div>
+              </div>
+              <div class="challenge-content">
+                <div>
+                  <div class="challenge-tags">
+                    <span class="level-badge level-badge--beginner">Beginner</span>
+                    <span class="challenge-tech">Vanilla JS • CSS
+                      Tokens</span>
+                  </div>
+                  <h3 class="challenge-title">
+                    Modern Login Page</h3>
+                  <p class="challenge-description">Craft floating label
+                    inputs, accessible error states, and responsive modal transitions.</p>
+                </div>
+                <div class="challenge-footer">
+                  <span class="challenge-skill">Skill: Forms
+                    &amp; Interactions</span>
+                  <a class="challenge-link" data-path="challenges" href="#">
+                    View Challenge <span class="material-symbols-outlined size-16">arrow_forward</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-          <!-- Below Grid: Centered Library CTA -->
-          <div class="mt-14 d-flex align-items-center justify-content-center">
-            <a class="group d-inline-flex align-items-center gap-3 px-4 py-3 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all duration-200 shadow" data-path="challenges" href="#">
-              <span class="font-label-ui text-label-ui fw-semibold text-on-surface">View All 150+ Challenges</span>
-              <span class="px-2 py-1 rounded-pill bg-primary/20 text-primary font-label-code-sm text-label-code-sm">Updated weekly</span>
-              <span class="material-symbols-outlined text-primary text-[18px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+          <div class="mt-12 text-center">
+            <a class="nav-link" data-path="challenges" href="#">
+              <span>View All 150+ Challenges</span>
+              <span class="material-symbols-outlined size-18">arrow_forward</span>
             </a>
           </div>
-        </section>
-        <!-- ======================================================== -->
-        <!-- SECTION 4: AI CHALLENGE PROMOTIONAL CTA BANNER -->
-        <!-- ======================================================== -->
-        <section class="position-relative w-100 max-w-[1400px] mx-auto px-4 lg:px-12 py-5 lg:py-24">
-          <!-- Big Glowing Card Container -->
-          <div class="position-relative rounded-3xl bg-surface-container/90 backdrop-blur-2xl p-4 sm:p-14 lg:p-20 overflow-hidden shadow-lg">
-            <!-- Glowing Ambient Blobs inside container -->
-            <div class="position-absolute -top-24 -right-24 w-96 h-96 bg-primary-container/20 rounded-pill blur-[100px] pe-none">
+        </div>
+      </section>
+      <!-- 3. CALL TO ACTION (CTA) SECTION -->
+      <section class="max-w-7xl mx-auto page-pad-mobile md-page-pad py-20 md-py-28 w-full">
+        <div class="callout-card">
+          <div class="absolute top-0 left-0 right-0 line-height bg-gradient-to-r">
+          </div>
+          <div class="relative z-10 max-w-3xl mx-auto flex column center text-center">
+            <span class="font-code code-small accent-text mb-3 uppercase tracking-wider">Dynamic
+              Practice Engine</span>
+            <h2 class="font-heading heading-large main-text font-bold tracking-tight mb-3">
+              Not sure what to practice next?
+            </h2>
+            <p class="font-body large-text muted-text max-w-xl mb-8 leading-relaxed">
+              Let AI analyze your previous submissions and generate a customized frontend task tailored exactly to your
+              growth areas.
+            </p>
+            <div class="command-line">
+              <div class="flex center gap-3 overflow-x-auto">
+                <span class="accent-text font-code select-none">$</span>
+                <code class="font-code code-small main-text whitespace-nowrap">
+              codecoach --generate --skill=flexbox --level=intermediate
+            </code>
+              </div>
+              <button
+                class="copy-button"
+                id="copy-btn"
+                onclick="navigator.clipboard.writeText('codecoach --generate --skill=flexbox --level=intermediate'); this.textContent='Copied!';"
+                title="Copy to clipboard" type="button">
+                Copy
+              </button>
             </div>
-            <div class="position-absolute -bottom-24 -left-24 w-96 h-96 bg-secondary-container/25 rounded-pill blur-[100px] pe-none">
-            </div>
-            <!-- Subtle Grid Pattern in banner -->
-            <div class="position-absolute top-0 start-0 bottom-0 end-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:20px_20px] pe-none">
-            </div>
-            <div class="position-relative z-10 d-flex flex-column align-items-center text-center max-w-3xl mx-auto space-y-8">
-              <!-- Sparkle Badge -->
-              <div class="d-inline-flex align-items-center gap-2 px-3.5 py-2 rounded-pill bg-primary/15 text-primary shadow-sm">
-                <span class="material-symbols-outlined text-[17px] animate-spin sparkle-spin">arrow_back_ios_new</span>
-                <span class="font-label-code-sm text-label-code-sm fw-semibold tracking-wide text-uppercase">Generative Curriculum Engine</span>
-              </div>
-              <!-- Main Heading -->
-              <div class="space-y-3">
-                <h2 class="font-headline-lg text-headline-lg text-on-surface sm:text-[44px] leading-tight"> Not sure what to practice next? </h2>
-                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto"> Let AI analyze your commit history and past diff reviews to synthesize a frontend challenge tailored precisely to your skill blindspots. </p>
-              </div>
-              <!-- Primary CTA Button -->
-              <div class="pt-2">
-                <a class="group position-relative d-inline-flex align-items-center justify-content-center gap-3 px-4 py-3 rounded-xl font-label-ui text-label-ui fw-semibold text-on-primary bg-primary shadow-[0_0_32px_rgba(6,182,212,0.45)] hover:shadow-[0_0_42px_rgba(6,182,212,0.7)] hover:bg-primary-fixed-dim transition-all duration-300 hover:scale-[1.02]" data-path="ai-tasks" href="#">
-                  <span class="material-symbols-outlined text-[20px]">bolt</span>
-                  <span>Generate&nbsp; Challenge</span>
-                  <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_forward</span>
-                </a>
-              </div>
-              <!-- Quick Feature Badges -->
-              <div class="d-flex flex-wrap align-items-center justify-content-center gap-4 pt-3 font-label-code-sm text-label-code-sm text-on-surface-variant">
-                <div class="d-flex align-items-center gap-2">
-                  <span class="material-symbols-outlined text-primary text-[16px]">bolt</span>
-                  <span>Instant Generation</span>
-                </div>
-                <span class="text-surface-bright">•</span>
-                <div class="d-flex align-items-center gap-2">
-                  <span class="material-symbols-outlined text-primary text-[16px]">crisis_alert</span>
-                  <span>Target Weaknesses</span>
-                </div>
-                <span class="text-surface-bright">•</span>
-                <div class="d-flex align-items-center gap-2">
-                  <span class="material-symbols-outlined text-primary text-[16px]">analytics</span>
-                  <span>Real-time AI Scoring</span>
-                </div>
-              </div>
+            <a class="primary-button" data-path="ai-tasks" href="#">
+              <span class="material-symbols-outlined size-18">auto_awesome</span>
+              <span>Generate AI Challenge</span>
+              <span class="material-symbols-outlined size-18">arrow_forward</span>
+            </a>
+            <div class="mt-8 flex wrap center centered gap-6 muted-text font-code code-small">
+              <span class="flex center gap-1-5">
+                <span class="accent-text">✓</span> Instant Generation
+              </span>
+              <span class="text-outline-variant">•</span>
+              <span class="flex center gap-1-5">
+                <span class="accent-text">✓</span> Matches Your Weak Spots
+              </span>
+              <span class="text-outline-variant">•</span>
+              <span class="flex center gap-1-5">
+                <span class="accent-text">✓</span> Live Visual Diff
+              </span>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   </main>
-  <footer class="w-100 bg-[#0B0F17] border-top border-white/10 mt-auto">
-    <div class="max-w-[1440px] mx-auto px-4 lg:px-12 pt-5 pb-5">
-      <div class="d-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 pb-14 border-bottom border-white/5">
-        <div class="lg:col-span-2 d-flex flex-column gap-3">
-          <div class="d-flex align-items-center gap-3"><img alt="CodeCoach Logo" class="h-8 w-auto object-fit-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XKdAN8Yh78jCCc-ap_HUe-CvnJYKe7zp8vc2HiT86hqQJ12nkEu572iiyYspDawyv2FZOevHwRPkuHP67Yp2nLdAFUzmtwlSYCS3g9DNSU2fSVcXU0EQo9WphRMwaIJMo-uPCuV4lBzDNy3x5IlNnYfGdgXaydiqdctAHY5b_It9YlL2ANzeS5AqITiTCLyXf3an3eI8-sBxucwuMS0NHA1KWUT1SJrIxVPFNpObr-1mP1nJZoVet4Nw"><span class="font-headline-sm text-headline-sm text-on-surface fw-bold tracking-tight">CodeCoach</span></div>
-          <p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Your AI-powered frontend development coach. Master modern architecture, responsive patterns, and developer velocity.</p>
-          <div class="d-flex align-items-center gap-3 pt-2"><a class="h-9 w-9 rounded-lg bg-surface-container border border-white/10 d-flex align-items-center justify-content-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" href="https://github.com" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px]">terminal</span></a><a class="h-9 w-9 rounded-lg bg-surface-container border border-white/10 d-flex align-items-center justify-content-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" href="https://linkedin.com" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px]">work</span></a></div>
+  <footer class="w-full dark-bg border-t border-soft-60 py-xl">
+    <div class="max-w-7xl mx-auto page-pad-mobile md-page-pad">
+      <div class="grid grid-cols-1 md-grid-cols-5 gap-xl mb-xl">
+        <div class="md-col-span-2 flex column start pr-0 md-pr-xl">
+          <div class="flex center gap-sm mb-md"><img alt="CodeCoach logo" class="brand-logo"
+              src="https://lh3.googleusercontent.com/aida/AEtjO1VJ5GtFy6K-s_FyEzOONr5R-SZncTy11yVYJ8H2UyyuCWq7J7DMuosuwy4gRg5UJbOiv_uuoHZmSwheVTNgEBrccnmi4aklo6yKYTnKQGXfbVwESV_YP4Xkt82n8eLhMHFrZGnPN1jlHov0WpFYS2W7o92Glv5D8XyORrH-ebNtE5r8Xs964Bc0amHFkrVdIuJpMBWIzqiYDZys1GOoo_V88NYB9UI_TK0XCWMjivXo5ekUGDefg9xPXA" /><span class="font-heading heading-small font-semibold tracking-tight main-text">CodeCoach</span>
+          </div>
+          <p class="font-body small-text muted-text leading-relaxed max-w-sm">Master frontend
+            development by recreating real-world interfaces with pixel-perfect visual evaluations.</p>
         </div>
-        <div class="d-flex flex-column gap-3"><span class="font-label-ui text-label-ui fw-semibold text-on-surface text-uppercase tracking-wider">Platform</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="challenges" href="#">Challenges</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="ai-tasks" href="#">AI Tasks</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="progress" href="#">Progress</a></div>
-        <div class="d-flex flex-column gap-3"><span class="font-label-ui text-label-ui fw-semibold text-on-surface text-uppercase tracking-wider">Resources</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">Documentation</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="https://github.com" rel="noopener noreferrer" target="_blank">GitHub</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="community" href="#">Community</a></div>
-        <div class="d-flex flex-column gap-3"><span class="font-label-ui text-label-ui fw-semibold text-on-surface text-uppercase tracking-wider">Account</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="login" href="#">Login</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="register" href="#">Register</a></div>
+        <div>
+          <h4 class="font-ui ui-text font-semibold uppercase tracking-wider main-text mb-md">
+            Platform</h4>
+          <ul class="flex column gap-sm">
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="challenges" href="#">Challenges</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="ai-tasks" href="#">AI Tasks</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="progress" href="#">Progress</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="sandbox" href="#">Sandbox</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-ui ui-text font-semibold uppercase tracking-wider main-text mb-md">
+            Resources</h4>
+          <ul class="flex column gap-sm">
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="documentation" href="#">Documentation</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="github" href="#">GitHub</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="community" href="#">Community</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="changelog" href="#">Changelog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-ui ui-text font-semibold uppercase tracking-wider main-text mb-md">
+            Account</h4>
+          <ul class="flex column gap-sm">
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="login" href="#">Log in</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="register" href="#">Register</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="settings" href="#">Settings</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="pt-4 d-flex flex-column sm:flex-row align-items-center justify-content-between gap-3">
-        <div class="d-flex align-items-center gap-4"><span class="font-body-sm text-body-sm text-on-surface-variant">© 2026 CodeCoach. All rights reserved.</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="terms-of-service" href="#">Terms of Service</a></div>
-        <div class="d-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-surface-container border border-white/5 font-label-code-sm text-label-code-sm text-on-surface-variant">
-          <span class="h-2 w-2 rounded-pill bg-primary animate-pulse"></span><span>Status: All Systems Operational</span></div>
+      <div class="pt-lg border-t border-soft-40 flex column md-flex-row center between gap-md">
+        <div class="flex wrap center gap-md">
+          <p class="font-body small-text muted-text">Copyright © 2026 CodeCoach. All rights reserved.
+          </p>
+          <div class="flex center gap-sm"><a class="font-body small-text muted-text hover-main transition" data-path="privacy-policy" href="#">Privacy Policy</a><span class="text-outline-variant">•</span><a class="font-body small-text muted-text hover-main transition" data-path="terms-of-service" href="#">Terms of Service</a></div>
+        </div>
+        <div class="flex center gap-lg">
+          <div class="inline-flex center gap-2 px-3 py-1 round-full panel border border-soft-50">
+            <span class="w-2 h-2 round-full accent-bg animate-pulse"></span><span class="font-code code-small main-text">Systems Operational</span></div>
+          <div class="flex center gap-sm"><a aria-label="Code repository" class="muted-text hover-accent transition p-1" data-path="github-external" href="#"><span class="material-symbols-outlined size-20">code</span></a><a aria-label="Professional network" class="muted-text hover-accent transition p-1" data-path="network-external" href="#"><span class="material-symbols-outlined size-20">share</span></a>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
-
-
-
 </body>
-
 </html>

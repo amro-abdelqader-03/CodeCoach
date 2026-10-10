@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="web_standard" name="shell-type">
+    <title>CodeCoach</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/ai-task.css" rel="stylesheet">
+</head>
+
+<body class="task-page">
+    <header class="task-header">
+        <div class="task-header-inner">
+            <div class="task-brand"><a class="task-brand-link group" data-path="dashboard"
+                    href="#"><img alt="" class="h-8 w-auto object-contain"
+                    src="../assets/Brand_logo.png"><span
+                        class="task-brand-name">CodeCoach</span></a><span class="task-beta"><span
+                        class="task-status-dot"></span>AI Beta</span></div>
+            <nav class="task-nav" data-active-classes="task-nav-link--active">
+                <a class="task-nav-link"
+                    data-path="dashboard" href="#">Home</a><a
+                    class="task-nav-link"
+                    data-path="challenges" href="#">Challenges</a><a aria-current="page"
+                    class="task-nav-link task-nav-link--active"
+                    data-path="ai-tasks" href="#">AI Tasks</a><a
+                    class="task-nav-link"
+                    data-path="progress" href="#">Progress</a></nav>
+            <div><a class="task-profile-link"
+                    data-path="profile" href="#">
+                    <div class="task-avatar">
+                        <img alt="User Avatar" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeLGpndvJpkxIJCh6ygv1OS5u1-A88YWk_47v_tROfHdphEfJc-UMBjgZlJo1dh6F5FZKkNW6rRW-OJHZF9Qtm0EjO9vleWRcCdnHOpXYPLY7D7TBRsmPiLx_x5m7n0783doK-H_96xFIwig4RrsQ6p60bNu31iOVtN3kqcrQdjSETEh-orUxopceyE_0s9B4mlOAezOGTBs1IJKG5vQXw7lXKs0haRzgr5OdcOjt9q7PM818AtAU">
+                    </div><span class="task-avatar-status"></span>
+                </a></div>
+        </div>
+    </header>
+    <main class="task-main">
+        <div class="task-layout">
+            <div class="task-background">
+                <!-- Ambient Backdrop Halos -->
+                <div
+                    class="task-glow task-glow--top">
+                </div>
+                <div
+                    class="task-glow task-glow--right">
+                </div>
+                <div
+                    class="task-glow task-glow--left">
+                </div>
+                <div class="task-container">
+                    <!-- ================= HEADER SECTION ================= -->
+                    <section class="task-hero">
+                        <!-- AI Engine Pill -->
+                        <div class="task-engine-badge">
+                            <span aria-hidden="true" class="task-engine-indicator"></span>
+                            <span class="task-engine-name">✦
+                                AI-Powered Task Generator</span>
+                            <span class="task-engine-divider">/</span>
+                            <span class="task-engine-version">v2.4-vision</span>
+                        </div>
+                        <!-- Main Title -->
+                        <div class="task-intro">
+                            <h1 class="task-title">
+                                Create Your Next <span class="task-title-accent">Frontend
+                                    Challenge</span>
+                            </h1>
+                            <p class="task-summary">
+                                Give CodeCoach a website screenshot or live URL. Our neural vision pipeline extracts DOM
+                                hierarchy, responsive layouts, and builds custom challenges calibrated to your skill
+                                gaps.
+                            </p>
+                        </div>
+                        <!-- Metadata Telemetry Ribbon -->
+                        <div class="task-stats">
+                            <div class="task-stat">
+                                <span class="material-symbols-outlined size-15 accent-text">speed</span>
+                                <span>Vision Engine: <strong class="task-stat-value">Active
+                                        (Latency ~820ms)</strong></span>
+                            </div>
+                            <div class="task-stat">
+                                <span class="material-symbols-outlined size-15 secondary-text">database</span>
+                                <span>Daily Quota: <strong class="task-stat-accent">18</strong>/25
+                                    remaining</span>
+                            </div>
+                            <div class="task-stat">
+                                <span class="material-symbols-outlined size-15 accent-text">memory</span>
+                                <span>DOM Synthesizer: GPT-4o Vision</span>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- ================= MAIN WORKBENCH CARD ================= -->
+                    <section class="task-workbench">
+                        <!-- Header & Target Tabs -->
+                        <div class="task-workbench-header">
+                            <div class="task-workspace-title">
+                                <img alt="" class="task-brand-mark"
+                                    src="../assets/Brand_logo.png">
+                                <div>
+                                    <span class="task-section-label">Workspace
+                                        Target</span>
+                                    <p class="task-section-title">
+                                        Input Specification</p>
+                                </div>
+                            </div>
+                            <!-- Mode Switcher Tabs -->
+                            <div class="task-tab-list"
+                                id="target-tab-group">
+                                <button aria-pressed="true" class="task-tab is-active"
+                                    id="tab-btn-screenshot" onclick="switchTargetTab('screenshot')" type="button">
+                                    <span class="material-symbols-outlined size-18">photo_camera</span>
+                                    <span class="">Upload Screenshot</span>
+                                    <span
+                                        class="ml-1 px-1-5 py-0-2 round-xs font-code size-10 accent-bg-15 accent-text">RECOMMENDED</span>
+                                </button>
+                                <button aria-pressed="false" class="task-tab"
+                                    id="tab-btn-url" onclick="switchTargetTab('url')" type="button">
+                                    <span class="material-symbols-outlined size-18">link</span>
+                                    <span class="">Website URL</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="task-workbench-body">
+                            <!-- TAB 1: SCREENSHOT UPLOAD WORKSPACE -->
+                            <div class="task-target-panel task-target-panel--screenshot" id="panel-screenshot">
+                                <!-- Left: Interactive Dropzone -->
+                                <div class="task-dropzone group"
+                                    id="dropzone">
+                                    <div
+                                        class="absolute inset-0 gradient-down gradient-from-primary-5 gradient-via-transparent gradient-to-transparent pointer-events-none opacity-50 group-hover-opacity-100 transition">
+                                    </div>
+                                    <!-- Subtle decorative corner ticks -->
+                                    <div class="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-white-20">
+                                    </div>
+                                    <div class="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-white-20">
+                                    </div>
+                                    <div class="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-white-20">
+                                    </div>
+                                    <div
+                                        class="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-white-20">
+                                    </div>
+                                    <div class="relative z-10 flex column center gap-3">
+                                        <div
+                                            class="task-upload-icon">
+                                            <span class="material-symbols-outlined size-30">cloud_upload</span>
+                                        </div>
+                                        <div class="stack-1">
+                                            <h3 class="font-heading heading-small main-text font-semibold">
+                                                Drag &amp; drop your screenshot here</h3>
+                                            <p class="font-body small-text muted-text max-w-sm">
+                                                Capture any dashboard, modal, pricing card, or navigation bar you want
+                                                to rebuild.</p>
+                                        </div>
+                                        <div class="flex center gap-3 mt-2">
+                                            <label
+                                                class="task-browse-button">
+                                                <span class="material-symbols-outlined size-16">file_open</span>
+                                                <span class="">Browse Files</span>
+                                                <input accept="image/png,image/jpeg,image/webp" class="hidden"
+                                                    id="file-input" onchange="handleFileSelect(event)" type="file">
+                                            </label>
+                                            <button
+                                                class="task-paste-button"
+                                                onclick="simulateClipboardPaste()" type="button">
+                                                <span class="material-symbols-outlined size-15">content_paste</span>
+                                                <span class="">Paste Image (⌘V)</span>
+                                            </button>
+                                        </div>
+                                        <span class="font-code code-small outline-text-60 mt-1">
+                                            Supports PNG, JPG, WEBP • Max 15MB • HiDPI Supported
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- Right: Active Upload / Detected Spec Preview -->
+                                <div
+                                    class="lg-col-span-5 flex column between p-5 round-lg panel">
+                                    <div class="flex column gap-4">
+                                        <div
+                                            class="flex center between pb-3 panel-high-40 negative-mx-5 negative-mt-5 p-4 round-top-lg">
+                                            <div class="flex center gap-2-5">
+                                                <span class="w-2 h-2 round-full accent-bg animate-pulse"></span>
+                                                <span
+                                                    class="font-ui ui-text main-text font-semibold uppercase tracking-wide">Target
+                                                    Staged</span>
+                                            </div>
+                                            <div class="flex center gap-1">
+                                                <button
+                                                    class="p-1 round-xs muted-text hover-text-error hover-panel transition"
+                                                    title="Remove attachment" type="button">
+                                                    <span class="material-symbols-outlined size-18">delete</span>
+                                                </button>
+                                                <button
+                                                    class="p-1 round-xs muted-text hover-accent-text hover-panel transition"
+                                                    title="Inspect full resolution" type="button">
+                                                    <span
+                                                        class="material-symbols-outlined size-18">fullscreen</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- Thumbnail & Meta -->
+                                        <div class="flex start gap-4">
+                                            <div
+                                                class="relative w-28 h-20 round-md overflow-hidden dark-bg shrink shadow-inset group">
+                                                <img class="w-full h-full object-cover group-hover-scale-105 transition"
+                                                    data-alt="Dark mode Stripe checkout billing subscription summary modal with neon cyan accent gradients, modern glassmorphic card borders, pricing tier badges, and clean typography."
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo4TDkUzuelcnZMMc76gzT8v7VVdtAnogbHshYH2dGRYAtg0P_ky1zgkIcUfnGVPbv_gzQ7t0jLEZRXBgk1DXeN-HkopVmdHnlL2iJJwq_cKd-m7EelEDDO7mpPuarRWvV2Fs2HtTkmbF7I_iGzIoj8tgcTLo_Wru4-yJBO8QFobtAtDqQ_rVovvV97txK_5qdJEQ-Bm33Qm7xjVpiZsVl8SFvlfMsw--DOamU6cASZVn4l1TFM40">
+                                                <div
+                                                    class="absolute inset-0 gradient-up gradient-from-background-90 gradient-via-transparent gradient-to-transparent flex end p-1">
+                                                    <span
+                                                        class="font-code size-10 accent-text font-mono">1440
+                                                        × 900</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex column min-w-0 grow">
+                                                <div class="flex center gap-2">
+                                                    <p
+                                                        class="font-ui ui-text font-semibold main-text truncate">
+                                                        stripe-billing-modal.png</p>
+                                                    <span
+                                                        class="px-1-5 py-0-2 round-xs font-code size-10 accent-bg-10 accent-text">PNG</span>
+                                                </div>
+                                                <p class="font-body small-text muted-text mt-0-5">1.24
+                                                    MB • 32-bit RGBA</p>
+                                                <div class="flex center gap-2 mt-2">
+                                                    <span
+                                                        class="inline-flex center gap-1 font-code size-11 accent-text">
+                                                        <span
+                                                            class="material-symbols-outlined size-14">check_circle</span>
+                                                        Ready for Analysis
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Detected Design Tokens Quick Summary -->
+                                        <div
+                                            class="flex column gap-2-5 p-3-5 round-md panel-high-60">
+                                            <div class="flex center between">
+                                                <span
+                                                    class="font-code code-small muted-text font-medium">Extracted
+                                                    Palette</span>
+                                                <span class="font-code size-11 outline-text">5
+                                                    swatches</span>
+                                            </div>
+                                            <div class="flex center gap-2">
+                                                <div class="flex center gap-1-5">
+                                                    <span class="task-color-swatch task-color-swatch--navy">#0F</span>
+                                                    <span class="task-color-swatch task-color-swatch--cyan">#06</span>
+                                                    <span class="task-color-swatch task-color-swatch--blue">#3B</span>
+                                                    <span class="task-color-swatch task-color-swatch--slate">#1E</span>
+                                                    <span class="task-color-swatch task-color-swatch--white">#F8</span>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="grid grid-cols-2 gap-2 mt-1 pt-2 dark-bg-30 margin-x-negative-3-5 margin-bottom-negative-3-5 p-3 round-bottom-md">
+                                                <div class="flex column">
+                                                    <span
+                                                        class="font-code size-11 outline-text">Typography</span>
+                                                    <span
+                                                        class="font-code code-small main-text">Sans-serif
+                                                        + Mono</span>
+                                                </div>
+                                                <div class="flex column">
+                                                    <span class="font-code size-11 outline-text">Layout
+                                                        Type</span>
+                                                    <span
+                                                        class="font-code code-small main-text">Modal
+                                                        / Grid (2-col)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Re-upload mini footer -->
+                                    <div
+                                        class="pt-3 flex center between font-ui small-text muted-text">
+                                        <span class="">Want to test another component?</span>
+                                        <label class="accent-text hover-underline cursor-pointer font-medium">
+                                            Replace image
+                                            <input accept="image/*" class="hidden" onchange="handleFileSelect(event)"
+                                                type="file">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- TAB 2: LIVE URL WORKSPACE (Hidden by default, toggled via JS) -->
+                            <div class="task-target-panel task-target-panel--url" hidden id="panel-url">
+                                <div class="p-6 round-lg dark-bg-70 flex column gap-4">
+                                    <label
+                                        class="font-heading heading-small main-text font-semibold flex center gap-2"
+                                        for="url-target">
+                                        <span class="material-symbols-outlined accent-text">public</span>
+                                        <span class="">Enter Public Website or Web App URL</span>
+                                    </label>
+                                    <div class="flex column sm-row center gap-3">
+                                        <div class="relative w-full grow">
+                                            <span
+                                                class="absolute left-3-5 top-half center-y material-symbols-outlined outline-text size-20">search</span>
+                                            <input
+                                                class="task-url-input"
+                                                id="url-target"
+                                                placeholder="https://linear.app/features or https://stripe.com/pricing"
+                                                type="url" value="https://stripe.com/billing">
+                                        </div>
+                                        <button
+                                            class="task-capture-button"
+                                            type="button">
+                                            <span
+                                                class="material-symbols-outlined size-18 accent-text">camera</span>
+                                            <span class="">Capture &amp; Crawl</span>
+                                        </button>
+                                    </div>
+                                    <!-- Quick Presets -->
+                                    <div class="flex wrap center gap-2 pt-2">
+                                        <span class="font-code code-small outline-text">Quick
+                                            Presets:</span>
+                                        <button class="task-preset-button"
+                                            onclick="setPresetUrl('https://stripe.com/billing')" type="button">
+                                            <span class="w-1-5 h-1-5 round-full accent-bg"></span> Stripe Billing UI
+                                        </button>
+                                        <button class="task-preset-button"
+                                            onclick="setPresetUrl('https://linear.app/method')" type="button">
+                                            <span class="w-1-5 h-1-5 round-full secondary-bg"></span> Linear Issue
+                                            Board
+                                        </button>
+                                        <button class="task-preset-button"
+                                            onclick="setPresetUrl('https://vercel.com/analytics')" type="button">
+                                            <span class="w-1-5 h-1-5 round-full tertiary-bg"></span>
+                                            Vercel Analytics Dashboard
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ================= OPTIONAL TASK CONFIGURATION GRID ================= -->
+                            <div class="pt-4 flex column gap-5">
+                                <div class="flex center between">
+                                    <div class="flex center gap-2">
+                                        <span class="material-symbols-outlined accent-text size-20">tune</span>
+                                        <h3 class="font-heading heading-small main-text font-semibold">
+                                            Fine-Tune Task Parameters</h3>
+                                    </div>
+                                    <span class="font-code code-small outline-text">Optional •
+                                        Auto-calibrated</span>
+                                </div>
+                                <div class="grid grid-cols-1 md-grid-cols-3 gap-5">
+                                    <!-- Parameter 1: Difficulty Selector -->
+                                    <div class="flex column gap-3 p-4 round-lg panel">
+                                        <div class="flex center between">
+                                            <span
+                                                class="font-ui ui-text main-text font-semibold">Skill
+                                                Level</span>
+                                            <span
+                                                class="font-code size-11 accent-text font-mono">ADAPTIVE</span>
+                                        </div>
+                                        <div
+                                            class="grid grid-cols-3 gap-1-5 p-1 round-md dark-bg">
+                                            <button
+                                                aria-pressed="false" class="diff-btn"
+                                                onclick="setDifficulty('beginner', this)" type="button">
+                                                Beginner
+                                            </button>
+                                            <button
+                                                aria-pressed="true" class="diff-btn is-active"
+                                                onclick="setDifficulty('intermediate', this)" type="button">
+                                                Intermediate
+                                            </button>
+                                            <button
+                                                aria-pressed="false" class="diff-btn"
+                                                onclick="setDifficulty('advanced', this)" type="button">
+                                                Advanced
+                                            </button>
+                                        </div>
+                                        <p class="font-body small-text muted-text mt-auto"
+                                            id="diff-desc">
+                                            Flexbox nested containers, stateful micro-toggles, and media queries.
+                                        </p>
+                                    </div>
+                                    <!-- Parameter 2: Focus Areas -->
+                                    <div class="flex column gap-3 p-4 round-lg panel">
+                                        <div class="flex center between">
+                                            <span
+                                                class="font-ui ui-text main-text font-semibold">Target
+                                                Focus Areas</span>
+                                            <span
+                                                class="font-code size-11 outline-text font-mono">MULTI-SELECT</span>
+                                        </div>
+                                        <div class="flex wrap gap-1-5">
+                                            <button
+                                                aria-pressed="true" class="focus-chip is-selected"
+                                                onclick="toggleChip(this)" type="button">
+                                                <span class="material-symbols-outlined size-14">check</span> Layout
+                                                &amp; Grid
+                                            </button>
+                                            <button
+                                                aria-pressed="true" class="focus-chip is-selected"
+                                                onclick="toggleChip(this)" type="button">
+                                                <span class="material-symbols-outlined size-14">check</span> CSS
+                                                &amp; Flexbox
+                                            </button>
+                                            <button
+                                                aria-pressed="false" class="focus-chip"
+                                                onclick="toggleChip(this)" type="button">
+                                                <span class="">+</span> Responsive Breakpoints
+                                            </button>
+                                            <button
+                                                aria-pressed="false" class="focus-chip"
+                                                onclick="toggleChip(this)" type="button">
+                                                <span class="">+</span> Spacing &amp; Tokens
+                                            </button>
+                                            <button
+                                                aria-pressed="false" class="focus-chip"
+                                                onclick="toggleChip(this)" type="button">
+                                                <span class="">+</span> JS Micro-Interactions
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- Parameter 3: Challenge Mode -->
+                                    <div class="flex column gap-3 p-4 round-lg panel">
+                                        <div class="flex center between">
+                                            <span
+                                                class="font-ui ui-text main-text font-semibold">Evaluation
+                                                Mode</span>
+                                            <span
+                                                class="font-code size-11 outline-text font-mono">OBJECTIVE</span>
+                                        </div>
+                                        <div class="stack-1-5">
+                                            <label
+                                                class="flex center between p-2 round-md panel-high-60 cursor-pointer hover-panel-high transition">
+                                                <div class="flex center gap-2">
+                                                    <span
+                                                        class="accent-text material-symbols-outlined size-18">bolt</span>
+                                                    <div class="flex column">
+                                                        <span
+                                                            class="font-ui ui-text main-text font-medium">Recreation
+                                                            Mode</span>
+                                                        <span
+                                                            class="font-code size-11 muted-text">Pixel-perfect
+                                                            match vs. target</span>
+                                                    </div>
+                                                </div>
+                                                <input checked="" class="accent-primary h-4 w-4" name="challenge-mode"
+                                                    type="radio" value="recreation">
+                                            </label>
+                                            <label
+                                                class="flex center between p-2 round-md dark-bg cursor-pointer hover-panel-high transition">
+                                                <div class="flex center gap-2">
+                                                    <span
+                                                        class="secondary-text material-symbols-outlined size-18">rocket_launch</span>
+                                                    <div class="flex column">
+                                                        <span
+                                                            class="font-ui ui-text main-text font-medium">Refactor
+                                                            &amp; Improve</span>
+                                                        <span
+                                                            class="font-code size-11 muted-text">Modernize
+                                                            semantics &amp; a11y</span>
+                                                    </div>
+                                                </div>
+                                                <input class="accent-primary h-4 w-4" name="challenge-mode" type="radio"
+                                                    value="refactor">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ================= GENERATION CTA AREA ================= -->
+                            <div class="pt-4 flex column center gap-3">
+                                <button
+                                    class="task-generate-button group"
+                                    id="generate-task-btn" onclick="startGenerationFlow()" type="button">
+                                    <span class="task-button-content">
+                                        <span class="material-symbols-outlined size-24">auto_fix_high</span>
+                                        <span class="">Generate AI Task</span>
+                                        <span
+                                            class="material-symbols-outlined size-20 group-hover-translate-x-1 transition">arrow_forward</span>
+                                    </span>
+                                    <span
+                                        class="task-button-shortcut">
+                                        ⌘ + Enter
+                                    </span>
+                                    <div class="task-button-shine">
+                                    </div>
+                                </button>
+                                <p class="font-body small-text muted-text text-center max-width-lg">
+                                    AI analyzes target geometry, tokenizes color scales, and generates a scoped test
+                                    suite tailored to your growth trajectory.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- ================= LIVE PROCESSING PIPELINE SIMULATION ================= -->
+                        <div class="dark-bg p-6 lg-p-8 flex column gap-6"
+                            id="processing-pipeline-drawer">
+                            <div class="flex column sm-row sm-center between gap-3">
+                                <div class="flex center gap-3">
+                                    <div
+                                        class="w-8 h-8 round-md panel flex center centered accent-text">
+                                        <span class="material-symbols-outlined size-20 animate-spin">cyclone</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-heading heading-small main-text font-semibold">
+                                            Active AI Pipeline</h4>
+                                        <p class="font-code code-small outline-text">Execution Stream:
+                                            job_9084_stripe_modal</p>
+                                    </div>
+                                </div>
+                                <div class="flex center gap-2">
+                                    <span
+                                        class="px-2-5 py-1 round-xs accent-bg-10 accent-text font-code code-small font-medium">STEP
+                                        2 OF 3</span>
+                                    <span
+                                        class="font-code code-small muted-text font-mono">Elapsed:
+                                        1.4s</span>
+                                </div>
+                            </div>
+                            <!-- 3-Stage Progress Pipeline Cards -->
+                            <div class="grid grid-cols-1 md-grid-cols-3 gap-4">
+                                <!-- Step 1: Complete -->
+                                <div class="flex start gap-3-5 p-4 round-lg panel shadow-sm">
+                                    <div
+                                        class="w-7 h-7 round-full accent-bg-20 accent-text flex center centered shrink">
+                                        <span class="material-symbols-outlined size-18">check</span>
+                                    </div>
+                                    <div class="flex column min-w-0">
+                                        <span
+                                            class="font-code size-11 accent-text uppercase font-bold tracking-wider">Stage
+                                            01 • Finished</span>
+                                        <p
+                                            class="font-heading size-15 main-text font-semibold leading-snug">
+                                            Visual Ingestion &amp; OCR</p>
+                                        <span class="font-body small-text muted-text mt-1">Parsed
+                                            1440x900 canvas, extracted 8 text labels and color swatches.</span>
+                                    </div>
+                                </div>
+                                <!-- Step 2: In Progress -->
+                                <div
+                                    class="relative flex start gap-3-5 p-4 round-lg panel-high shadow-md overflow-hidden">
+                                    <div
+                                        class="absolute top-0 left-0 right-0 h-half gradient-right from-primary gradient-to-secondary">
+                                    </div>
+                                    <div
+                                        class="w-7 h-7 round-full accent-bg button-text flex center centered shrink shadow-sm glow-shadow-40 animate-pulse">
+                                        <span class="material-symbols-outlined size-18">neurology</span>
+                                    </div>
+                                    <div class="flex column min-w-0">
+                                        <span
+                                            class="font-code size-11 accent-text uppercase font-bold tracking-wider">Stage
+                                            02 • Processing</span>
+                                        <p
+                                            class="font-heading size-15 main-text font-semibold leading-snug">
+                                            DOM &amp; Layout Synthesizer</p>
+                                        <span class="font-body small-text muted-text mt-1">Identifying
+                                            nested flex containers, cards, and modal overlay bounds...</span>
+                                    </div>
+                                </div>
+                                <!-- Step 3: Queued -->
+                                <div class="flex start gap-3-5 p-4 round-lg panel opacity-60">
+                                    <div
+                                        class="w-7 h-7 round-full panel-highest outline-text flex center centered shrink">
+                                        <span class="material-symbols-outlined size-18">pending</span>
+                                    </div>
+                                    <div class="flex column min-w-0">
+                                        <span
+                                            class="font-code size-11 outline-text uppercase font-bold tracking-wider">Stage
+                                            03 • Queued</span>
+                                        <p
+                                            class="font-heading size-15 main-text font-semibold leading-snug">
+                                            Challenge Spec Formulation</p>
+                                        <span
+                                            class="font-body small-text muted-text mt-1">Synthesizing
+                                            starter HTML/CSS, Cypress tests, and grading rubric.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Monospace Telemetry Terminal Stream -->
+                            <div
+                                class="round-md panel p-4 font-mono code-small muted-text flex column gap-1-5 shadow-inset">
+                                <div class="flex center between outline-text size-11 pb-1">
+                                    <div class="flex center gap-1-5">
+                                        <span class="w-2-5 h-2-5 round-full error-bg-70"></span>
+                                        <span class="w-2-5 h-2-5 round-full secondary-bg-70"></span>
+                                        <span class="w-2-5 h-2-5 round-full accent-bg-70"></span>
+                                        <span class="ml-2">vision-worker-daemon-nyc1.codecoach.internal</span>
+                                    </div>
+                                    <span class="">STREAM: READY</span>
+                                </div>
+                                <div class="stack-1 code-small">
+                                    <p class="muted-text"><span
+                                            class="accent-text font-semibold">&gt;</span> [00:00:001] Ingested
+                                        1,298,432 bytes from stripe-billing-modal.png</p>
+                                    <p class="muted-text"><span
+                                            class="accent-text font-semibold">&gt;</span> [00:00:482] Contrast ratios
+                                        computed: Primary text #F8FAFC on #0F172A = 16.4:1 (AAA)</p>
+                                    <p class="muted-text"><span
+                                            class="accent-text font-semibold">&gt;</span> [00:01:024] <span
+                                            class="accent-text">Detected nodes:</span> 1 Dialog wrapper, 2 Action
+                                        buttons, 1 Radio group, 3 Badge pills</p>
+                                    <p class="accent-text animate-pulse"><span class="font-semibold">&gt;</span>
+                                        [00:01:420] Synthesizing AST and constructing interactive workspace files...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- ================= RECENT COMMUNITY INSPIRATION / BENCHMARKS ================= -->
+
+                </div>
+            </div>
+        </div>
+        <script>
+            function switchTargetTab(tabName) {
+                const screenshotPanel = document.getElementById('panel-screenshot');
+                const urlPanel = document.getElementById('panel-url');
+                const screenshotBtn = document.getElementById('tab-btn-screenshot');
+                const urlBtn = document.getElementById('tab-btn-url');
+
+                if (tabName === 'screenshot') {
+                    screenshotPanel.hidden = false;
+                    urlPanel.hidden = true;
+                } else {
+                    screenshotPanel.hidden = true;
+                    urlPanel.hidden = false;
+                }
+
+                const screenshotActive = tabName === 'screenshot';
+                screenshotBtn.classList.toggle('is-active', screenshotActive);
+                urlBtn.classList.toggle('is-active', !screenshotActive);
+                screenshotBtn.setAttribute('aria-pressed', screenshotActive);
+                urlBtn.setAttribute('aria-pressed', !screenshotActive);
+            }
+
+            function setPresetUrl(url) {
+                const input = document.getElementById('url-target');
+                if (input) {
+                    input.value = url;
+                    input.focus();
+                }
+            }
+
+            function setDifficulty(level, btnElement) {
+                const buttons = document.querySelectorAll('.diff-btn');
+                buttons.forEach(button => {
+                    const active = button === btnElement;
+                    button.classList.toggle('is-active', active);
+                    button.setAttribute('aria-pressed', active);
+                });
+
+                const desc = document.getElementById('diff-desc');
+                if (level === 'beginner') {
+                    desc.textContent = "Fundamental layout boxes, standard semantic tags, and basic color application.";
+                } else if (level === 'intermediate') {
+                    desc.textContent = "Flexbox nested containers, stateful micro-toggles, and media queries.";
+                } else {
+                    desc.textContent = "Complex CSS grid architectures, SVG path manipulation, and custom accessibility hooks.";
+                }
+            }
+
+            function toggleChip(chip) {
+                const selected = chip.classList.toggle('is-selected');
+                chip.setAttribute('aria-pressed', selected);
+                const icon = chip.querySelector('span');
+                if (icon) icon.textContent = selected ? 'check' : '+';
+            }
+
+            function handleFileSelect(e) {
+                const files = e.target.files;
+                if (files && files.length > 0) {
+                    alert(`File "${files[0].name}" loaded into staging. Ready for neural synthesis.`);
+                }
+            }
+
+            function simulateClipboardPaste() {
+                alert("Clipboard screenshot staged: 'clipboard-capture.png' (1280x800). Ready for AI analysis.");
+            }
+
+            function loadSamplePreset(name) {
+                alert(`Loaded community target preset "${name}" into task pipeline.`);
+                window.scrollTo({ top: 200, behavior: 'smooth' });
+            }
+
+            function startGenerationFlow() {
+                const btn = document.getElementById('generate-task-btn');
+                const drawer = document.getElementById('processing-pipeline-drawer');
+                if (btn) {
+                    btn.innerHTML = `
+        <span class="task-button-content">
+          <span class="material-symbols-outlined task-spin">refresh</span>
+          <span>Synthesizing Task Workspace...</span>
+        </span>
+      `;
+                    btn.disabled = true;
+                    btn.classList.add('is-loading');
+                }
+                if (drawer) {
+                    drawer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+
+            document.addEventListener('keydown', function (e) {
+                if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+                    e.preventDefault();
+                    startGenerationFlow();
+                }
+            });
+        </script>
+    </main>
+    <footer class="task-footer">
+        <div class="task-footer-inner">
+            <div class="task-footer-grid">
+                <div class="task-footer-brand">
+                    <div class="task-footer-logo"><img alt="" class="h-8 w-auto object-contain"
+                            src="../assets/Brand_logo.png"><span
+                            class="task-footer-brand-name">CodeCoach</span>
+                    </div>
+                    <p class="task-footer-description">Your AI-powered frontend
+                        development coach. Master modern architecture, responsive patterns, and developer velocity.</p>
+                    <div class="task-footer-socials"><a
+                            class="task-social-link"
+                            href="https://github.com" rel="noopener noreferrer" target="_blank"><span
+                                class="material-symbols-outlined size-18">terminal</span></a><a
+                            class="task-social-link"
+                            href="https://linkedin.com" rel="noopener noreferrer" target="_blank"><span
+                                class="material-symbols-outlined size-18">work</span></a></div>
+                </div>
+                <div class="task-footer-list"><span class="task-footer-title">Platform</span><a
+                        class="task-footer-link" data-path="dashboard" href="#">Dashboard</a><a
+                        class="task-footer-link" data-path="challenges" href="#">Challenges</a><a
+                        class="task-footer-link" data-path="ai-tasks" href="#">AI Tasks</a><a
+                        class="task-footer-link" data-path="progress" href="#">Progress</a></div>
+                <div class="task-footer-list"><span class="task-footer-title">Resources</span><a
+                        class="task-footer-link" data-path="documentation" href="#">Documentation</a><a
+                        class="task-footer-link"
+                        href="https://github.com" rel="noopener noreferrer" target="_blank">GitHub</a><a
+                        class="task-footer-link" data-path="community" href="#">Community</a></div>
+                <div class="task-footer-list"><span class="task-footer-title">Account</span><a
+                        class="task-footer-link" data-path="profile" href="#">Profile</a><a
+                        class="task-footer-link" data-path="settings" href="#">Settings</a></div>
+            </div>
+            <div class="task-footer-bottom">
+                <div class="task-footer-legal"><span class="task-footer-copy">©
+                        2026 CodeCoach. All rights reserved.</span><a
+                        class="task-footer-link"
+                        data-path="privacy-policy" href="#">Privacy Policy</a><a
+                        class="task-footer-link"
+                        data-path="terms-of-service" href="#">Terms of Service</a></div>
+                <div class="task-footer-status">
+                    <span class="task-status-dot"></span><span>Status: All
+                        Systems Operational</span></div>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
