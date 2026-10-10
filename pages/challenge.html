@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="web_standard" name="shell-type">
+    <title>Frontend Challenge | CodeCoach</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/challenge.css" rel="stylesheet">
+</head>
+
+<body class="challenge-page">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]">
+        <div class="h-16 max-w-7xl mx-auto px-margin flex items-center justify-between">
+            <div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm" data-path="dashboard"
+                    href="#"><span
+                        class="font-headline-sm text-headline-sm text-on-surface tracking-tight">CodeCoach</span></a><span
+                    class="font-label-code-sm text-label-code-sm px-space-sm py-0.5 rounded-full bg-surface-container-high text-primary border border-outline-variant/30 flex items-center gap-1.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>AI Beta</span></div>
+            <nav class="hidden md:flex items-center gap-space-sm p-1 rounded-full bg-surface-container-lowest/60 border border-outline-variant/20"
+                data-active-classes="bg-primary-container text-on-primary-container font-label-ui text-label-ui rounded-full px-space-md py-space-xs shadow-sm">
+                <a class="px-space-md py-space-xs rounded-full font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="dashboard" href="../index.html">Home</a><a aria-current="page"
+                    class="transition-colors bg-primary-container text-on-primary-container font-label-ui text-label-ui rounded-full px-space-md py-space-xs shadow-sm"
+                    data-path="challenges" href="#">Challenges</a><a
+                    class="px-space-md py-space-xs rounded-full font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="ai-tasks" href="#">AI Tasks</a><a
+                    class="px-space-md py-space-xs rounded-full font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="progress" href="#">Progress</a></nav>
+            <div class="flex items-center gap-space-md">
+                <div class="relative flex items-center justify-center"><img alt="Profile"
+                        class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/40"
+                        src="https://lh3.googleusercontent.com/aida/AEtjO1V5dIEDhcUGmwQ-b9EOp5RZZmr33km0PEog4FJORmMgVoWc2a59UsWHgMN5B3XMVaujxFubrvagn5uVuIVRvEeKBpbG9E19jylU0cvCYx26pO0FBH4cY8_v2mXUnjxNtrneDIp7IdU8SgH2G1bWkD7jtjMY2zlYEtbNeKFWQ0wt4Ktq8e27_FkAWaM0ZxMDlbm2Yx1d4fW4KsoA_vY2LAkpZwFriJwv4-5H_xyeWf6nqq35xBVCNLEj"><span
+                        class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="w-full pt-16 flex-1 bg-surface">
+        <div class="flex flex-col w-full">
+            <!-- Subtle Ambient Glow Orbs -->
+            <div class="relative w-full max-w-7xl mx-auto px-margin py-space-lg flex flex-col gap-space-xl">
+                <!-- Ambient Backdrop Light Field -->
+                <div
+                    class="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10">
+                </div>
+                <div
+                    class="absolute top-1/3 left-10 w-80 h-80 bg-secondary-container/10 rounded-full blur-[120px] pointer-events-none -z-10">
+                </div>
+                <!-- Header & Breadcrumbs Area -->
+                <section class="flex flex-col gap-space-md">
+                    <!-- Breadcrumb Navigation -->
+                    <nav class="flex items-center gap-space-xs text-on-surface-variant font-label-ui text-label-ui">
+                        <a class="flex items-center gap-1 hover:text-primary transition-colors" data-path="challenges"
+                            href="#">
+                            <span class="material-symbols-outlined text-sm">arrow_back</span>
+                            <span class="">Challenges</span>
+                        </a>
+                        <span class="opacity-40">/</span>
+                        <span class="text-on-surface">Recreate a Modern SaaS Landing Page</span>
+                    </nav>
+                    <!-- Main Header Banner Row -->
+                    <div
+                        class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg bg-surface-container-low/80 backdrop-blur-xl p-space-lg rounded-xl shadow-md">
+                        <div class="flex flex-col gap-space-xs">
+                            <!-- Metadata Pill Bar -->
+                            <div class="flex flex-wrap items-center gap-space-sm mb-1">
+                                <span
+                                    class="font-label-code-sm text-label-code-sm px-space-sm py-0.5 rounded-full bg-secondary-container/20 text-tertiary flex items-center gap-1.5 font-medium">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>Intermediate
+                                </span>
+                                <span
+                                    class="font-label-code-sm text-label-code-sm px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface-variant flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-xs">schedule</span>~45 mins
+                                </span>
+                                <span
+                                    class="font-label-code-sm text-label-code-sm px-space-sm py-0.5 rounded-full bg-primary/10 text-primary flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-xs">bolt</span>+120 XP
+                                </span>
+                                <div class="h-3 w-px bg-outline-variant/30 hidden sm:block"></div>
+                                <div class="flex items-center gap-1">
+                                    <span
+                                        class="font-label-code-sm text-label-code-sm px-2 py-0.5 rounded bg-surface-container-highest text-on-surface">HTML</span>
+                                    <span
+                                        class="font-label-code-sm text-label-code-sm px-2 py-0.5 rounded bg-surface-container-highest text-on-surface">CSS</span>
+                                    <span
+                                        class="font-label-code-sm text-label-code-sm px-2 py-0.5 rounded bg-surface-container-highest text-on-surface">JavaScript</span>
+                                </div>
+                            </div>
+                            <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Recreate a
+                                Modern SaaS Landing Page</h1>
+                            <p class="font-body-md text-body-md text-on-surface-variant">Benchmark your responsive
+                                layout mastery, visual precision, and interactive state design against production
+                                standards.</p>
+                        </div>
+                        <!-- Quick Actions Group -->
+                        <div class="flex flex-wrap sm:flex-nowrap items-center gap-space-sm shrink-0">
+                            <a class="flex items-center gap-2 px-space-md py-space-sm rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all font-label-ui text-label-ui shadow-sm"
+                                href="#">
+                                <span class="material-symbols-outlined text-base text-primary">download</span>
+                                <span class="">Starter Assets (ZIP)</span>
+                            </a>
+                            <a class="flex items-center gap-2 px-space-md py-space-sm rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all font-label-ui text-label-ui shadow-sm"
+                                href="#">
+                                <span class="material-symbols-outlined text-base text-tertiary">design_services</span>
+                                <span class="">Figma Spec</span>
+                            </a>
+                            <a class="flex items-center gap-2 px-space-md py-space-sm rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-bright transition-all font-label-ui text-label-ui shadow-sm"
+                                href="#">
+                                <span class="material-symbols-outlined text-base">code</span>
+                                <span class="">Fork Sandbox</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <!-- Two-Column Workbench Layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+                    <!-- Left Column: Brief, Requirements & Target Mockup (7 cols) -->
+                    <div class="lg:col-span-7 flex flex-col gap-space-lg">
+                        <!-- Challenge Brief Card -->
+                        <div
+                            class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+                            <div class="flex items-center justify-between pb-space-xs">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">assignment</span>
+                                    <h2 class="font-headline-sm text-headline-sm text-on-surface">What's the Challenge?
+                                    </h2>
+                                </div>
+                                <span
+                                    class="font-label-code-sm text-label-code-sm text-on-surface-variant">SPEC-v2.4</span>
+                            </div>
+                            <p
+                                class="font-body-md text-body-md text-on-surface-variant bg-surface-container-lowest/60 p-space-md rounded-lg">
+                                Recreate the provided webpage as accurately as possible using HTML, CSS, and JavaScript.
+                                Focus on matching the layout, spacing, typography, colors, and overall visual appearance
+                                of the target design.
+                            </p>
+                            <!-- Skills Focus Bento Grid -->
+                            <div class="flex flex-col gap-space-xs pt-space-xs">
+                                <span
+                                    class="font-label-ui text-label-ui text-on-surface-variant uppercase tracking-wider text-xs">Skills
+                                    Focus</span>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+                                    <div
+                                        class="p-space-sm bg-surface-container rounded-lg flex items-start gap-space-sm">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-lg mt-0.5">view_column</span>
+                                        <div>
+                                            <p class="font-label-ui text-label-ui text-on-surface font-semibold">Layout
+                                                &amp; Flexbox</p>
+                                            <p class="font-body-sm text-body-sm text-on-surface-variant">Multi-column
+                                                hero &amp; responsive flex grid hierarchy</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="p-space-sm bg-surface-container rounded-lg flex items-start gap-space-sm">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-lg mt-0.5">devices</span>
+                                        <div>
+                                            <p class="font-label-ui text-label-ui text-on-surface font-semibold">
+                                                Responsive Design</p>
+                                            <p class="font-body-sm text-body-sm text-on-surface-variant">Desktop
+                                                (1440px) down to mobile fluid breakpoints (375px)</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="p-space-sm bg-surface-container rounded-lg flex items-start gap-space-sm">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-lg mt-0.5">format_size</span>
+                                        <div>
+                                            <p class="font-label-ui text-label-ui text-on-surface font-semibold">
+                                                Typography</p>
+                                            <p class="font-body-sm text-body-sm text-on-surface-variant">Modern
+                                                sans-serif typography hierarchy, scale &amp; letter-spacing</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="p-space-sm bg-surface-container rounded-lg flex items-start gap-space-sm">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-lg mt-0.5">palette</span>
+                                        <div>
+                                            <p class="font-label-ui text-label-ui text-on-surface font-semibold">CSS
+                                                Styling</p>
+                                            <p class="font-body-sm text-body-sm text-on-surface-variant">Custom CSS
+                                                variables, directional gradients &amp; backdrop-filter</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Acceptance Criteria Checklist -->
+                            <div class="flex flex-col gap-space-xs pt-space-xs">
+                                <div class="flex items-center justify-between">
+                                    <span
+                                        class="font-label-ui text-label-ui text-on-surface-variant uppercase tracking-wider text-xs">Acceptance
+                                        Criteria</span>
+                                    <span class="font-label-code-sm text-label-code-sm text-primary">1 of 4 completed in
+                                        starter</span>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label
+                                        class="flex items-center gap-space-sm p-space-sm bg-surface-container-lowest/80 rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
+                                        <div
+                                            class="w-4 h-4 rounded bg-primary flex items-center justify-center text-on-primary shrink-0">
+                                            <span class="material-symbols-outlined text-xs font-bold">check</span>
+                                        </div>
+                                        <span
+                                            class="font-body-sm text-body-sm text-on-surface line-through opacity-70">Sticky
+                                            transparent navbar with dynamic blur backdrop</span>
+                                    </label>
+                                    <label
+                                        class="flex items-center gap-space-sm p-space-sm bg-surface-container-lowest/80 rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
+                                        <div class="w-4 h-4 rounded bg-surface-container-high shrink-0"></div>
+                                        <span class="font-body-sm text-body-sm text-on-surface">Hero section with dual
+                                            CTA buttons and glowing cyan gradient mesh</span>
+                                    </label>
+                                    <label
+                                        class="flex items-center gap-space-sm p-space-sm bg-surface-container-lowest/80 rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
+                                        <div class="w-4 h-4 rounded bg-surface-container-high shrink-0"></div>
+                                        <span class="font-body-sm text-body-sm text-on-surface">Interactive 3-tier
+                                            pricing card toggle (Monthly vs Annual billing discounts)</span>
+                                    </label>
+                                    <label
+                                        class="flex items-center gap-space-sm p-space-sm bg-surface-container-lowest/80 rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
+                                        <div class="w-4 h-4 rounded bg-surface-container-high shrink-0"></div>
+                                        <span class="font-body-sm text-body-sm text-on-surface">Semantic HTML5 structure
+                                            (<code class="text-tertiary font-label-code-sm">&lt;header&gt;</code>, <code
+                                                class="text-tertiary font-label-code-sm">&lt;main&gt;</code>, <code
+                                                class="text-tertiary font-label-code-sm">&lt;section&gt;</code>, <code
+                                                class="text-tertiary font-label-code-sm">&lt;footer&gt;</code>)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Target Design Mockup & Browser Frame Card -->
+                        <div
+                            class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">preview</span>
+                                    <h2 class="font-headline-sm text-headline-sm text-on-surface">Target Design Preview
+                                    </h2>
+                                </div>
+                                <!-- Inspection Tool toggles -->
+                                <div class="flex items-center gap-2">
+                                    <button
+                                        class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-code-sm text-label-code-sm flex items-center gap-1.5 transition-colors"
+                                        type="button">
+                                        <span class="material-symbols-outlined text-xs">zoom_in</span>
+                                        <span class="">Full Screen Inspect</span>
+                                    </button>
+                                    <button
+                                        class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-code-sm text-label-code-sm flex items-center gap-1.5 transition-colors"
+                                        type="button">
+                                        <span class="material-symbols-outlined text-xs">colorize</span>
+                                        <span class="">Color Palette</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Chrome Frame Container -->
+                            <div class="rounded-xl overflow-hidden bg-surface-container-lowest shadow-lg">
+                                <!-- Simulated Browser Header -->
+                                <div
+                                    class="bg-surface-container-high px-space-md py-2 flex items-center justify-between gap-space-md">
+                                    <div class="flex items-center gap-1.5">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-error/70"></div>
+                                        <div class="w-2.5 h-2.5 rounded-full bg-surface-bright"></div>
+                                        <div class="w-2.5 h-2.5 rounded-full bg-primary/70"></div>
+                                    </div>
+                                    <!-- Address Pill -->
+                                    <div
+                                        class="flex-1 max-w-sm mx-auto bg-surface-container-lowest/80 px-space-md py-0.5 rounded-full flex items-center justify-center gap-1.5 text-on-surface-variant font-label-code-sm text-label-code-sm">
+                                        <span class="material-symbols-outlined text-xs text-primary">lock</span>
+                                        <span class="truncate">preview.codecoach.io/targets/saas-modern-v2</span>
+                                    </div>
+                                    <div
+                                        class="font-label-code-sm text-label-code-sm px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant shrink-0">
+                                        1440 × 900
+                                    </div>
+                                </div>
+                                <!-- Target Webpage Mockup Preview -->
+                                <div
+                                    class="relative w-full h-80 overflow-hidden bg-surface flex flex-col justify-start">
+                                    <img class="w-full h-full object-cover object-top opacity-90 hover:opacity-100 transition-opacity"
+                                        data-alt="High-fidelity pixel-perfect modern SaaS landing page screenshot. Dark futuristic theme with deep slate charcoal background, sleek navigation bar, glowing cyan headline typography, high-converting call to action buttons, and responsive cards displaying cloud analytics metrics with electric blue subtle accents."
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC58DDso01VyJh2d5Nn2opodLH9fH8WczW6hPZcT2f4zsNxV_pRBhZcSAQ4D5QcYuP_EcGu6CrX0yT9Jk1QYvXTW8dj4rY8Jms-80JitawgiV-KL8W7emK2sukrRKmcxLfEuKvih39BivD7DZcK8bqqrTcHJ8yqTrUQg04ABbRytdgIllWb2VTndhojjIbnzPhDQW9Klgw_wl46YpZ5mvKf1hPcxPtp-tFp1qRRnjwG-rJPGUze39w">
+                                    <!-- Subtle HUD Overlay floating at bottom -->
+
+                                </div>
+                            </div>
+                            <!-- Extracted Design Tokens Panel -->
+                            <div class="p-space-md bg-surface-container rounded-lg flex flex-col gap-space-xs">
+                                <span
+                                    class="font-label-code-sm text-label-code-sm text-on-surface-variant uppercase tracking-wider">Target
+                                    Design Tokens</span>
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-3.5 h-3.5 rounded bg-[#0F172A] shadow-inner"></span>
+                                        <span class="font-label-code-sm text-label-code-sm text-on-surface">#0F172A
+                                            (Base)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-3.5 h-3.5 rounded bg-primary shadow-inner"></span>
+                                        <span class="font-label-code-sm text-label-code-sm text-on-surface">#06B6D4
+                                            (Accent)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-3.5 h-3.5 rounded bg-[#F8FAFC] shadow-inner"></span>
+                                        <span class="font-label-code-sm text-label-code-sm text-on-surface">#F8FAFC
+                                            (Text)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-xs text-on-surface-variant">font_download</span>
+                                        <span class="font-label-code-sm text-label-code-sm text-on-surface">Inter /
+                                            Jakarta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Column: Code Staging & Upload Workbench (5 cols) -->
+                    <div class="lg:col-span-5 flex flex-col gap-space-lg">
+                        <!-- Submission Workbench Card -->
+                        <div
+                            class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">upload_file</span>
+                                    <h2 class="font-headline-sm text-headline-sm text-on-surface">Submit Your Code</h2>
+                                </div>
+                                <span
+                                    class="px-2 py-0.5 rounded-full font-label-code-sm text-label-code-sm bg-primary/10 text-primary">Staging
+                                    Area</span>
+                            </div>
+                            <!-- Drag and Drop Upload Zone -->
+                            <div class="relative group p-space-xl rounded-xl bg-surface-container-lowest/60 hover:bg-surface-container-lowest transition-all cursor-pointer flex flex-col items-center justify-center text-center gap-space-sm"
+                                id="drop-zone">
+                                <div
+                                    class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                    <span class="material-symbols-outlined text-3xl">cloud_upload</span>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Drag
+                                        &amp; drop your code files here</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">or <span
+                                            class="text-primary underline decoration-primary/50 underline-offset-4">browse
+                                            your local directory</span></p>
+                                </div>
+                                <p
+                                    class="font-label-code-sm text-label-code-sm text-on-surface-variant opacity-80 pt-1">
+                                    Supported: HTML, CSS, JavaScript (Max 10MB total)
+                                </p>
+                                <div class="flex items-center gap-2 mt-2">
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-high font-label-code-sm text-label-code-sm text-on-surface-variant">index.html</span>
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-high font-label-code-sm text-label-code-sm text-on-surface-variant">style.css</span>
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-high font-label-code-sm text-label-code-sm text-on-surface-variant">script.js</span>
+                                </div>
+                            </div>
+                            <!-- Staged Uploaded Files Inventory -->
+                            <div class="flex flex-col gap-space-sm pt-space-xs">
+                                <div
+                                    class="flex items-center justify-between text-xs font-label-ui uppercase tracking-wider text-on-surface-variant">
+                                    <span class="">Staged Files (3/3)</span>
+                                    <span class="text-primary font-label-code-sm">Ready to evaluate</span>
+                                </div>
+                                <!-- File Item 1: HTML -->
+                                <div
+                                    class="p-space-sm bg-surface-container rounded-lg flex items-center justify-between group hover:bg-surface-container-high transition-colors">
+                                    <div class="flex items-center gap-space-sm min-w-0">
+                                        <div
+                                            class="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                                            <span class="material-symbols-outlined text-base">html</span>
+                                        </div>
+                                        <div class="flex flex-col min-w-0">
+                                            <span
+                                                class="font-label-code-md text-label-code-md text-on-surface truncate">index.html</span>
+                                            <span class="font-body-sm text-body-sm text-on-surface-variant">4.2 KB •
+                                                Validated HTML5</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span
+                                            class="font-label-code-sm text-label-code-sm text-primary flex items-center gap-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Ready
+                                        </span>
+                                        <button class="text-on-surface-variant hover:text-error transition-colors p-1"
+                                            title="Remove file" type="button">
+                                            <span class="material-symbols-outlined text-sm">delete</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- File Item 2: CSS -->
+                                <div
+                                    class="p-space-sm bg-surface-container rounded-lg flex items-center justify-between group hover:bg-surface-container-high transition-colors">
+                                    <div class="flex items-center gap-space-sm min-w-0">
+                                        <div
+                                            class="w-8 h-8 rounded bg-tertiary/10 text-tertiary flex items-center justify-center shrink-0">
+                                            <span class="material-symbols-outlined text-base">css</span>
+                                        </div>
+                                        <div class="flex flex-col min-w-0">
+                                            <span
+                                                class="font-label-code-md text-label-code-md text-on-surface truncate">style.css</span>
+                                            <span class="font-body-sm text-body-sm text-on-surface-variant">12.8 KB •
+                                                Custom CSS Rules</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span
+                                            class="font-label-code-sm text-label-code-sm text-primary flex items-center gap-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Ready
+                                        </span>
+                                        <button class="text-on-surface-variant hover:text-error transition-colors p-1"
+                                            title="Remove file" type="button">
+                                            <span class="material-symbols-outlined text-sm">delete</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- File Item 3: JS -->
+                                <div
+                                    class="p-space-sm bg-surface-container rounded-lg flex items-center justify-between group hover:bg-surface-container-high transition-colors">
+                                    <div class="flex items-center gap-space-sm min-w-0">
+                                        <div
+                                            class="w-8 h-8 rounded bg-secondary-fixed-dim/20 text-secondary-fixed flex items-center justify-center shrink-0">
+                                            <span class="material-symbols-outlined text-base">javascript</span>
+                                        </div>
+                                        <div class="flex flex-col min-w-0">
+                                            <span
+                                                class="font-label-code-md text-label-code-md text-on-surface truncate">script.js</span>
+                                            <span class="font-body-sm text-body-sm text-on-surface-variant">2.1 KB •
+                                                Pricing Switcher Logic</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span
+                                            class="font-label-code-sm text-label-code-sm text-primary flex items-center gap-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Ready
+                                        </span>
+                                        <button class="text-on-surface-variant hover:text-error transition-colors p-1"
+                                            title="Remove file" type="button">
+                                            <span class="material-symbols-outlined text-sm">delete</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Code Quality Pre-Check Strip -->
+                            <div
+                                class="p-space-sm bg-surface-container-lowest rounded-lg flex items-center gap-space-sm text-on-surface-variant font-label-code-sm text-label-code-sm">
+                                <span class="material-symbols-outlined text-primary text-base">verified</span>
+                                <span class="truncate">3/3 required files staged • Syntax check passed • Viewport tags
+                                    present</span>
+                            </div>
+                        </div>
+                        <!-- Submission Trigger & Evaluation Panel -->
+                        <div
+                            class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+                            <!-- Warning Notice -->
+                            <div
+                                class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-highest/60 text-on-surface-variant font-body-sm text-body-sm">
+                                <span class="material-symbols-outlined text-tertiary text-base mt-0.5">info</span>
+                                <p class="">Make sure all files are saved before submitting. Once submitted, CodeCoach
+                                    will run automated DOM tree parsing, headless snapshotting, and pixel-diff analysis.
+                                </p>
+                            </div>
+                            <!-- Primary CTA Button -->
+                            <button
+                                class="w-full py-space-md px-space-lg rounded-xl bg-primary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-space-sm shadow-[0_0_24px_rgba(6,182,212,0.35)] hover:shadow-[0_0_32px_rgba(6,182,212,0.5)] transition-all"
+                                id="submit-challenge-btn" type="button">
+                                <span class="">Submit Challenge</span>
+                                <span class="material-symbols-outlined font-bold text-xl">arrow_forward</span>
+                                <span
+                                    class="ml-auto font-label-code-sm text-label-code-sm bg-on-primary/20 text-on-primary px-2 py-0.5 rounded">⌘
+                                    + Enter</span>
+                            </button>
+                            <!-- Benchmarks & Guarantees -->
+                            <div class="flex flex-col gap-1 pt-1">
+                                <div
+                                    class="flex items-center justify-between font-label-code-sm text-label-code-sm text-on-surface-variant">
+                                    <span class="">Target Visual Match:</span>
+                                    <span class="text-on-surface font-semibold">≥80% Similarity</span>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between font-label-code-sm text-label-code-sm text-on-surface-variant">
+                                    <span class="">Estimated AI Grading Time:</span>
+                                    <span class="text-on-surface font-semibold">~15 seconds</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            (function () {
+                // Keyboard shortcut handler for challenge submission
+                document.addEventListener('keydown', function (e) {
+                    if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+                        e.preventDefault();
+                        const submitBtn = document.getElementById('submit-challenge-btn');
+                        if (submitBtn) {
+                            submitBtn.click();
+                        }
+                    }
+                });
+
+                // Simulated drag and drop visual feedback
+                const dropZone = document.getElementById('drop-zone');
+                if (dropZone) {
+                    ['dragenter', 'dragover'].forEach(name => {
+                        dropZone.addEventListener(name, function (e) {
+                            e.preventDefault();
+                            dropZone.classList.add('bg-surface-container');
+                        });
+                    });
+                    ['dragleave', 'drop'].forEach(name => {
+                        dropZone.addEventListener(name, function (e) {
+                            e.preventDefault();
+                            dropZone.classList.remove('bg-surface-container');
+                        });
+                    });
+                }
+
+                // Submit confirmation feedback
+                const submitBtn = document.getElementById('submit-challenge-btn');
+                if (submitBtn) {
+                    submitBtn.addEventListener('click', function () {
+                        submitBtn.innerHTML = `
+          <span class="w-4 h-4 rounded-full border-2 border-on-primary border-t-transparent animate-spin mr-2"></span>
+          <span>Analyzing Visual Similarity...</span>
+        `;
+                        submitBtn.disabled = true;
+                        setTimeout(function () {
+                            submitBtn.innerHTML = `
+            <span class="material-symbols-outlined text-xl">check_circle</span>
+            <span>Submission Queued for AI Diff</span>
+          `;
+                        }, 1200);
+                    });
+                }
+            })();
+        </script>
+    </main>
+    <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20 pt-space-xl pb-space-lg">
+        <div class="max-w-7xl mx-auto px-margin">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-gutter pb-space-xl border-b border-outline-variant/20">
+                <div class="md:col-span-2 flex flex-col gap-space-sm">
+                    <div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #06b6d4
+- Font: inter
+- Mode: dark
+- Roundness: rounded-md
+" class="h-7 w-auto object-contain"
+                            src="https://lh3.googleusercontent.com/aida/AEtjO1WR1DF1eJBVA9PN4Oos3yDdlaRZqIy-abz3F1LOtu4T31E4jvwQj-yFPWkUj3OfxOBmWJ14PfL7KeMSttDYTX7w6Fg92mfHYa34b8SXn2hLlTVoYgVHQuP9Fm-94o6JfviZY42AOcFjjfsyPi2vN36qM4Mw8BCNMbby8u_RwOer9WUJ1ATJV651msExJvm1A_R2no9FMQYYujh9HSF7_OvT7Q4phvAlX0-aPma3JkwtQfeJlHPNso6I-Q"><span
+                            class="font-headline-sm text-headline-sm text-on-surface">CodeCoach</span></div>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm mt-space-xs">Your AI-powered
+                        frontend development coach. Master modern architecture, responsive patterns, and developer
+                        velocity.</p>
+                </div>
+                <div class="flex flex-col gap-space-sm"><span
+                        class="font-label-ui text-label-ui text-on-surface uppercase tracking-wider">Platform</span>
+                    <ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+                        <li class=""><a class="hover:text-primary transition-colors" data-path="dashboard"
+                                href="#">Dashboard</a></li>
+                        <li class=""><a class="hover:text-primary transition-colors" data-path="challenges"
+                                href="#">Challenges</a></li>
+                        <li class=""><a class="hover:text-primary transition-colors" data-path="ai-tasks" href="#">AI
+                                Tasks</a></li>
+                        <li class=""><a class="hover:text-primary transition-colors" data-path="progress"
+                                href="#">Progress</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col gap-space-sm"><span
+                        class="font-label-ui text-label-ui text-on-surface uppercase tracking-wider">Resources</span>
+                    <ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+                        <li class=""><a class="hover:text-primary transition-colors" data-path="documentation"
+                                href="#">Documentation</a></li>
+                        <li class=""><a class="hover:text-primary transition-colors" data-path="github"
+                                href="#">GitHub</a></li>
+                        <li class=""><a class="hover:text-primary transition-colors" data-path="community"
+                                href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col gap-space-sm"><span
+                        class="font-label-ui text-label-ui text-on-surface uppercase tracking-wider">Account</span>
+                    <ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+                        <li class=""><a class="hover:text-primary transition-colors" data-path="profile"
+                                href="#">Profile</a></li>
+                        <li class=""><a class="hover:text-primary transition-colors" data-path="settings"
+                                href="#">Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-on-surface-variant">
+                <div class="flex items-center gap-space-lg flex-wrap"><span class="">© 2026 CodeCoach. All rights
+                        reserved.</span><a class="hover:text-on-surface transition-colors" data-path="privacy-policy"
+                        href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors"
+                        data-path="terms-of-service" href="#">Terms of Service</a></div>
+                <div
+                    class="flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container-high/60 border border-outline-variant/30 font-label-code-sm text-label-code-sm text-on-surface-variant">
+                    <span class="w-2 h-2 rounded-full bg-primary"></span><span class="">Status: All Systems
+                        Operational</span></div>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
