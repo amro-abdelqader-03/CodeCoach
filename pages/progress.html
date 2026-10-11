@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="web_standard" name="shell-type">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/progress.css" rel="stylesheet">
+</head>
+
+<body class="progress-page">
+    <header
+        class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]">
+        <div class="h-16 max-w-7xl mx-auto px-margin flex items-center justify-between gap-gutter">
+            <div class="flex items-center gap-space-md"><img alt="Brand logo" class="h-8 w-auto object-contain"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQPVzuTu-h6pJ03hksQGDtDqvWtySk60Af3sGyTAZo-e_Fp9dj9K52dThfNYO91TPMhyhu8ldqhigZKQ6g81Q87bJyfSPfyAq6QGtgGD3FJLoiw-ehlyc94TSHfdkFPgFCXSfbjlwXYASwGeWQAFXOnlrOLtJqqbPTOW8YqSk-bL8aghRXLaOPm6pDQ6YEbU5LXd-t41-T5mrzAvMQpESumJCceoBMZLfiFy-2XpGafpZQh_K1sOw"><span
+                    class="font-headline-sm text-headline-sm tracking-tight text-on-surface">CodeCoach</span><span
+                    class="px-space-sm py-0.5 rounded-full font-label-code-sm text-label-code-sm bg-primary/10 text-primary">AI
+                    Beta</span></div>
+            <nav class="hidden md:flex items-center p-1 rounded-full bg-surface-container-low/90"
+                data-active-classes="bg-surface-container-high text-primary font-semibold rounded-full shadow-[0_0_12px_rgba(6,182,212,0.35),inset_0_1px_0_0_rgba(255,255,255,0.15)]">
+                <a class="px-space-md py-1.5 rounded-full font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="dashboard" href="#">Home</a><a
+                    class="px-space-md py-1.5 rounded-full font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="challenges" href="#">Challenges</a><a
+                    class="px-space-md py-1.5 rounded-full font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="ai-tasks" href="#">AI Tasks</a><a
+                    class="px-space-md py-1.5 rounded-full font-label-ui text-label-ui bg-surface-container-high text-primary font-semibold shadow-[0_0_12px_rgba(6,182,212,0.35),inset_0_1px_0_0_rgba(255,255,255,0.15)]"
+                    data-path="progress" href="#">Progress</a></nav>
+            <div class="flex items-center gap-space-md">
+                <div class="relative flex items-center">
+                    <div
+                        class="relative cursor-pointer p-0.5 rounded-full bg-gradient-to-tr from-primary to-surface-variant">
+                        <img alt="Developer profile avatar" class="w-8 h-8 rounded-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkQbW_a8M3vHUznjjgJltkQkaCtSGeBiNnvOaQ1rAHk9ywapyboPsNydO_T9ghjIQrlETGdCVgodBjgpLWjrANO-7SJXuKiHmai-UzXHundmEfCxf9Pz7ax88CGbpZCFgNFbGov3mhUD8oN5pHKDwr2NXMr9AqIovOf7qmQINvMnti-jM6vrVntfZh9Icqqp7MWSDNMeJnzoqG0zA-moFReXWPAD29ObQcGokDP0UDn7JxWkj_VsU"><span
+                            class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
+                    </div><button aria-label="Account menu"
+                        class="text-on-surface-variant hover:text-on-surface transition-colors ml-1" type="button"><span
+                            class="material-symbols-outlined text-[18px]">expand_more</span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="w-full pt-16 bg-surface">
+        <div class="flex flex-col w-full">
+            <!-- Subtle Ambient Glow Canvas Backdrop -->
+            <div class="relative w-full max-w-7xl mx-auto px-margin-mobile md:px-margin pb-space-xl">
+                <!-- Top Decorative Gradient Blurs (Parent contained) -->
+                <div
+                    class="absolute top-0 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-[140px] pointer-events-none -z-10">
+                </div>
+                <div
+                    class="absolute top-48 right-10 w-80 h-80 bg-secondary-container/10 rounded-full blur-[120px] pointer-events-none -z-10">
+                </div>
+                <!-- 1. PAGE HEADER -->
+                <section class="pt-8 pb-10 flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+                    <div class="flex flex-col gap-space-xs">
+                        <div class="flex items-center gap-space-sm mb-1">
+                            <span
+                                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-code-sm text-label-code-sm">
+                                <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                Developer Growth Telemetry • Active Cohort
+                            </span>
+                            <span class="hidden sm:inline-block font-label-code-sm text-label-code-sm text-outline">Tier
+                                1 Elite</span>
+                        </div>
+                        <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Your Progress</h1>
+                        <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                            Track your challenge performance and see how your frontend skills are improving over time
+                            with automated visual diff evaluation.
+                        </p>
+                    </div>
+                    <!-- Quick Session Indicator -->
+                    <div
+                        class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl bg-surface-container-low shadow-sm">
+                        <span class="material-symbols-outlined text-primary text-xl"
+                            style="font-variation-settings: 'FILL' 1;">insights</span>
+                        <div class="flex flex-col">
+                            <span class="font-label-code-sm text-label-code-sm text-on-surface-variant">CURRENT
+                                VELOCITY</span>
+                            <span class="font-label-ui text-label-ui text-on-surface font-semibold">4.8 builds /
+                                week</span>
+                        </div>
+                    </div>
+                </section>
+                <!-- 2. PROGRESS OVERVIEW (3 Prominent Cards) -->
+                <section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-space-xl">
+                    <!-- Card 1: Completed -->
+                    <div
+                        class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-lg shadow-md transition-all duration-300 hover:shadow-xl hover:translate-y-[-2px]">
+                        <div
+                            class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent">
+                        </div>
+                        <div class="flex items-start justify-between mb-space-md">
+                            <span
+                                class="font-label-ui text-label-ui text-on-surface-variant uppercase tracking-wider">Challenges
+                                Completed</span>
+                            <div
+                                class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary shadow-sm">
+                                <span class="material-symbols-outlined text-xl"
+                                    style="font-variation-settings: 'FILL' 1;">verified</span>
+                            </div>
+                        </div>
+                        <div class="flex items-baseline gap-space-sm mb-space-xs">
+                            <span
+                                class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">24</span>
+                            <span
+                                class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-code-sm text-label-code-sm">
+                                <span class="material-symbols-outlined text-sm">trending_up</span>
+                                +12% this month
+                            </span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">4 completed this week •
+                            High consistency</p>
+                        <!-- Velocity Micro-bar -->
+                        <div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-primary-container to-primary h-full rounded-full"
+                                style="width: 78%"></div>
+                        </div>
+                    </div>
+                    <!-- Card 2: Average Score -->
+                    <div
+                        class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-lg shadow-md transition-all duration-300 hover:shadow-xl hover:translate-y-[-2px]">
+                        <div
+                            class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-secondary/40 to-transparent">
+                        </div>
+                        <div class="flex items-start justify-between mb-space-md">
+                            <span
+                                class="font-label-ui text-label-ui text-on-surface-variant uppercase tracking-wider">Average
+                                Score</span>
+                            <div
+                                class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary shadow-sm">
+                                <span class="material-symbols-outlined text-xl"
+                                    style="font-variation-settings: 'FILL' 1;">target</span>
+                            </div>
+                        </div>
+                        <div class="flex items-baseline gap-space-sm mb-space-xs">
+                            <span
+                                class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">87%</span>
+                            <span
+                                class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-code-sm text-label-code-sm">
+                                <span class="material-symbols-outlined text-sm">trending_up</span>
+                                +5.4% vs last cohort
+                            </span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Consistently above
+                            passing threshold (80%)</p>
+                        <div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-secondary-container to-secondary h-full rounded-full"
+                                style="width: 87%"></div>
+                        </div>
+                    </div>
+                    <!-- Card 3: Best Score -->
+                    <div
+                        class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-lg shadow-md transition-all duration-300 hover:shadow-xl hover:translate-y-[-2px]">
+                        <div
+                            class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-tertiary/40 to-transparent">
+                        </div>
+                        <div class="flex items-start justify-between mb-space-md">
+                            <span
+                                class="font-label-ui text-label-ui text-on-surface-variant uppercase tracking-wider">Best
+                                Score</span>
+                            <div
+                                class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-tertiary shadow-sm">
+                                <span class="material-symbols-outlined text-xl"
+                                    style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+                            </div>
+                        </div>
+                        <div class="flex items-baseline gap-space-sm mb-space-xs">
+                            <span
+                                class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">96%</span>
+                            <span
+                                class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-code-sm text-label-code-sm">
+                                <span class="material-symbols-outlined text-sm">workspace_premium</span>
+                                Top 4% platform-wide
+                            </span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md truncate"
+                            title="Interactive SaaS Bento Grid">Achieved on 'Interactive SaaS Bento Grid'</p>
+                        <div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-tertiary-container to-tertiary h-full rounded-full"
+                                style="width: 96%"></div>
+                        </div>
+                    </div>
+                </section>
+                <!-- 3. PERFORMANCE OVER TIME (Large Main Chart Card) -->
+                <section
+                    class="rounded-xl bg-surface-container-low p-space-lg md:p-space-xl shadow-lg mb-space-xl relative overflow-hidden">
+                    <!-- Top edge glow accent -->
+                    <div
+                        class="absolute top-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent">
+                    </div>
+                    <!-- Chart Header with Segmented Filter -->
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-space-xl">
+                        <div>
+                            <div class="flex items-center gap-space-sm">
+                                <h2 class="font-headline-md text-headline-md text-on-surface">Performance Over Time</h2>
+                                <span
+                                    class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-code-sm text-label-code-sm">Pixel
+                                    Similarity &amp; AST</span>
+                            </div>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                                Visual similarity and code accuracy progression across completed builds.
+                            </p>
+                        </div>
+                        <!-- Filter Segmented Control -->
+                        <div
+                            class="inline-flex items-center p-1 rounded-lg bg-surface-container self-start lg:self-auto">
+                            <button
+                                class="px-3 py-1.5 rounded-md font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
+                                type="button">
+                                7 Days
+                            </button>
+                            <button
+                                class="px-3.5 py-1.5 rounded-md font-label-ui text-label-ui bg-surface-container-high text-primary font-semibold shadow-sm transition-all"
+                                type="button">
+                                30 Days
+                            </button>
+                            <button
+                                class="px-3 py-1.5 rounded-md font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
+                                type="button">
+                                3 Months
+                            </button>
+                            <button
+                                class="px-3 py-1.5 rounded-md font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
+                                type="button">
+                                All Time
+                            </button>
+                        </div>
+                    </div>
+                    <!-- SVG Chart Canvas Area -->
+                    <div class="w-full overflow-x-auto pb-space-sm">
+                        <div class="min-w-[680px] h-[340px] relative select-none">
+                            <!-- Benchmark Line Label -->
+                            <div
+                                class="absolute right-4 top-[148px] z-10 flex items-center gap-1.5 bg-surface-container-high/90 px-2 py-0.5 rounded text-secondary font-label-code-sm text-label-code-sm shadow">
+                                <span class="w-2 h-0.5 bg-secondary inline-block"></span>
+                                Passing Threshold (80%)
+                            </div>
+                            <svg class="w-full h-full overflow-visible" fill="none" viewBox="0 0 760 300"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <!-- Area Fill Gradient -->
+                                    <linearGradient id="cyanFill" x1="0" x2="0" y1="0" y2="1">
+                                        <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.32"></stop>
+                                        <stop offset="65%" stop-color="#06b6d4" stop-opacity="0.08"></stop>
+                                        <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.00"></stop>
+                                    </linearGradient>
+                                    <!-- Radial glow filter for points -->
+                                    <filter height="140%" id="pointGlow" width="140%" x="-20%" y="-20%">
+                                        <feGaussianBlur result="blur" stdDeviation="3"></feGaussianBlur>
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over"></feComposite>
+                                    </filter>
+                                </defs>
+                                <!-- Y Axis Grid Horizontal Lines (60%, 70%, 80%, 90%, 100%) -->
+                                <!-- 100% -> y=30 -->
+                                <line opacity="0.45" stroke="#31353e" stroke-dasharray="3 3" x1="60" x2="740" y1="30"
+                                    y2="30"></line>
+                                <text fill="#869397" font-family="JetBrains Mono" font-size="11" text-anchor="end"
+                                    x="45" y="34">100%</text>
+                                <!-- 90% -> y=90 -->
+                                <line opacity="0.45" stroke="#31353e" stroke-dasharray="3 3" x1="60" x2="740" y1="90"
+                                    y2="90"></line>
+                                <text fill="#869397" font-family="JetBrains Mono" font-size="11" text-anchor="end"
+                                    x="45" y="94">90%</text>
+                                <!-- 80% Passing Benchmark -> y=150 -->
+                                <line opacity="0.7" stroke="#adc6ff" stroke-dasharray="5 5" stroke-width="1.5" x1="60"
+                                    x2="740" y1="150" y2="150"></line>
+                                <text fill="#adc6ff" font-family="JetBrains Mono" font-size="11" font-weight="600"
+                                    text-anchor="end" x="45" y="154">80%</text>
+                                <!-- 70% -> y=210 -->
+                                <line opacity="0.45" stroke="#31353e" stroke-dasharray="3 3" x1="60" x2="740" y1="210"
+                                    y2="210"></line>
+                                <text fill="#869397" font-family="JetBrains Mono" font-size="11" text-anchor="end"
+                                    x="45" y="214">70%</text>
+                                <!-- 60% -> y=270 -->
+                                <line opacity="0.45" stroke="#31353e" stroke-dasharray="3 3" x1="60" x2="740" y1="270"
+                                    y2="270"></line>
+                                <text fill="#869397" font-family="JetBrains Mono" font-size="11" text-anchor="end"
+                                    x="45" y="274">60%</text>
+                                <!-- Area polygon under line -->
+                                <!-- Points: 
+                 Build #18 (x=80, y=198 -> 72%)
+                 Build #19 (x=180, y=174 -> 76%)
+                 Build #20 (x=280, y=144 -> 81%)
+                 Build #21 (x=380, y=162 -> 78%)
+                 Build #22 (x=480, y=120 -> 85%)
+                 Build #23 (x=580, y=96  -> 89%)
+                 Build #24 (x=680, y=108 -> 87%)
+            -->
+                                <path d="M 80 198 
+                     C 130 188, 140 178, 180 174 
+                     C 220 170, 240 148, 280 144 
+                     C 320 140, 340 160, 380 162 
+                     C 420 164, 440 125, 480 120 
+                     C 520 115, 540 98,  580 96 
+                     C 620 94,  640 106, 680 108 
+                     L 680 270 
+                     L 80 270 Z" fill="url(#cyanFill)"></path>
+                                <!-- Main Glowing Line -->
+                                <path d="M 80 198 
+                     C 130 188, 140 178, 180 174 
+                     C 220 170, 240 148, 280 144 
+                     C 320 140, 340 160, 380 162 
+                     C 420 164, 440 125, 480 120 
+                     C 520 115, 540 98,  580 96 
+                     C 620 94,  640 106, 680 108" fill="none" stroke="#06b6d4" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="3.5"></path>
+                                <!-- Interactive / Visible Data Nodes -->
+                                <!-- 1: 72% -->
+                                <circle cx="80" cy="198" fill="#0f131c" r="4.5" stroke="#06b6d4" stroke-width="2.5">
+                                </circle>
+                                <text fill="#bcc9cd" font-family="JetBrains Mono" font-size="10" text-anchor="middle"
+                                    x="80" y="185">72%</text>
+                                <!-- 2: 76% -->
+                                <circle cx="180" cy="174" fill="#0f131c" r="4.5" stroke="#06b6d4" stroke-width="2.5">
+                                </circle>
+                                <text fill="#bcc9cd" font-family="JetBrains Mono" font-size="10" text-anchor="middle"
+                                    x="180" y="161">76%</text>
+                                <!-- 3: 81% -->
+                                <circle cx="280" cy="144" fill="#0f131c" r="4.5" stroke="#06b6d4" stroke-width="2.5">
+                                </circle>
+                                <text fill="#bcc9cd" font-family="JetBrains Mono" font-size="10" text-anchor="middle"
+                                    x="280" y="131">81%</text>
+                                <!-- 4: 78% -->
+                                <circle cx="380" cy="162" fill="#0f131c" r="4.5" stroke="#06b6d4" stroke-width="2.5">
+                                </circle>
+                                <text fill="#bcc9cd" font-family="JetBrains Mono" font-size="10" text-anchor="middle"
+                                    x="380" y="149">78%</text>
+                                <!-- 5: 85% -->
+                                <circle cx="480" cy="120" fill="#0f131c" r="4.5" stroke="#06b6d4" stroke-width="2.5">
+                                </circle>
+                                <text fill="#bcc9cd" font-family="JetBrains Mono" font-size="10" text-anchor="middle"
+                                    x="480" y="107">85%</text>
+                                <!-- 6: 89% Peak in Series -->
+                                <circle cx="580" cy="96" fill="#4cd7f6" filter="url(#pointGlow)" r="6"></circle>
+                                <circle cx="580" cy="96" fill="#001f26" r="3.5"></circle>
+                                <text fill="#4cd7f6" font-family="JetBrains Mono" font-size="11" font-weight="600"
+                                    text-anchor="middle" x="580" y="80">89% Peak</text>
+                                <!-- 7: 87% (Latest) -->
+                                <circle cx="680" cy="108" fill="#06b6d4" r="6" stroke="#ffffff" stroke-width="2">
+                                </circle>
+                                <text fill="#ffffff" font-family="JetBrains Mono" font-size="11" font-weight="600"
+                                    text-anchor="middle" x="680" y="93">87%</text>
+                                <!-- X Axis Labels -->
+                                <text fill="#869397" font-family="JetBrains Mono" font-size="11" text-anchor="middle"
+                                    x="80" y="292">Build #18</text>
+                                <text fill="#869397" font-family="JetBrains Mono" font-size="11" text-anchor="middle"
+                                    x="180" y="292">Build #19</text>
+                                <text fill="#869397" font-family="JetBrains Mono" font-size="11" text-anchor="middle"
+                                    x="280" y="292">Build #20</text>
+                                <text fill="#869397" font-family="JetBrains Mono" font-size="11" text-anchor="middle"
+                                    x="380" y="292">Build #21</text>
+                                <text fill="#869397" font-family="JetBrains Mono" font-size="11" text-anchor="middle"
+                                    x="480" y="292">Build #22</text>
+                                <text fill="#869397" font-family="JetBrains Mono" font-size="11" text-anchor="middle"
+                                    x="580" y="292">Build #23</text>
+                                <text fill="#4cd7f6" font-family="JetBrains Mono" font-size="11" font-weight="600"
+                                    text-anchor="middle" x="680" y="292">Build #24 (Latest)</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Chart Metadata Sub-footer -->
+                    <div
+                        class="mt-space-md pt-space-md flex flex-wrap items-center justify-between gap-space-sm bg-surface-container/40 p-space-md rounded-lg">
+                        <div class="flex items-center gap-space-lg">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-primary-container"></span>
+                                <span class="font-body-sm text-body-sm text-on-surface-variant">Visual Match
+                                    Curve</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3.5 h-0.5 bg-secondary inline-block"></span>
+                                <span class="font-body-sm text-body-sm text-on-surface-variant">Cohort Target Benchmark
+                                    (80%)</span>
+                            </div>
+                        </div>
+                        <div class="font-label-code-sm text-label-code-sm text-primary flex items-center gap-1">
+                            <span class="material-symbols-outlined text-base">check_circle</span>
+                            Trendline: +15.0% Net Growth over 7 builds
+                        </div>
+                    </div>
+                </section>
+                <!-- 4. RECENT CHALLENGES (High Fidelity Table & List) -->
+                <section class="rounded-xl bg-surface-container-low shadow-lg overflow-hidden">
+                    <!-- Table Header -->
+                    <div
+                        class="p-space-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-md bg-surface-container/60">
+                        <div>
+                            <h2 class="font-headline-md text-headline-md text-on-surface">Recent Challenges</h2>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant">Detailed log of practical
+                                builds and AI visual evaluations</p>
+                        </div>
+                        <a class="inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-surface-container-high text-primary hover:text-on-primary hover:bg-primary-container transition-all font-label-ui text-label-ui self-start sm:self-auto shadow-sm"
+                            href="#">
+                            <span class="">View All Challenges</span>
+                            <span class="material-symbols-outlined text-base">arrow_forward</span>
+                        </a>
+                    </div>
+                    <!-- Challenges List Table -->
+                    <div class="w-full overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr
+                                    class="bg-surface-container-lowest/80 text-outline font-label-code-sm text-label-code-sm">
+                                    <th class="py-3 px-space-lg">CHALLENGE</th>
+                                    <th class="py-3 px-space-md">DIFFICULTY</th>
+                                    <th class="py-3 px-space-md">COMPLETED</th>
+                                    <th class="py-3 px-space-md">SIMILARITY SCORE</th>
+                                    <th class="py-3 px-space-md">STATUS</th>
+                                    <th class="py-3 px-space-lg text-right">ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y-0">
+                                <!-- Row 1: SaaS Landing Page -->
+                                <tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+                                    <td class="py-4 px-space-lg">
+                                        <div class="flex items-center gap-space-md">
+                                            <div
+                                                class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+                                                <span class="material-symbols-outlined text-xl">web</span>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <span
+                                                    class="font-label-ui text-label-ui text-on-surface font-semibold group-hover:text-primary transition-colors">SaaS
+                                                    Landing Page</span>
+                                                <span
+                                                    class="font-label-code-sm text-label-code-sm text-on-surface-variant">Marketing
+                                                    • Responsive Grid</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <span
+                                            class="inline-flex items-center px-2 py-0.5 rounded font-label-code-sm text-label-code-sm bg-surface-container-highest text-secondary">
+                                            Intermediate
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-space-md font-body-sm text-body-sm text-on-surface-variant">
+                                        Oct 24, 2026
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <div class="flex items-center gap-2">
+                                            <span
+                                                class="px-2.5 py-1 rounded-full font-label-code-sm text-label-code-sm font-semibold bg-primary/10 text-primary">
+                                                91% Match
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <span
+                                            class="inline-flex items-center gap-1 font-label-ui text-label-ui text-primary font-medium">
+                                            <span class="material-symbols-outlined text-base">check_circle</span>
+                                            Completed
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-space-lg text-right">
+                                        <a class="inline-flex items-center gap-1 font-label-ui text-label-ui text-primary hover:text-on-surface transition-colors"
+                                            href="#">
+                                            View Diff
+                                            <span class="material-symbols-outlined text-sm">open_in_new</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!-- Row 2: Responsive Portfolio -->
+                                <tr
+                                    class="bg-surface-container-low/60 hover:bg-surface-container transition-colors group">
+                                    <td class="py-4 px-space-lg">
+                                        <div class="flex items-center gap-space-md">
+                                            <div
+                                                class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+                                                <span class="material-symbols-outlined text-xl">devices</span>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <span
+                                                    class="font-label-ui text-label-ui text-on-surface font-semibold group-hover:text-primary transition-colors">Responsive
+                                                    Portfolio</span>
+                                                <span
+                                                    class="font-label-code-sm text-label-code-sm text-on-surface-variant">Personal
+                                                    Site • CSS Grid</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <span
+                                            class="inline-flex items-center px-2 py-0.5 rounded font-label-code-sm text-label-code-sm bg-surface-container-highest text-on-surface-variant">
+                                            Beginner
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-space-md font-body-sm text-body-sm text-on-surface-variant">
+                                        Oct 22, 2026
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <div class="flex items-center gap-2">
+                                            <span
+                                                class="px-2.5 py-1 rounded-full font-label-code-sm text-label-code-sm font-semibold bg-primary/10 text-primary">
+                                                87% Match
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <span
+                                            class="inline-flex items-center gap-1 font-label-ui text-label-ui text-primary font-medium">
+                                            <span class="material-symbols-outlined text-base">check_circle</span>
+                                            Completed
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-space-lg text-right">
+                                        <a class="inline-flex items-center gap-1 font-label-ui text-label-ui text-primary hover:text-on-surface transition-colors"
+                                            href="#">
+                                            View Diff
+                                            <span class="material-symbols-outlined text-sm">open_in_new</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!-- Row 3: E-Commerce Page -->
+                                <tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+                                    <td class="py-4 px-space-lg">
+                                        <div class="flex items-center gap-space-md">
+                                            <div
+                                                class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+                                                <span class="material-symbols-outlined text-xl">shopping_bag</span>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <span
+                                                    class="font-label-ui text-label-ui text-on-surface font-semibold group-hover:text-primary transition-colors">E-Commerce
+                                                    Page</span>
+                                                <span
+                                                    class="font-label-code-sm text-label-code-sm text-on-surface-variant">Checkout
+                                                    • Dynamic State</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <span
+                                            class="inline-flex items-center px-2 py-0.5 rounded font-label-code-sm text-label-code-sm bg-surface-container-highest text-secondary">
+                                            Intermediate
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-space-md font-body-sm text-body-sm text-on-surface-variant">
+                                        Oct 19, 2026
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <div class="flex items-center gap-2">
+                                            <span
+                                                class="px-2.5 py-1 rounded-full font-label-code-sm text-label-code-sm font-semibold bg-secondary/10 text-secondary">
+                                                82% Match
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <span
+                                            class="inline-flex items-center gap-1 font-label-ui text-label-ui text-primary font-medium">
+                                            <span class="material-symbols-outlined text-base">check_circle</span>
+                                            Completed
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-space-lg text-right">
+                                        <a class="inline-flex items-center gap-1 font-label-ui text-label-ui text-primary hover:text-on-surface transition-colors"
+                                            href="#">
+                                            View Diff
+                                            <span class="material-symbols-outlined text-sm">open_in_new</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!-- Row 4: Dashboard UI -->
+                                <tr
+                                    class="bg-surface-container-low/60 hover:bg-surface-container transition-colors group">
+                                    <td class="py-4 px-space-lg">
+                                        <div class="flex items-center gap-space-md">
+                                            <div
+                                                class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-outline group-hover:scale-105 transition-transform">
+                                                <span
+                                                    class="material-symbols-outlined text-xl">dashboard_customize</span>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <span
+                                                    class="font-label-ui text-label-ui text-on-surface font-semibold group-hover:text-primary transition-colors">Dashboard
+                                                    UI</span>
+                                                <span
+                                                    class="font-label-code-sm text-label-code-sm text-on-surface-variant">Analytics
+                                                    • Complex Charts</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <span
+                                            class="inline-flex items-center px-2 py-0.5 rounded font-label-code-sm text-label-code-sm bg-tertiary-container/20 text-tertiary">
+                                            Advanced
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-space-md font-body-sm text-body-sm text-on-surface-variant">
+                                        Oct 15, 2026
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <div class="flex items-center gap-2">
+                                            <span
+                                                class="px-2.5 py-1 rounded-full font-label-code-sm text-label-code-sm font-semibold bg-surface-container-highest text-on-surface-variant">
+                                                76% Match
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <span
+                                            class="inline-flex items-center gap-1 font-label-ui text-label-ui text-outline font-medium">
+                                            <span class="material-symbols-outlined text-base">timelapse</span>
+                                            Needs Polish
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-space-lg text-right">
+                                        <a class="inline-flex items-center gap-1 font-label-ui text-label-ui text-secondary hover:text-on-surface transition-colors"
+                                            href="#">
+                                            Retry
+                                            <span class="material-symbols-outlined text-sm">refresh</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!-- Row 5: Interactive Pricing Table (Best Score) -->
+                                <tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+                                    <td class="py-4 px-space-lg">
+                                        <div class="flex items-center gap-space-md">
+                                            <div
+                                                class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary group-hover:scale-105 transition-transform">
+                                                <span class="material-symbols-outlined text-xl">payments</span>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <div class="flex items-center gap-2">
+                                                    <span
+                                                        class="font-label-ui text-label-ui text-on-surface font-semibold group-hover:text-primary transition-colors">Interactive
+                                                        Pricing Table</span>
+                                                    <span
+                                                        class="px-2 py-0.2 rounded font-label-code-sm text-label-code-sm bg-tertiary/20 text-tertiary">Best
+                                                        Score</span>
+                                                </div>
+                                                <span
+                                                    class="font-label-code-sm text-label-code-sm text-on-surface-variant">Components
+                                                    • Flexbox &amp; Tokens</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <span
+                                            class="inline-flex items-center px-2 py-0.5 rounded font-label-code-sm text-label-code-sm bg-surface-container-highest text-on-surface-variant">
+                                            Beginner
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-space-md font-body-sm text-body-sm text-on-surface-variant">
+                                        Oct 11, 2026
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <div class="flex items-center gap-2">
+                                            <span
+                                                class="px-2.5 py-1 rounded-full font-label-code-sm text-label-code-sm font-semibold bg-tertiary/15 text-tertiary">
+                                                96% Match
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-space-md">
+                                        <span
+                                            class="inline-flex items-center gap-1 font-label-ui text-label-ui text-primary font-medium">
+                                            <span class="material-symbols-outlined text-base">check_circle</span>
+                                            Completed
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-space-lg text-right">
+                                        <a class="inline-flex items-center gap-1 font-label-ui text-label-ui text-primary hover:text-on-surface transition-colors"
+                                            href="#">
+                                            View Diff
+                                            <span class="material-symbols-outlined text-sm">open_in_new</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Pagination / Summary Footer -->
+                    <div
+                        class="p-space-md md:px-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md bg-surface-container/40">
+                        <span class="font-body-sm text-body-sm text-on-surface-variant">
+                            Showing <span class="text-on-surface font-semibold">5</span> of <span
+                                class="text-on-surface font-semibold">24</span> completed challenges
+                        </span>
+                        <div class="flex items-center gap-space-md">
+                            <a class="font-label-ui text-label-ui text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1"
+                                href="#">
+                                Browse All Challenges
+                                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <script>
+            // Dynamic header state sync for App Shell navigation
+            document.addEventListener("DOMContentLoaded", () => {
+                const navLinks = document.querySelectorAll("header nav a");
+                navLinks.forEach(link => {
+                    if (link.getAttribute("data-path") === "progress") {
+                        link.className = "px-space-md py-1.5 rounded-full font-label-ui text-label-ui bg-surface-container-high text-primary font-semibold shadow-[0_0_12px_rgba(6,182,212,0.35),inset_0_1px_0_0_rgba(255,255,255,0.15)]";
+                    } else {
+                        link.className = "px-space-md py-1.5 rounded-full font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors";
+                    }
+                });
+            });
+        </script>
+    </main>
+    <footer class="w-full bg-surface-container-lowest mt-space-xl">
+        <div class="max-w-7xl mx-auto px-margin pt-space-xl pb-space-lg">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg mb-space-xl">
+                <div class="md:col-span-5 flex flex-col gap-space-sm">
+                    <div class="flex items-center gap-space-sm"><img alt="Brand logo" class="h-7 w-auto object-contain"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk1dy2jaF5_FWnPfiIg_rQRDdtVCSATcYTh7RaoSTwGlaqfo2f6m7ZoeMEyoz5xaiSpxPXae33WhR0SiugvVPJa9cLDrOh3eZ5tGBDbJmDS9cDs8EZV4RX09RLvhcsuI4O0H-wxdk9hs3hh4JYOK2jOIzclT7rBjfaMPRigff2M93SCEO7iSCZFIQwJzpbxGaMTiXHaHEFoyYnmDQtcDsrrwO3bexm0dRmbRsmvhh-25vWkMz1UTk"><span
+                            class="font-headline-sm text-headline-sm text-on-surface tracking-tight">CodeCoach</span>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Your AI-powered frontend
+                        development coach. Master modern architecture, responsive patterns, and developer velocity.</p>
+                </div>
+                <div class="md:col-span-7 grid grid-cols-3 gap-gutter">
+                    <div class="flex flex-col gap-space-sm"><span
+                            class="font-label-ui text-label-ui uppercase tracking-wider text-on-surface">Platform</span>
+                        <ul class="flex flex-col gap-space-xs">
+                            <li class="font-body-sm text-body-sm"><a
+                                    class="text-on-surface-variant hover:text-on-surface transition-colors"
+                                    data-path="dashboard" href="#">Dashboard</a></li>
+                            <li class="font-body-sm text-body-sm"><a
+                                    class="text-on-surface-variant hover:text-on-surface transition-colors"
+                                    data-path="challenges" href="#">Challenges</a></li>
+                            <li class="font-body-sm text-body-sm"><a
+                                    class="text-on-surface-variant hover:text-on-surface transition-colors"
+                                    data-path="ai-tasks" href="#">AI Tasks</a></li>
+                            <li class="font-body-sm text-body-sm"><a
+                                    class="text-on-surface-variant hover:text-on-surface transition-colors"
+                                    data-path="progress" href="#">Progress</a></li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col gap-space-sm"><span
+                            class="font-label-ui text-label-ui uppercase tracking-wider text-on-surface">Resources</span>
+                        <ul class="flex flex-col gap-space-xs">
+                            <li class="font-body-sm text-body-sm"><a
+                                    class="text-on-surface-variant hover:text-on-surface transition-colors"
+                                    data-path="documentation" href="#">Documentation</a></li>
+                            <li class="font-body-sm text-body-sm"><a
+                                    class="text-on-surface-variant hover:text-on-surface transition-colors"
+                                    data-path="github" href="#">GitHub</a></li>
+                            <li class="font-body-sm text-body-sm"><a
+                                    class="text-on-surface-variant hover:text-on-surface transition-colors"
+                                    data-path="community" href="#">Community</a></li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col gap-space-sm"><span
+                            class="font-label-ui text-label-ui uppercase tracking-wider text-on-surface">Account</span>
+                        <ul class="flex flex-col gap-space-xs">
+                            <li class="font-body-sm text-body-sm"><a
+                                    class="text-on-surface-variant hover:text-on-surface transition-colors"
+                                    data-path="profile" href="#">Profile</a></li>
+                            <li class="font-body-sm text-body-sm"><a
+                                    class="text-on-surface-variant hover:text-on-surface transition-colors"
+                                    data-path="settings" href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md">
+                <div class="flex flex-wrap items-center gap-space-md font-body-sm text-body-sm text-on-surface-variant">
+                    <span class="">Copyright © 2026 CodeCoach. All rights reserved.</span><a
+                        class="hover:text-on-surface transition-colors" data-path="privacy-policy" href="#">Privacy
+                        Policy</a><a class="hover:text-on-surface transition-colors" data-path="terms-of-service"
+                        href="#">Terms of Service</a></div>
+                <div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low"><span
+                        class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span
+                        class="font-label-code-sm text-label-code-sm text-on-surface-variant">Systems Operational</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
