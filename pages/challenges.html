@@ -12,13 +12,15 @@
         rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/challenges.css" rel="stylesheet">
+    <link href="../css/site-shell.css" rel="stylesheet">
 </head>
 
 <body class="challenges-page">
-    <header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]">
+    <header class="site-header fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]">
         <div class="h-16 max-w-7xl mx-auto px-margin flex items-center justify-between">
             <div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm" data-path="dashboard"
-                    href="#"><span
+                    href="#"><img alt="CodeCoach Logo" class="h-8 w-auto object-contain"
+                    src="../assets/Brand_logo.png"><span
                         class="font-headline-sm text-headline-sm text-on-surface tracking-tight">CodeCoach</span></a><span
                     class="font-label-code-sm text-label-code-sm px-space-sm py-0.5 rounded-full bg-surface-container-high text-primary border border-outline-variant/30 flex items-center gap-1.5"><span
                         class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>AI Beta</span></div>
@@ -27,6 +29,7 @@
                 <a class="px-space-md py-space-xs rounded-full font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
                     data-path="dashboard" href="#">Home</a><a
                     class="px-space-md py-space-xs rounded-full font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
+                    aria-current="page"
                     data-path="challenges" href="#">Challenges</a><a
                     class="px-space-md py-space-xs rounded-full font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
                     data-path="ai-tasks" href="#">AI Tasks</a><a
@@ -693,7 +696,7 @@
             </div>
         </div>
     </main>
-    <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20 pt-space-xl pb-space-lg">
+    <footer class="site-footer w-full bg-surface-container-lowest border-t border-outline-variant/20 pt-space-xl pb-space-lg">
         <div class="max-w-7xl mx-auto px-margin">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-gutter pb-space-xl border-b border-outline-variant/20">
                 <div class="md:col-span-2 flex flex-col gap-space-sm">
