@@ -49,6 +49,31 @@ main > :first-child {
 main > :last-child {
   margin-bottom: 0;
 }
+
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-text{
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: -.015em;
+  color: var(--on-surface);
+}
+
+.user-icon{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* Layout */
 .flex { display: flex; }
 .inline-flex { display: inline-flex; }
