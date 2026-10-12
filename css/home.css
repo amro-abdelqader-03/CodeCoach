@@ -55,6 +55,15 @@
   line-height: 1.625;
 }
 
+.btn-hero-action{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding-top: .5rem;
+  width: 100%;
+}
+
 
 .overflow-x-auto { overflow-x: auto; }
 .mx-auto { margin-right: auto; margin-left: auto; }
