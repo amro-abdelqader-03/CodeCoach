@@ -25,7 +25,7 @@
 </head>
 
 <body class="task-page">
-    <header class="site-header task-header">
+    <header class="task-header">
         <div class="task-header-inner">
             <div class="task-brand"><a class="task-brand-link group" data-path="dashboard"
                     href="#"><img alt="" class="h-8 w-auto object-contain"
@@ -195,17 +195,16 @@
                                             <div class="flex center gap-2-5">
                                                 <span class="w-2 h-2 round-full accent-bg animate-pulse"></span>
                                                 <span
-                                                    class="font-ui ui-text main-text font-semibold uppercase tracking-wide">Target
-                                                    Staged</span>
+                                                    class="font-ui ui-text main-text font-semibold uppercase tracking-wide">Target Staged</span>
                                             </div>
-                                            <div class="flex center gap-1">
+                                            <div class="category-filters">
                                                 <button
-                                                    class="p-1 round-xs muted-text hover-text-error hover-panel transition"
+                                                    class="category-button"
                                                     title="Remove attachment" type="button">
-                                                    <span class="material-symbols-outlined size-18">delete</span>
+                                                    <span class="material-symbols-outlined size-18 ">delete</span>
                                                 </button>
                                                 <button
-                                                    class="p-1 round-xs muted-text hover-accent-text hover-panel transition"
+                                                    class="category-button"
                                                     title="Inspect full resolution" type="button">
                                                     <span
                                                         class="material-symbols-outlined size-18">fullscreen</span>
@@ -715,54 +714,61 @@
             });
         </script>
     </main>
-    <footer class="site-footer task-footer">
-        <div class="task-footer-inner">
-            <div class="task-footer-grid">
-                <div class="task-footer-brand">
-                    <div class="task-footer-logo"><img alt="" class="h-8 w-auto object-contain"
-                            src="../assets/Brand_logo.png"><span
-                            class="task-footer-brand-name">CodeCoach</span>
-                    </div>
-                    <p class="task-footer-description">Your AI-powered frontend
-                        development coach. Master modern architecture, responsive patterns, and developer velocity.</p>
-                    <div class="task-footer-socials"><a
-                            class="task-social-link"
-                            href="https://github.com" rel="noopener noreferrer" target="_blank"><span
-                                class="material-symbols-outlined size-18">terminal</span></a><a
-                            class="task-social-link"
-                            href="https://linkedin.com" rel="noopener noreferrer" target="_blank"><span
-                                class="material-symbols-outlined size-18">work</span></a></div>
-                </div>
-                <div class="task-footer-list"><span class="task-footer-title">Platform</span><a
-                        class="task-footer-link" data-path="dashboard" href="#">Dashboard</a><a
-                        class="task-footer-link" data-path="challenges" href="#">Challenges</a><a
-                        class="task-footer-link" data-path="ai-tasks" href="#">AI Tasks</a><a
-                        class="task-footer-link" data-path="progress" href="#">Progress</a></div>
-                <div class="task-footer-list"><span class="task-footer-title">Resources</span><a
-                        class="task-footer-link" data-path="documentation" href="#">Documentation</a><a
-                        class="task-footer-link"
-                        href="https://github.com" rel="noopener noreferrer" target="_blank">GitHub</a><a
-                        class="task-footer-link" data-path="community" href="#">Community</a></div>
-                <div class="task-footer-list"><span class="task-footer-title">Account</span><a
-                        class="task-footer-link" data-path="profile" href="#">Profile</a><a
-                        class="task-footer-link" data-path="settings" href="#">Settings</a></div>
-            </div>
-            <div class="task-footer-bottom">
-                <div class="task-footer-legal"><span class="task-footer-copy">©
-                        2026 CodeCoach. All rights reserved.</span><a
-                        class="task-footer-link"
-                        data-path="privacy-policy" href="#">Privacy Policy</a><a
-                        class="task-footer-link"
-                        data-path="terms-of-service" href="#">Terms of Service</a></div>
-                <div class="task-footer-status">
-                    <span class="task-status-dot"></span><span>Status: All
-                        Systems Operational</span></div>
-            </div>
+    <footer class="w-full dark-bg border-t border-soft-60 py-xl">
+    <div class="max-w-7xl mx-auto page-pad-mobile md-page-pad">
+      <div class="grid grid-cols-1 md-grid-cols-5 gap-xl mb-xl">
+        <div class="md-col-span-2 flex column start pr-0 md-pr-xl">
+          <div class="flex center gap-sm mb-md"><img alt="CodeCoach logo" class="brand-logo"
+              src="https://lh3.googleusercontent.com/aida/AEtjO1VJ5GtFy6K-s_FyEzOONr5R-SZncTy11yVYJ8H2UyyuCWq7J7DMuosuwy4gRg5UJbOiv_uuoHZmSwheVTNgEBrccnmi4aklo6yKYTnKQGXfbVwESV_YP4Xkt82n8eLhMHFrZGnPN1jlHov0WpFYS2W7o92Glv5D8XyORrH-ebNtE5r8Xs964Bc0amHFkrVdIuJpMBWIzqiYDZys1GOoo_V88NYB9UI_TK0XCWMjivXo5ekUGDefg9xPXA" /><span class="font-heading heading-small font-semibold tracking-tight main-text">CodeCoach</span>
+          </div>
+          <p class="font-body small-text muted-text leading-relaxed max-w-sm">Master frontend
+            development by recreating real-world interfaces with pixel-perfect visual evaluations.</p>
         </div>
-    </footer>
-
-
-
+        <div>
+          <h4 class="font-ui ui-text font-semibold uppercase tracking-wider main-text mb-md">
+            Platform</h4>
+          <ul class="footer-list">
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="challenges" href="#">Challenges</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="ai-tasks" href="#">AI Tasks</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="progress" href="#">Progress</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="sandbox" href="#">Sandbox</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-ui ui-text font-semibold uppercase tracking-wider main-text mb-md">
+            Resources</h4>
+          <ul class="footer-list">
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="documentation" href="#">Documentation</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="github" href="#">GitHub</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="community" href="#">Community</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="changelog" href="#">Changelog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-ui ui-text font-semibold uppercase tracking-wider main-text mb-md">
+            Account</h4>
+          <ul class="footer-list">
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="login" href="#">Log in</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="register" href="#">Register</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="settings" href="#">Settings</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-lg border-t border-soft-40 flex column md-flex-row center between gap-md">
+        <div class="flex wrap center gap-md">
+          <p class="font-body small-text muted-text">Copyright © 2026 CodeCoach. All rights reserved.
+          </p>
+          <div class="flex center gap-sm"><a class="font-body small-text muted-text hover-main transition" data-path="privacy-policy" href="#">Privacy Policy</a><span class="text-outline-variant">•</span><a class="font-body small-text muted-text hover-main transition" data-path="terms-of-service" href="#">Terms of Service</a></div>
+        </div>
+        <div class="flex center gap-lg">
+          <div class="inline-flex center gap-2 px-3 py-1 round-full panel border border-soft-50">
+            <span class="w-2 h-2 round-full accent-bg animate-pulse"></span><span class="font-code code-small main-text">Systems Operational</span></div>
+          <div class="flex center gap-sm"><a aria-label="Code repository" class="muted-text hover-accent transition p-1" data-path="github-external" href="#"><span class="material-symbols-outlined size-20">code</span></a><a aria-label="Professional network" class="muted-text hover-accent transition p-1" data-path="network-external" href="#"><span class="material-symbols-outlined size-20">share</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
