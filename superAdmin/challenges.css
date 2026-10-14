@@ -1,0 +1,92 @@
+@import url("dashboard.css");
+
+:root {
+    --space-lg: 1.5rem;
+}
+
+/* Challenge-page layout and utilities not used by the dashboard page. */
+[class~="grid"] { display: grid; }
+[class~="gap-2"] { gap: .5rem; }
+[class~="gap-space-lg"] { gap: var(--space-lg); }
+[class~="mx-auto"] { margin-right: auto; margin-left: auto; }
+[class~="w-24"] { width: 6rem; }
+[class~="w-28"] { width: 7rem; }
+[class~="w-36"] { width: 9rem; }
+[class~="w-44"] { width: 11rem; }
+[class~="w-52"] { width: 13rem; }
+[class~="min-w-\[960px\]"] { min-width: 60rem; }
+[class~="max-w-\[1400px\]"] { max-width: 87.5rem; }
+[class~="lg:max-w-xl"] { max-width: 36rem; }
+[class~="p-margin"] { padding: 2rem; }
+[class~="p-1"] { padding: .25rem; }
+[class~="p-1.5"] { padding: .375rem; }
+[class~="p-2"] { padding: .5rem; }
+[class~="px-2"] { padding-right: .5rem; padding-left: .5rem; }
+[class~="px-2.5"] { padding-right: .625rem; padding-left: .625rem; }
+[class~="px-space-lg"] { padding-right: var(--space-lg); padding-left: var(--space-lg); }
+[class~="py-2"] { padding-top: .5rem; padding-bottom: .5rem; }
+[class~="py-2.5"] { padding-top: .625rem; padding-bottom: .625rem; }
+[class~="py-3.5"] { padding-top: .875rem; padding-bottom: .875rem; }
+[class~="pb-1"] { padding-bottom: .25rem; }
+[class~="pb-space-lg"] { padding-bottom: var(--space-lg); }
+[class~="pl-11"] { padding-left: 2.75rem; }
+[class~="pr-10"] { padding-right: 2.5rem; }
+[class~="left-64"] { left: 16rem; }
+[class~="left-space-md"] { left: var(--space-md); }
+[class~="right-1"] { right: .25rem; }
+[class~="right-space-sm"] { right: var(--space-sm); }
+[class~="top-1"] { top: .25rem; }
+[class~="overflow-x-auto"] { overflow-x: auto; }
+[class~="cursor-pointer"] { cursor: pointer; }
+[class~="cursor-not-allowed"] { cursor: not-allowed; }
+[class~="shrink-0"] { flex-shrink: 0; }
+[class~="text-right"] { text-align: right; }
+[class~="text-left"] { text-align: left; }
+[class~="font-normal"] { font-weight: 400; }
+[class~="text-label-code-md"] { font-size: 14px; line-height: 20px; letter-spacing: -.01em; }
+[class~="font-label-code-md"] { font-family: "JetBrains Mono", monospace; }
+[class~="text-emerald-400"] { color: #34d399; }
+[class~="text-outline\/50"] { color: rgb(134 147 151 / 50%); }
+[class~="text-secondary"] { color: #adc6ff; }
+[class~="bg-secondary"] { background-color: #adc6ff; }
+[class~="bg-emerald-400"] { background-color: #34d399; }
+[class~="bg-emerald-950\/60"] { background-color: rgb(2 44 34 / 60%); }
+[class~="bg-blue-950\/60"] { background-color: rgb(23 37 84 / 60%); }
+[class~="bg-cyan-950\/60"] { background-color: rgb(8 51 68 / 60%); }
+[class~="bg-primary-container\/30"] { background-color: rgb(6 182 212 / 30%); }
+[class~="bg-surface-container-low\/40"] { background-color: rgb(24 28 36 / 40%); }
+[class~="bg-surface-bright"] { background-color: #353942; }
+[class~="border-collapse"] { border-collapse: collapse; }
+[class~="divide-y-0"] > :not([hidden]) ~ :not([hidden]) { border-top-width: 0; }
+[class~="shadow-md"] { box-shadow: 0 .25rem .5rem rgb(0 0 0 / 20%); }
+[class~="transition-transform"] { transition: transform .2s ease; }
+[class~="hover:bg-surface-container"]:hover { background-color: var(--surface-card); }
+[class~="hover:bg-secondary-container\/90"]:hover { background-color: rgb(5 102 217 / 90%); }
+[class~="group-hover:text-primary"]:is(.group:hover *) { color: var(--primary); }
+[class~="group-hover:rotate-90"]:is(.group:hover *) { transform: rotate(90deg); }
+[class~="placeholder-outline"]::placeholder { color: var(--outline); opacity: 1; }
+[class~="focus:outline-none"]:focus { outline: none; }
+[class~="focus:ring-1"]:focus { box-shadow: 0 0 0 1px var(--primary); }
+[class~="filter-status-btn"] { white-space: nowrap; }
+[class~="challenge-row"] { border-bottom: 1px solid rgb(61 73 76 / 40%); }
+[class~="challenge-row"]:hover { background-color: rgb(38 42 51 / 45%); }
+input { border: 0; }
+input:focus { outline: none; }
+table { width: 100%; color: inherit; }
+th, td { vertical-align: middle; }
+
+@media (min-width: 768px) {
+    [class~="md:flex"] { display: flex; }
+    [class~="md:flex-row"] { flex-direction: row; }
+    [class~="md:items-end"] { align-items: flex-end; }
+    [class~="md:self-auto"] { align-self: auto; }
+}
+@media (min-width: 992px) {
+    [class~="lg:flex-row"] { flex-direction: row; }
+    [class~="lg:w-auto"] { width: auto; }
+    [class~="lg:pb-0"] { padding-bottom: 0; }
+    [class~="lg:max-w-xl"] { max-width: 36rem; }
+}
+@media (max-width: 639.98px) {
+    [class~="p-margin"] { padding: 1.25rem; }
+}

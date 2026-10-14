@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_dashboard" name="shell-type" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="users.css" rel="stylesheet" />
+</head>
+
+<body class="bg-background font-body-md text-body-md text-on-surface antialiased">
+    <aside
+        class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.2)]">
+        <div class="flex flex-col">
+            <div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-low"><img alt="Brand logo. - Primary color: #06b6d4
+- Font: inter
+- Mode: dark
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain"
+                    src="https://lh3.googleusercontent.com/aida/AEtjO1X2Qau3R92wdvMN78iZaAHA5KguAMxYc-zaRFUZT2Loghcifsern5KzLD6ER6ZQfpAd3YyQBVY6hhyxAO5J7lwbPtrwbUypNtd0bYeUkbkvXhJQOGvX_c-0IhhhyyI7cb40pLLrcXJD9wP-QRDhSnxTe5tTUdkQ_3FcZb9wNt3RqdGMYPKelG4IlHvrb0oPFs2g2X8ijN6szf_C2FYR5QgVbHbAThD9m8srKN33YTzsg3e4IDTiKWlnJw" />
+                <div class="flex flex-col"><span
+                        class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-tight">CodeCoach</span><span
+                        class="font-label-code-sm text-label-code-sm text-primary uppercase tracking-wider">Super
+                        Admin</span></div>
+            </div>
+            <div class="px-space-md py-space-sm"><span
+                    class="font-label-code-sm text-label-code-sm text-outline uppercase tracking-wider px-space-sm">Core
+                    System</span></div>
+            <nav class="px-space-sm space-y-1 flex flex-col"
+                data-active-classes="bg-secondary-container text-on-secondary-container font-semibold rounded-lg shadow-sm">
+                <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all"
+                    data-path="dashboard" href="dashboard.html"><span
+                        class="material-symbols-outlined text-[18px]">dashboard</span><span
+                        class="font-label-ui text-label-ui">Dashboard</span></a><a
+                    class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all"
+                    data-path="challenges" href="challenges.html"><span class="material-symbols-outlined text-[18px]">code</span><span
+                        class="font-label-ui text-label-ui">Challenges</span></a><a aria-current="page"
+                    class="flex items-center gap-space-sm px-space-md py-space-sm transition-all bg-secondary-container text-on-secondary-container font-semibold rounded-lg shadow-sm"
+                    data-path="users" href="users.html"><span class="material-symbols-outlined text-[18px]">group</span><span
+                        class="font-label-ui text-label-ui">Users</span></a><a
+                    class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all"
+                    data-path="analytics" href="#"><span
+                        class="material-symbols-outlined text-[18px]">monitoring</span><span
+                        class="font-label-ui text-label-ui">Analytics</span></a><a
+                    class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all"
+                    data-path="settings" href="#"><span
+                        class="material-symbols-outlined text-[18px]">settings</span><span
+                        class="font-label-ui text-label-ui">Settings</span></a></nav>
+        </div>
+        <div class="p-space-md bg-surface-container-lowest m-space-sm rounded-lg">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida/AEtjO1XF1SMEEO_vls0h4VGpAFe9DKEna8JnPLnzECpBpQvn-hGanIwMfCIXRD0HIH3AnBEddJmtb51YB_nmuUGPVvKAld-2vi3Y2l1ABu-vacsEkmGwRRi87YoQkDfXmfSI6m42fPbnjLAbi5deFj3QEcQzbWGBC9m2qFrSH-jD_Wx1iTishAB8ae3PcKoJsnX0jyVWCqfH_04V8O55p5XlPnJ6QXdOhEKIdBSSNZ7CdNYDScEYElzePgh5" />
+                    <div class="flex flex-col"><span
+                            class="font-label-ui text-label-ui text-on-surface font-semibold">Alex Vance</span><span
+                            class="font-label-code-sm text-label-code-sm text-on-surface-variant">Super Admin</span>
+                    </div>
+                </div><a
+                    class="p-space-xs rounded-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center"
+                    data-path="login" href="#" title="Sign out"><span
+                        class="material-symbols-outlined text-[20px]">logout</span></a>
+            </div>
+        </div>
+    </aside>
+    <div class="pl-64">
+        <header
+            class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+            <div class="h-16 w-full px-gutter flex items-center justify-between">
+                <div class="flex items-center gap-space-sm"><span
+                        class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span
+                        class="font-label-code-sm text-label-code-sm text-on-surface-variant uppercase tracking-wider">Node:
+                        Production EU-West</span></div>
+                <div class="flex items-center gap-space-md">
+                    <div class="hidden sm:flex items-center bg-surface-container-lowest p-space-xs rounded-lg gap-1">
+                        <button
+                            class="px-space-sm py-1 rounded font-label-ui text-label-ui text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+                            type="button">Last 7 Days</button><button
+                            class="px-space-sm py-1 rounded font-label-ui text-label-ui bg-surface-container-high text-on-surface font-medium"
+                            type="button">Last 30 Days</button><button
+                            class="px-space-sm py-1 rounded font-label-ui text-label-ui text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+                            type="button">Last 3 Months</button><button
+                            class="px-space-sm py-1 rounded font-label-ui text-label-ui text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+                            type="button">Last 12 Months</button></div>
+                    <div class="relative flex items-center"><button
+                            class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center relative"
+                            type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span
+                                class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span></button></div>
+                    <div class="flex items-center gap-space-xs pl-space-sm"><img alt="Profile"
+                            class="w-8 h-8 rounded-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida/AEtjO1XF1SMEEO_vls0h4VGpAFe9DKEna8JnPLnzECpBpQvn-hGanIwMfCIXRD0HIH3AnBEddJmtb51YB_nmuUGPVvKAld-2vi3Y2l1ABu-vacsEkmGwRRi87YoQkDfXmfSI6m42fPbnjLAbi5deFj3QEcQzbWGBC9m2qFrSH-jD_Wx1iTishAB8ae3PcKoJsnX0jyVWCqfH_04V8O55p5XlPnJ6QXdOhEKIdBSSNZ7CdNYDScEYElzePgh5" />
+                        <div class="hidden md:flex flex-col text-left"><span
+                                class="font-label-ui text-label-ui text-on-surface leading-none font-semibold">Alex
+                                Vance</span><span
+                                class="font-label-code-sm text-label-code-sm text-primary leading-none mt-1">Online</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="w-full pt-16 bg-background flex-1">
+            <div class="flex flex-col w-full">
+                <div class="w-full max-w-[1440px] mx-auto px-space-lg py-space-xl flex flex-col gap-space-xl">
+                    <!-- Page Header & Action Controls -->
+                    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+                        <div class="flex flex-col gap-space-xs">
+                            <div
+                                class="flex items-center gap-space-xs text-on-surface-variant font-label-code-sm text-label-code-sm">
+                                <span class="text-primary font-semibold tracking-wider uppercase">USER ACCOUNTS</span>
+                                <span class="opacity-40">/</span>
+                                <span class="opacity-80">Directory &amp; Access</span>
+                            </div>
+                            <h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+                                Users Management
+                            </h1>
+                            <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                                Manage user accounts, assign authorization policies, and inspect real-time learner
+                                telemetry.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-space-md flex-shrink-0">
+                            <button
+                                class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-all font-label-ui text-label-ui shadow-sm active:scale-95"
+                                id="exportCsvBtn">
+                                <span
+                                    class="material-symbols-outlined text-[18px] text-on-surface-variant">download</span>
+                                <span>Export CSV</span>
+                            </button>
+                            <button
+                                class="flex items-center gap-space-xs px-space-lg py-2.5 rounded-lg bg-secondary-container text-on-secondary-container hover:bg-secondary transition-all font-label-ui text-label-ui font-semibold shadow-lg shadow-secondary-container/20 active:scale-95"
+                                id="openNewUserModalBtn">
+                                <span class="material-symbols-outlined text-[20px]">person_add</span>
+                                <span>+ Add New User</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Summary KPI Metric Cards (4 Cards Grid) -->
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+                        <!-- Card 1: Registered Users -->
+                        <div
+                            class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between shadow-sm hover:bg-surface-container transition-colors relative overflow-hidden group">
+                            <div
+                                class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/10 transition-all pointer-events-none">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span
+                                    class="font-label-code-sm text-label-code-sm font-semibold tracking-wider uppercase text-on-surface-variant">
+                                    TOTAL REGISTERED USERS
+                                </span>
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined text-[18px]">group</span>
+                                </div>
+                            </div>
+                            <div class="mt-space-md flex items-baseline gap-space-xs">
+                                <span class="font-headline-lg text-headline-lg font-bold text-on-surface">128</span>
+                                <span
+                                    class="font-label-code-sm text-label-code-sm text-primary flex items-center gap-0.5">
+                                    <span class="material-symbols-outlined text-[14px]">trending_up</span>+12.4%
+                                </span>
+                            </div>
+                            <div class="mt-space-xs font-label-code-sm text-label-code-sm text-on-surface-variant">
+                                Verified global student accounts
+                            </div>
+                        </div>
+                        <!-- Card 2: Active Sessions (Online) -->
+                        <div
+                            class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between shadow-sm hover:bg-surface-container transition-colors relative overflow-hidden group">
+                            <div
+                                class="absolute -right-4 -top-4 w-24 h-24 bg-primary-container/5 rounded-full blur-xl group-hover:bg-primary-container/10 transition-all pointer-events-none">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span
+                                    class="font-label-code-sm text-label-code-sm font-semibold tracking-wider uppercase text-on-surface-variant">
+                                    ACTIVE SESSIONS (ONLINE)
+                                </span>
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+                                    <span class="relative flex h-2 w-2">
+                                        <span
+                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="mt-space-md flex items-baseline gap-space-xs">
+                                <span class="font-headline-lg text-headline-lg font-bold text-on-surface">42</span>
+                                <span class="font-label-code-sm text-label-code-sm text-primary font-medium">32.8%
+                                    active rate</span>
+                            </div>
+                            <div class="mt-space-xs font-label-code-sm text-label-code-sm text-on-surface-variant">
+                                Telemetry synced via WebSocket node
+                            </div>
+                        </div>
+                        <!-- Card 3: Avg Challenges Solved -->
+                        <div
+                            class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between shadow-sm hover:bg-surface-container transition-colors relative overflow-hidden group">
+                            <div
+                                class="absolute -right-4 -top-4 w-24 h-24 bg-secondary/5 rounded-full blur-xl group-hover:bg-secondary/10 transition-all pointer-events-none">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span
+                                    class="font-label-code-sm text-label-code-sm font-semibold tracking-wider uppercase text-on-surface-variant">
+                                    AVG CHALLENGES / USER
+                                </span>
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+                                    <span class="material-symbols-outlined text-[18px]">verified</span>
+                                </div>
+                            </div>
+                            <div class="mt-space-md flex items-baseline gap-space-xs">
+                                <span class="font-headline-lg text-headline-lg font-bold text-on-surface">16.4</span>
+                                <span class="font-label-code-sm text-label-code-sm text-secondary font-medium">+2.1 vs
+                                    last wk</span>
+                            </div>
+                            <div class="mt-space-xs font-label-code-sm text-label-code-sm text-on-surface-variant">
+                                Median curriculum completion level
+                            </div>
+                        </div>
+                        <!-- Card 4: Total Solved -->
+                        <div
+                            class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between shadow-sm hover:bg-surface-container transition-colors relative overflow-hidden group">
+                            <div
+                                class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary-container/5 rounded-full blur-xl group-hover:bg-tertiary-container/10 transition-all pointer-events-none">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span
+                                    class="font-label-code-sm text-label-code-sm font-semibold tracking-wider uppercase text-on-surface-variant">
+                                    TOTAL CHALLENGES SOLVED
+                                </span>
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-tertiary-container/10 flex items-center justify-center text-tertiary-fixed-dim">
+                                    <span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+                                </div>
+                            </div>
+                            <div class="mt-space-md flex items-baseline gap-space-xs">
+                                <span class="font-headline-lg text-headline-lg font-bold text-on-surface">2,108</span>
+                                <span class="font-label-code-sm text-label-code-sm text-tertiary font-medium">99.1% test
+                                    pass</span>
+                            </div>
+                            <div class="mt-space-xs font-label-code-sm text-label-code-sm text-on-surface-variant">
+                                Across Algorithmic, System, &amp; Web tiers
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Search & Filter Controls Toolbar -->
+                    <div
+                        class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md p-space-sm bg-surface-container-low rounded-xl">
+                        <!-- Search Input -->
+                        <div class="relative flex-1 min-w-[280px]">
+                            <span
+                                class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+                            <input
+                                class="w-full h-10 pl-10 pr-10 rounded-lg bg-surface-container text-on-surface placeholder:text-outline text-body-md font-body-md focus:outline-none focus:bg-surface-container-high transition-colors"
+                                id="userSearchInput" placeholder="Search by user ID or email..." type="text" />
+                            <button
+                                class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface p-1 transition-colors"
+                                id="clearSearchBtn" title="Clear filter">
+                                <span class="material-symbols-outlined text-[16px]">close</span>
+                            </button>
+                        </div>
+                        <!-- Quick Filter Pills -->
+                        <div class="flex items-center gap-space-xs overflow-x-auto pb-1 md:pb-0">
+                            <button
+                                class="filter-pill px-space-md py-1.5 rounded-lg bg-primary/10 text-primary font-label-ui text-label-ui font-semibold transition-all"
+                                id="filterAll">
+                                All (128)
+                            </button>
+                            <button
+                                class="filter-pill px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-ui text-label-ui transition-all"
+                                id="filterActive">
+                                Active (Online)
+                            </button>
+                            <button
+                                class="filter-pill px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-ui text-label-ui transition-all"
+                                id="filterOffline">
+                                Offline
+                            </button>
+                            <div class="w-px h-6 bg-surface-container-highest mx-space-xs"></div>
+                            <button
+                                class="flex items-center gap-1.5 px-space-sm py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-ui text-label-ui transition-all"
+                                title="Filter attributes">
+                                <span class="material-symbols-outlined text-[18px]">tune</span>
+                                <span class="hidden sm:inline">Filters</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Users Data Table Container -->
+                    <div class="w-full bg-surface-container-low rounded-xl overflow-hidden shadow-sm flex flex-col">
+                        <div class="overflow-x-auto w-full">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr
+                                        class="bg-surface-container/60 text-on-surface-variant font-label-code-sm text-label-code-sm uppercase tracking-wider">
+                                        <th class="py-space-md px-space-lg font-medium" scope="col">USER ID</th>
+                                        <th class="py-space-md px-space-lg font-medium" scope="col">USER EMAIL</th>
+                                        <th class="py-space-md px-space-lg font-medium" scope="col">COMPLETED CHALLENGES
+                                        </th>
+                                        <th class="py-space-md px-space-lg font-medium" scope="col">STATUS</th>
+                                        <th class="py-space-md px-space-lg font-medium text-right" scope="col">ACTIONS
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-surface-container-high/40" id="userTableBody">
+                                    <!-- Row 1: Alex Morgan -->
+                                    <tr class="user-row hover:bg-surface-container/50 transition-colors group"
+                                        data-search="USR-001 alex.morgan@example.com" data-status="active">
+                                        <td
+                                            class="py-space-md px-space-lg font-label-code-md text-label-code-md text-primary font-semibold whitespace-nowrap">
+                                            USR-001
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-code-sm text-label-code-sm font-semibold">
+                                                    AM
+                                                </div>
+                                                <span
+                                                    class="text-on-surface font-body-md text-body-md group-hover:text-primary transition-colors">
+                                                    alex.morgan@example.com
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div
+                                                class="flex items-center gap-space-xs text-on-surface font-label-code-md text-label-code-md">
+                                                <span
+                                                    class="material-symbols-outlined text-[16px] text-primary">task_alt</span>
+                                                <span class="font-semibold">24</span>
+                                                <span class="text-on-surface-variant font-normal">challenges</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-code-sm text-label-code-sm font-medium">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                                Active
+                                            </span>
+                                        </td>
+                                        <td class="py-space-md px-space-lg text-right whitespace-nowrap">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="p-1 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                                                    title="Inspect user profile">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 2: Sara Ahmad -->
+                                    <tr class="user-row hover:bg-surface-container/50 transition-colors group"
+                                        data-search="USR-002 sara.ahmad@example.com" data-status="offline">
+                                        <td
+                                            class="py-space-md px-space-lg font-label-code-md text-label-code-md text-primary font-semibold whitespace-nowrap">
+                                            USR-002
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-code-sm text-label-code-sm font-semibold">
+                                                    SA
+                                                </div>
+                                                <span
+                                                    class="text-on-surface font-body-md text-body-md group-hover:text-primary transition-colors">
+                                                    sara.ahmad@example.com
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div
+                                                class="flex items-center gap-space-xs text-on-surface font-label-code-md text-label-code-md">
+                                                <span
+                                                    class="material-symbols-outlined text-[16px] text-primary">task_alt</span>
+                                                <span class="font-semibold">18</span>
+                                                <span class="text-on-surface-variant font-normal">challenges</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-code-sm text-label-code-sm font-medium">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                                                Offline
+                                            </span>
+                                        </td>
+                                        <td class="py-space-md px-space-lg text-right whitespace-nowrap">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="p-1 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                                                    title="Inspect user profile">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 3: James Wilson -->
+                                    <tr class="user-row hover:bg-surface-container/50 transition-colors group"
+                                        data-search="USR-003 james.wilson@example.com" data-status="active">
+                                        <td
+                                            class="py-space-md px-space-lg font-label-code-md text-label-code-md text-primary font-semibold whitespace-nowrap">
+                                            USR-003
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-code-sm text-label-code-sm font-semibold">
+                                                    JW
+                                                </div>
+                                                <span
+                                                    class="text-on-surface font-body-md text-body-md group-hover:text-primary transition-colors">
+                                                    james.wilson@example.com
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div
+                                                class="flex items-center gap-space-xs text-on-surface font-label-code-md text-label-code-md">
+                                                <span
+                                                    class="material-symbols-outlined text-[16px] text-primary">task_alt</span>
+                                                <span class="font-semibold">32</span>
+                                                <span class="text-on-surface-variant font-normal">challenges</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-code-sm text-label-code-sm font-medium">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                                Active
+                                            </span>
+                                        </td>
+                                        <td class="py-space-md px-space-lg text-right whitespace-nowrap">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="p-1 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                                                    title="Inspect user profile">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 4: Lina Haddad -->
+                                    <tr class="user-row hover:bg-surface-container/50 transition-colors group"
+                                        data-search="USR-004 lina.haddad@example.com" data-status="offline">
+                                        <td
+                                            class="py-space-md px-space-lg font-label-code-md text-label-code-md text-primary font-semibold whitespace-nowrap">
+                                            USR-004
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-code-sm text-label-code-sm font-semibold">
+                                                    LH
+                                                </div>
+                                                <span
+                                                    class="text-on-surface font-body-md text-body-md group-hover:text-primary transition-colors">
+                                                    lina.haddad@example.com
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div
+                                                class="flex items-center gap-space-xs text-on-surface font-label-code-md text-label-code-md">
+                                                <span
+                                                    class="material-symbols-outlined text-[16px] text-primary">task_alt</span>
+                                                <span class="font-semibold">11</span>
+                                                <span class="text-on-surface-variant font-normal">challenges</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-code-sm text-label-code-sm font-medium">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                                                Offline
+                                            </span>
+                                        </td>
+                                        <td class="py-space-md px-space-lg text-right whitespace-nowrap">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="p-1 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                                                    title="Inspect user profile">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 5: Omar Khaled -->
+                                    <tr class="user-row hover:bg-surface-container/50 transition-colors group"
+                                        data-search="USR-005 omar.khaled@example.com" data-status="active">
+                                        <td
+                                            class="py-space-md px-space-lg font-label-code-md text-label-code-md text-primary font-semibold whitespace-nowrap">
+                                            USR-005
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-code-sm text-label-code-sm font-semibold">
+                                                    OK
+                                                </div>
+                                                <span
+                                                    class="text-on-surface font-body-md text-body-md group-hover:text-primary transition-colors">
+                                                    omar.khaled@example.com
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div
+                                                class="flex items-center gap-space-xs text-on-surface font-label-code-md text-label-code-md">
+                                                <span
+                                                    class="material-symbols-outlined text-[16px] text-primary">task_alt</span>
+                                                <span class="font-semibold">27</span>
+                                                <span class="text-on-surface-variant font-normal">challenges</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-code-sm text-label-code-sm font-medium">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                                Active
+                                            </span>
+                                        </td>
+                                        <td class="py-space-md px-space-lg text-right whitespace-nowrap">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="p-1 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                                                    title="Inspect user profile">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 6: Emma Thomas -->
+                                    <tr class="user-row hover:bg-surface-container/50 transition-colors group"
+                                        data-search="USR-006 emma.thomas@example.com" data-status="offline">
+                                        <td
+                                            class="py-space-md px-space-lg font-label-code-md text-label-code-md text-primary font-semibold whitespace-nowrap">
+                                            USR-006
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-code-sm text-label-code-sm font-semibold">
+                                                    ET
+                                                </div>
+                                                <span
+                                                    class="text-on-surface font-body-md text-body-md group-hover:text-primary transition-colors">
+                                                    emma.thomas@example.com
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div
+                                                class="flex items-center gap-space-xs text-on-surface font-label-code-md text-label-code-md">
+                                                <span
+                                                    class="material-symbols-outlined text-[16px] text-primary">task_alt</span>
+                                                <span class="font-semibold">9</span>
+                                                <span class="text-on-surface-variant font-normal">challenges</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-code-sm text-label-code-sm font-medium">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                                                Offline
+                                            </span>
+                                        </td>
+                                        <td class="py-space-md px-space-lg text-right whitespace-nowrap">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="p-1 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                                                    title="Inspect user profile">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 7: Adam Chen -->
+                                    <tr class="user-row hover:bg-surface-container/50 transition-colors group"
+                                        data-search="USR-007 adam.chen@example.com" data-status="active">
+                                        <td
+                                            class="py-space-md px-space-lg font-label-code-md text-label-code-md text-primary font-semibold whitespace-nowrap">
+                                            USR-007
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-code-sm text-label-code-sm font-semibold">
+                                                    AC
+                                                </div>
+                                                <span
+                                                    class="text-on-surface font-body-md text-body-md group-hover:text-primary transition-colors">
+                                                    adam.chen@example.com
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div
+                                                class="flex items-center gap-space-xs text-on-surface font-label-code-md text-label-code-md">
+                                                <span
+                                                    class="material-symbols-outlined text-[16px] text-primary">task_alt</span>
+                                                <span class="font-semibold">15</span>
+                                                <span class="text-on-surface-variant font-normal">challenges</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-code-sm text-label-code-sm font-medium">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                                Active
+                                            </span>
+                                        </td>
+                                        <td class="py-space-md px-space-lg text-right whitespace-nowrap">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="p-1 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                                                    title="Inspect user profile">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 8: Maya Smith -->
+                                    <tr class="user-row hover:bg-surface-container/50 transition-colors group"
+                                        data-search="USR-008 maya.smith@example.com" data-status="offline">
+                                        <td
+                                            class="py-space-md px-space-lg font-label-code-md text-label-code-md text-primary font-semibold whitespace-nowrap">
+                                            USR-008
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-code-sm text-label-code-sm font-semibold">
+                                                    MS
+                                                </div>
+                                                <span
+                                                    class="text-on-surface font-body-md text-body-md group-hover:text-primary transition-colors">
+                                                    maya.smith@example.com
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div
+                                                class="flex items-center gap-space-xs text-on-surface font-label-code-md text-label-code-md">
+                                                <span
+                                                    class="material-symbols-outlined text-[16px] text-primary">task_alt</span>
+                                                <span class="font-semibold">21</span>
+                                                <span class="text-on-surface-variant font-normal">challenges</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-code-sm text-label-code-sm font-medium">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                                                Offline
+                                            </span>
+                                        </td>
+                                        <td class="py-space-md px-space-lg text-right whitespace-nowrap">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="p-1 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                                                    title="Inspect user profile">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 9: Noah Jones -->
+                                    <tr class="user-row hover:bg-surface-container/50 transition-colors group"
+                                        data-search="USR-009 noah.jones@example.com" data-status="active">
+                                        <td
+                                            class="py-space-md px-space-lg font-label-code-md text-label-code-md text-primary font-semibold whitespace-nowrap">
+                                            USR-009
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-code-sm text-label-code-sm font-semibold">
+                                                    NJ
+                                                </div>
+                                                <span
+                                                    class="text-on-surface font-body-md text-body-md group-hover:text-primary transition-colors">
+                                                    noah.jones@example.com
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div
+                                                class="flex items-center gap-space-xs text-on-surface font-label-code-md text-label-code-md">
+                                                <span
+                                                    class="material-symbols-outlined text-[16px] text-primary">task_alt</span>
+                                                <span class="font-semibold">6</span>
+                                                <span class="text-on-surface-variant font-normal">challenges</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-code-sm text-label-code-sm font-medium">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                                Active
+                                            </span>
+                                        </td>
+                                        <td class="py-space-md px-space-lg text-right whitespace-nowrap">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="p-1 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                                                    title="Inspect user profile">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 10: Yara Saleh -->
+                                    <tr class="user-row hover:bg-surface-container/50 transition-colors group"
+                                        data-search="USR-010 yara.saleh@example.com" data-status="offline">
+                                        <td
+                                            class="py-space-md px-space-lg font-label-code-md text-label-code-md text-primary font-semibold whitespace-nowrap">
+                                            USR-010
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-code-sm text-label-code-sm font-semibold">
+                                                    YS
+                                                </div>
+                                                <span
+                                                    class="text-on-surface font-body-md text-body-md group-hover:text-primary transition-colors">
+                                                    yara.saleh@example.com
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <div
+                                                class="flex items-center gap-space-xs text-on-surface font-label-code-md text-label-code-md">
+                                                <span
+                                                    class="material-symbols-outlined text-[16px] text-primary">task_alt</span>
+                                                <span class="font-semibold">13</span>
+                                                <span class="text-on-surface-variant font-normal">challenges</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-space-md px-space-lg whitespace-nowrap">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-code-sm text-label-code-sm font-medium">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                                                Offline
+                                            </span>
+                                        </td>
+                                        <td class="py-space-md px-space-lg text-right whitespace-nowrap">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="p-1 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                                                    title="Inspect user profile">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Pagination Footer -->
+                        <div
+                            class="px-space-lg py-space-md bg-surface-container/40 flex flex-col sm:flex-row items-center justify-between gap-space-md">
+                            <span class="font-label-ui text-label-ui text-on-surface-variant">
+                                Showing <span class="text-on-surface font-semibold">1–10</span> of <span
+                                    class="text-on-surface font-semibold">128</span> users
+                            </span>
+                            <div class="flex items-center gap-1 font-label-code-sm text-label-code-sm">
+                                <button
+                                    class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant/40 flex items-center justify-center cursor-not-allowed"
+                                    disabled="">
+                                    <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+                                </button>
+                                <button
+                                    class="w-8 h-8 rounded-lg bg-secondary-container text-on-secondary-container font-semibold flex items-center justify-center shadow-sm">
+                                    1
+                                </button>
+                                <button
+                                    class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors">
+                                    2
+                                </button>
+                                <button
+                                    class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors">
+                                    3
+                                </button>
+                                <button
+                                    class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors">
+                                    4
+                                </button>
+                                <span class="px-1 text-on-surface-variant/60 font-body-sm text-body-sm">...</span>
+                                <button
+                                    class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors">
+                                    13
+                                </button>
+                                <button
+                                    class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors active:scale-95">
+                                    <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quick Status Info Cards / Footer Widgets -->
+                    <div class="row row-cols-1 row-cols-md-3 g-3">
+                        <!-- Card 1 -->
+                        <div
+                            class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-xs shadow-sm">
+                            <div class="flex items-center gap-space-xs text-primary">
+                                <span class="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+                                <span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Security
+                                    &amp; Access</span>
+                            </div>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                Fine-grained RBAC policies are enforced across all learner accounts. Token revocation
+                                occurs immediately upon privilege level change.
+                            </p>
+                        </div>
+                        <!-- Card 2 -->
+                        <div
+                            class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-xs shadow-sm">
+                            <div class="flex items-center gap-space-xs text-primary-container">
+                                <span class="material-symbols-outlined text-[20px]">hub</span>
+                                <span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Session
+                                    Telemetry</span>
+                            </div>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                Real-time WebSocket connection tracking active sessions. Automated idle disconnection is
+                                scheduled at 45 minutes of dormancy.
+                            </p>
+                        </div>
+                        <!-- Card 3 -->
+                        <div
+                            class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-xs shadow-sm">
+                            <div class="flex items-center gap-space-xs text-secondary">
+                                <span class="material-symbols-outlined text-[20px]">mark_email_read</span>
+                                <span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Invitation
+                                    Queue</span>
+                            </div>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                <span class="text-on-surface font-semibold">0</span> pending invitations in queue.
+                                Direct enterprise onboarding is active with auto-verification links enabled.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Interactive Add New User Modal (Backdrop + Container) -->
+                <div class="fixed inset-0 z-50 flex items-center justify-center p-space-md bg-surface-container-lowest/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-200"
+                    id="addUserModal">
+                    <div class="w-full max-w-lg bg-surface-container-low rounded-xl p-space-lg shadow-2xl flex flex-col gap-space-lg transform scale-95 transition-transform duration-200"
+                        id="modalCard">
+                        <div class="flex items-center justify-between pb-space-xs">
+                            <div class="flex items-center gap-space-xs">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-secondary-container/20 text-secondary flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-[20px]">person_add</span>
+                                </div>
+                                <span class="font-headline-sm text-headline-sm font-bold text-on-surface">Create New
+                                    User</span>
+                            </div>
+                            <button
+                                class="p-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+                                id="closeModalBtn">
+                                <span class="material-symbols-outlined text-[20px]">close</span>
+                            </button>
+                        </div>
+                        <form class="flex flex-col gap-space-md" id="newUserForm" onsubmit="event.preventDefault();">
+                            <!-- Email Input -->
+                            <div class="flex flex-col gap-space-xs">
+                                <label class="font-label-ui text-label-ui text-on-surface-variant"
+                                    for="newUserEmail">User Email Address</label>
+                                <input
+                                    class="w-full h-10 px-space-md rounded-lg bg-surface-container text-on-surface placeholder:text-outline text-body-md font-body-md focus:outline-none focus:bg-surface-container-high transition-colors"
+                                    id="newUserEmail" placeholder="e.g. dev.lead@organization.io" required=""
+                                    type="email" />
+                            </div>
+                            <!-- Role Selector -->
+                            <div class="flex flex-col gap-space-xs">
+                                <label class="font-label-ui text-label-ui text-on-surface-variant">Assigned Role</label>
+                                <div class="row row-cols-2 g-2">
+                                    <label
+                                        class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high cursor-pointer transition-colors">
+                                        <input checked="" class="accent-secondary h-4 w-4" name="userRole" type="radio"
+                                            value="learner" />
+                                        <div class="flex flex-col">
+                                            <span
+                                                class="font-label-ui text-label-ui font-semibold text-on-surface">Learner</span>
+                                            <span
+                                                class="font-label-code-sm text-label-code-sm text-on-surface-variant">Standard
+                                                access</span>
+                                        </div>
+                                    </label>
+                                    <label
+                                        class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high cursor-pointer transition-colors">
+                                        <input class="accent-secondary h-4 w-4" name="userRole" type="radio"
+                                            value="admin" />
+                                        <div class="flex flex-col">
+                                            <span
+                                                class="font-label-ui text-label-ui font-semibold text-on-surface">Admin</span>
+                                            <span
+                                                class="font-label-code-sm text-label-code-sm text-on-surface-variant">Evaluation
+                                                manager</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- Checkbox Options -->
+                            <div class="flex flex-col gap-space-sm pt-space-xs">
+                                <label class="flex items-start gap-space-xs cursor-pointer">
+                                    <input checked="" class="accent-secondary h-4 w-4 mt-0.5 rounded" type="checkbox" />
+                                    <span class="font-body-sm text-body-sm text-on-surface-variant">
+                                        Generate secure verification invite link and email to user
+                                    </span>
+                                </label>
+                                <label class="flex items-start gap-space-xs cursor-pointer">
+                                    <input class="accent-secondary h-4 w-4 mt-0.5 rounded" type="checkbox" />
+                                    <span class="font-body-sm text-body-sm text-on-surface-variant">
+                                        Bypass sandbox rate-limiting for automated CI integration
+                                    </span>
+                                </label>
+                            </div>
+                            <!-- Modal Actions -->
+                            <div class="flex items-center justify-end gap-space-sm pt-space-sm">
+                                <button
+                                    class="px-space-md py-2 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-ui text-label-ui"
+                                    id="cancelModalBtn" type="button">
+                                    Cancel
+                                </button>
+                                <button
+                                    class="px-space-lg py-2 rounded-lg bg-secondary-container text-on-secondary-container hover:bg-secondary transition-all font-label-ui text-label-ui font-semibold shadow-md active:scale-95"
+                                    id="submitUserBtn" type="submit">
+                                    Create User Account
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Interactive JavaScript logic for modal and search filtering -->
+                <script>
+                    (function initUsersManagement() {
+                        const modal = document.getElementById('addUserModal');
+                        const modalCard = document.getElementById('modalCard');
+                        const openBtn = document.getElementById('openNewUserModalBtn');
+                        const closeBtn = document.getElementById('closeModalBtn');
+                        const cancelBtn = document.getElementById('cancelModalBtn');
+                        const userForm = document.getElementById('newUserForm');
+
+                        const searchInput = document.getElementById('userSearchInput');
+                        const clearSearchBtn = document.getElementById('clearSearchBtn');
+                        const userRows = document.querySelectorAll('.user-row');
+
+                        const filterAll = document.getElementById('filterAll');
+                        const filterActive = document.getElementById('filterActive');
+                        const filterOffline = document.getElementById('filterOffline');
+
+                        let currentStatusFilter = 'all';
+
+                        // Modal open/close handlers
+                        function openModal() {
+                            modal.classList.remove('opacity-0', 'pointer-events-none');
+                            modalCard.classList.remove('scale-95');
+                            modalCard.classList.add('scale-100');
+                            document.getElementById('newUserEmail').focus();
+                        }
+
+                        function closeModal() {
+                            modal.classList.add('opacity-0', 'pointer-events-none');
+                            modalCard.classList.remove('scale-100');
+                            modalCard.classList.add('scale-95');
+                        }
+
+                        openBtn?.addEventListener('click', openModal);
+                        closeBtn?.addEventListener('click', closeModal);
+                        cancelBtn?.addEventListener('click', closeModal);
+                        modal?.addEventListener('click', (e) => {
+                            if (e.target === modal) closeModal();
+                        });
+
+                        userForm?.addEventListener('submit', () => {
+                            const emailInput = document.getElementById('newUserEmail');
+                            if (emailInput && emailInput.value) {
+                                alert('User account provisioned successfully for: ' + emailInput.value);
+                                emailInput.value = '';
+                                closeModal();
+                            }
+                        });
+
+                        // Filter & Search application
+                        function applyFilters() {
+                            const query = (searchInput?.value || '').toLowerCase().trim();
+
+                            userRows.forEach(row => {
+                                const rowSearch = (row.getAttribute('data-search') || '').toLowerCase();
+                                const rowStatus = row.getAttribute('data-status') || '';
+
+                                const matchesQuery = !query || rowSearch.includes(query);
+                                const matchesStatus = currentStatusFilter === 'all' || rowStatus === currentStatusFilter;
+
+                                if (matchesQuery && matchesStatus) {
+                                    row.style.display = '';
+                                } else {
+                                    row.style.display = 'none';
+                                }
+                            });
+                        }
+
+                        searchInput?.addEventListener('input', applyFilters);
+                        clearSearchBtn?.addEventListener('click', () => {
+                            if (searchInput) {
+                                searchInput.value = '';
+                                applyFilters();
+                                searchInput.focus();
+                            }
+                        });
+
+                        function setActiveFilterPill(activeBtn) {
+                            [filterAll, filterActive, filterOffline].forEach(btn => {
+                                btn.className = 'filter-pill px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-ui text-label-ui transition-all';
+                            });
+                            activeBtn.className = 'filter-pill px-space-md py-1.5 rounded-lg bg-primary/10 text-primary font-label-ui text-label-ui font-semibold transition-all';
+                        }
+
+                        filterAll?.addEventListener('click', () => {
+                            currentStatusFilter = 'all';
+                            setActiveFilterPill(filterAll);
+                            applyFilters();
+                        });
+
+                        filterActive?.addEventListener('click', () => {
+                            currentStatusFilter = 'active';
+                            setActiveFilterPill(filterActive);
+                            applyFilters();
+                        });
+
+                        filterOffline?.addEventListener('click', () => {
+                            currentStatusFilter = 'offline';
+                            setActiveFilterPill(filterOffline);
+                            applyFilters();
+                        });
+
+                        // Export CSV stub trigger
+                        document.getElementById('exportCsvBtn')?.addEventListener('click', () => {
+                            const rows = [
+                                ['USER ID', 'USER EMAIL', 'COMPLETED CHALLENGES', 'STATUS'],
+                                ['USR-001', 'alex.morgan@example.com', '24', 'Active'],
+                                ['USR-002', 'sara.ahmad@example.com', '18', 'Offline'],
+                                ['USR-003', 'james.wilson@example.com', '32', 'Active'],
+                                ['USR-004', 'lina.haddad@example.com', '11', 'Offline'],
+                                ['USR-005', 'omar.khaled@example.com', '27', 'Active'],
+                                ['USR-006', 'emma.thomas@example.com', '9', 'Offline'],
+                                ['USR-007', 'adam.chen@example.com', '15', 'Active'],
+                                ['USR-008', 'maya.smith@example.com', '21', 'Offline'],
+                                ['USR-009', 'noah.jones@example.com', '6', 'Active'],
+                                ['USR-010', 'yara.saleh@example.com', '13', 'Offline']
+                            ];
+                            const csvContent = 'data:text/csv;charset=utf-8,' + rows.map(e => e.join(',')).join('\\n');
+                            const encodedUri = encodeURI(csvContent);
+                            const link = document.createElement('a');
+                            link.setAttribute('href', encodedUri);
+                            link.setAttribute('download', 'codecoach_users_directory.csv');
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                        });
+                    })();
+                </script>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
