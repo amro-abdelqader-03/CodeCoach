@@ -47,11 +47,6 @@
   backdrop-filter: blur(24px);
 }
 
-.challenges-page footer {
-  border-top: 1px solid rgb(61 73 76 / 20%);
-  background: var(--surface-lowest);
-}
-
 .challenges-page main {
   flex: 1;
   padding-top: 4rem;
@@ -269,7 +264,7 @@
 .challenges-page .shadow-\[0_0_24px_rgba\(6\,182\,212\,0\.35\)\] { box-shadow: 0 0 24px rgb(6 182 212 / 35%); }
 .challenges-page .border { border: 1px solid currentColor; }
 .challenges-page .border-b { border-bottom: 1px solid currentColor; }
-.challenges-page .border-t { border-top: 1px solid currentColor; }
+.challenges-page .border-t { border-top-width: 1px; border-top-style: solid; }
 .challenges-page .border-outline-variant\/20 { border-color: rgb(61 73 76 / 20%); }
 .challenges-page .border-outline-variant\/30 { border-color: rgb(61 73 76 / 30%); }
 .challenges-page .ring-1 { box-shadow: 0 0 0 1px currentColor; }
@@ -337,6 +332,10 @@
 }
 
 @media (min-width: 768px) {
+  .challenges-page footer .md-grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
   .challenges-page .md\:flex { display: flex; }
   .challenges-page .md\:flex-row { flex-direction: row; }
   .challenges-page .md\:items-end { align-items: flex-end; }

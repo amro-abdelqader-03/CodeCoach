@@ -205,6 +205,26 @@ html.dark { color-scheme: dark; }
 .lg-p-8{padding-top:2rem;padding-right:2rem;padding-bottom:2rem;padding-left:2rem}
 }
 
+
+@media (max-width: 767px) {
+  .task-tab-list {
+    width: 100%;
+    min-width: 0;
+    align-self: stretch;
+  }
+
+  .task-tab {
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: center;
+    padding-right: .625rem;
+    padding-left: .625rem;
+  }
+}
+
+@media (max-width: 479px) {
+  #tab-btn-screenshot .ml-1 { display: none; }
+}
 .cursor-pointer{cursor:pointer}
 .inset-0{top:0;right:0;bottom:0;left:0}
 .opacity-50{opacity:.5}

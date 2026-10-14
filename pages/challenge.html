@@ -20,33 +20,26 @@
 </head>
 
 <body class="challenge-page">
-    <header class="site-header fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]">
-        <div class="h-16 max-w-7xl mx-auto px-margin flex items-center justify-between">
-            <div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm" data-path="dashboard"
-                    href="#"><img alt="CodeCoach Logo" class="h-8 w-auto object-contain"
-                    src="../assets/Brand_logo.png"><span
-                        class="font-headline-sm text-headline-sm text-on-surface tracking-tight">CodeCoach</span></a><span
-                    class="font-label-code-sm text-label-code-sm px-space-sm py-0.5 rounded-full bg-surface-container-high text-primary border border-outline-variant/30 flex items-center gap-1.5"><span
-                        class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>AI Beta</span></div>
-            <nav class="hidden md:flex items-center gap-space-sm p-1 rounded-full bg-surface-container-lowest/60 border border-outline-variant/20"
-                data-active-classes="bg-primary-container text-on-primary-container font-label-ui text-label-ui rounded-full px-space-md py-space-xs shadow-sm">
-                <a class="px-space-md py-space-xs rounded-full font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
-                    data-path="dashboard" href="../index.html">Home</a><a aria-current="page"
-                    class="transition-colors bg-primary-container text-on-primary-container font-label-ui text-label-ui rounded-full px-space-md py-space-xs shadow-sm"
-                    data-path="challenges" href="#">Challenges</a><a
-                    class="px-space-md py-space-xs rounded-full font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
-                    data-path="ai-tasks" href="#">AI Tasks</a><a
-                    class="px-space-md py-space-xs rounded-full font-label-ui text-label-ui text-on-surface-variant hover:text-on-surface transition-colors"
-                    data-path="progress" href="#">Progress</a></nav>
-            <div class="flex items-center gap-space-md">
-                <div class="relative flex items-center justify-center"><img alt="Profile"
-                        class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/40"
-                        src="https://lh3.googleusercontent.com/aida/AEtjO1V5dIEDhcUGmwQ-b9EOp5RZZmr33km0PEog4FJORmMgVoWc2a59UsWHgMN5B3XMVaujxFubrvagn5uVuIVRvEeKBpbG9E19jylU0cvCYx26pO0FBH4cY8_v2mXUnjxNtrneDIp7IdU8SgH2G1bWkD7jtjMY2zlYEtbNeKFWQ0wt4Ktq8e27_FkAWaM0ZxMDlbm2Yx1d4fW4KsoA_vY2LAkpZwFriJwv4-5H_xyeWf6nqq35xBVCNLEj"><span
-                        class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface"></span>
-                </div>
-            </div>
-        </div>
-    </header>
+    <header class="site-header">
+    <div class="site-header-inner">
+      <div class="site-brand"><a class="site-brand-link group" href="#"><img alt=""
+            class="h-8 w-auto object-contain" src="../assets/Brand_logo.png"><span
+            class="site-brand-name">CodeCoach</span></a><span class="site-beta"><span class="site-status-dot"></span>AI
+          Beta</span></div>
+      <nav class="site-nav">
+        <a class="site-nav-link site-nav-link--active" data-path="dashboard" href="../index.html">Home</a><a class="site-nav-link"
+          data-path="challenges" href="challenges.html">Challenges</a><a aria-current="page"
+          class="site-nav-link" data-path="ai-tasks" href="AI_task.html">AI Tasks</a><a class="site-nav-link"
+          data-path="progress" href="progress.html">Progress</a>
+      </nav>
+      <div><a class="site-profile-link" data-path="profile" href="profile.html">
+          <div class="site-avatar">
+            <img alt="User Avatar" class="w-full h-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeLGpndvJpkxIJCh6ygv1OS5u1-A88YWk_47v_tROfHdphEfJc-UMBjgZlJo1dh6F5FZKkNW6rRW-OJHZF9Qtm0EjO9vleWRcCdnHOpXYPLY7D7TBRsmPiLx_x5m7n0783doK-H_96xFIwig4RrsQ6p60bNu31iOVtN3kqcrQdjSETEh-orUxopceyE_0s9B4mlOAezOGTBs1IJKG5vQXw7lXKs0haRzgr5OdcOjt9q7PM818AtAU">
+          </div><span class="site-avatar-status"></span>
+        </a></div>
+    </div>
+  </header>
     <main class="w-full pt-16 flex-1 bg-surface">
         <div class="flex flex-col w-full">
             <!-- Subtle Ambient Glow Orbs -->
@@ -271,7 +264,7 @@
                             <div class="rounded-xl overflow-hidden bg-surface-container-lowest shadow-lg">
                                 <!-- Simulated Browser Header -->
                                 <div
-                                    class="bg-surface-container-high px-space-md py-2 flex items-center justify-between gap-space-md">
+                                    class="challenge-preview-toolbar bg-surface-container-high px-space-md py-2 flex items-center justify-between gap-space-md">
                                     <div class="flex items-center gap-1.5">
                                         <div class="w-2.5 h-2.5 rounded-full bg-error/70"></div>
                                         <div class="w-2.5 h-2.5 rounded-full bg-surface-bright"></div>
@@ -279,12 +272,12 @@
                                     </div>
                                     <!-- Address Pill -->
                                     <div
-                                        class="flex-1 max-w-sm mx-auto bg-surface-container-lowest/80 px-space-md py-0.5 rounded-full flex items-center justify-center gap-1.5 text-on-surface-variant font-label-code-sm text-label-code-sm">
+                                        class="challenge-preview-url flex-1 max-w-sm mx-auto bg-surface-container-lowest/80 px-space-md py-0.5 rounded-full flex items-center justify-center gap-1.5 text-on-surface-variant font-label-code-sm text-label-code-sm">
                                         <span class="material-symbols-outlined text-xs text-primary">lock</span>
                                         <span class="truncate">preview.codecoach.io/targets/saas-modern-v2</span>
                                     </div>
                                     <div
-                                        class="font-label-code-sm text-label-code-sm px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant shrink-0">
+                                        class="challenge-preview-size font-label-code-sm text-label-code-sm px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant shrink-0">
                                         1440 × 900
                                     </div>
                                 </div>
@@ -553,68 +546,81 @@
             })();
         </script>
     </main>
-    <footer class="site-footer w-full bg-surface-container-lowest border-t border-outline-variant/20 pt-space-xl pb-space-lg">
-        <div class="max-w-7xl mx-auto px-margin">
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-gutter pb-space-xl border-b border-outline-variant/20">
-                <div class="md:col-span-2 flex flex-col gap-space-sm">
-                    <div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #06b6d4
-- Font: inter
-- Mode: dark
-- Roundness: rounded-md
-" class="h-7 w-auto object-contain"
-                            src="https://lh3.googleusercontent.com/aida/AEtjO1WR1DF1eJBVA9PN4Oos3yDdlaRZqIy-abz3F1LOtu4T31E4jvwQj-yFPWkUj3OfxOBmWJ14PfL7KeMSttDYTX7w6Fg92mfHYa34b8SXn2hLlTVoYgVHQuP9Fm-94o6JfviZY42AOcFjjfsyPi2vN36qM4Mw8BCNMbby8u_RwOer9WUJ1ATJV651msExJvm1A_R2no9FMQYYujh9HSF7_OvT7Q4phvAlX0-aPma3JkwtQfeJlHPNso6I-Q"><span
-                            class="font-headline-sm text-headline-sm text-on-surface">CodeCoach</span></div>
-                    <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm mt-space-xs">Your AI-powered
-                        frontend development coach. Master modern architecture, responsive patterns, and developer
-                        velocity.</p>
-                </div>
-                <div class="flex flex-col gap-space-sm"><span
-                        class="font-label-ui text-label-ui text-on-surface uppercase tracking-wider">Platform</span>
-                    <ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
-                        <li class=""><a class="hover:text-primary transition-colors" data-path="dashboard"
-                                href="#">Dashboard</a></li>
-                        <li class=""><a class="hover:text-primary transition-colors" data-path="challenges"
-                                href="#">Challenges</a></li>
-                        <li class=""><a class="hover:text-primary transition-colors" data-path="ai-tasks" href="#">AI
-                                Tasks</a></li>
-                        <li class=""><a class="hover:text-primary transition-colors" data-path="progress"
-                                href="#">Progress</a></li>
-                    </ul>
-                </div>
-                <div class="flex flex-col gap-space-sm"><span
-                        class="font-label-ui text-label-ui text-on-surface uppercase tracking-wider">Resources</span>
-                    <ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
-                        <li class=""><a class="hover:text-primary transition-colors" data-path="documentation"
-                                href="#">Documentation</a></li>
-                        <li class=""><a class="hover:text-primary transition-colors" data-path="github"
-                                href="#">GitHub</a></li>
-                        <li class=""><a class="hover:text-primary transition-colors" data-path="community"
-                                href="#">Community</a></li>
-                    </ul>
-                </div>
-                <div class="flex flex-col gap-space-sm"><span
-                        class="font-label-ui text-label-ui text-on-surface uppercase tracking-wider">Account</span>
-                    <ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
-                        <li class=""><a class="hover:text-primary transition-colors" data-path="profile"
-                                href="#">Profile</a></li>
-                        <li class=""><a class="hover:text-primary transition-colors" data-path="settings"
-                                href="#">Settings</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div
-                class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-on-surface-variant">
-                <div class="flex items-center gap-space-lg flex-wrap"><span class="">© 2026 CodeCoach. All rights
-                        reserved.</span><a class="hover:text-on-surface transition-colors" data-path="privacy-policy"
-                        href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors"
-                        data-path="terms-of-service" href="#">Terms of Service</a></div>
-                <div
-                    class="flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container-high/60 border border-outline-variant/30 font-label-code-sm text-label-code-sm text-on-surface-variant">
-                    <span class="w-2 h-2 rounded-full bg-primary"></span><span class="">Status: All Systems
-                        Operational</span></div>
-            </div>
+    <footer class="w-full dark-bg border-t border-soft-60 py-xl">
+    <div class="max-w-7xl mx-auto page-pad-mobile md-page-pad">
+      <div class="grid grid-cols-1 md-grid-cols-5 gap-xl mb-xl">
+        <div class="md-col-span-2 flex column start pr-0 md-pr-xl">
+          <div class="flex center gap-sm mb-md"><img alt="CodeCoach logo" class="brand-logo"
+              src="https://lh3.googleusercontent.com/aida/AEtjO1VJ5GtFy6K-s_FyEzOONr5R-SZncTy11yVYJ8H2UyyuCWq7J7DMuosuwy4gRg5UJbOiv_uuoHZmSwheVTNgEBrccnmi4aklo6yKYTnKQGXfbVwESV_YP4Xkt82n8eLhMHFrZGnPN1jlHov0WpFYS2W7o92Glv5D8XyORrH-ebNtE5r8Xs964Bc0amHFkrVdIuJpMBWIzqiYDZys1GOoo_V88NYB9UI_TK0XCWMjivXo5ekUGDefg9xPXA" /><span
+              class="font-heading heading-small font-semibold tracking-tight main-text">CodeCoach</span>
+          </div>
+          <p class="font-body small-text muted-text leading-relaxed max-w-sm">Master frontend
+            development by recreating real-world interfaces with pixel-perfect visual evaluations.</p>
         </div>
-    </footer>
+        <div>
+          <h4 class="font-ui ui-text font-semibold uppercase tracking-wider main-text mb-md">
+            Platform</h4>
+          <ul class="footer-list">
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition"
+                data-path="challenges" href="#">Challenges</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition"
+                data-path="ai-tasks" href="#">AI Tasks</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition"
+                data-path="progress" href="#">Progress</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="sandbox"
+                href="#">Sandbox</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-ui ui-text font-semibold uppercase tracking-wider main-text mb-md">
+            Resources</h4>
+          <ul class="footer-list">
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition"
+                data-path="documentation" href="#">Documentation</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="github"
+                href="#">GitHub</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition"
+                data-path="community" href="#">Community</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition"
+                data-path="changelog" href="#">Changelog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-ui ui-text font-semibold uppercase tracking-wider main-text mb-md">
+            Account</h4>
+          <ul class="footer-list">
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition" data-path="login"
+                href="#">Log in</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition"
+                data-path="register" href="#">Register</a></li>
+            <li class="list-none"><a class="font-body small-text muted-text hover-accent transition"
+                data-path="settings" href="#">Settings</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-lg border-t border-soft-40 flex column md-flex-row center between gap-md">
+        <div class="flex wrap center gap-md">
+          <p class="font-body small-text muted-text">Copyright © 2026 CodeCoach. All rights reserved.
+          </p>
+          <div class="flex center gap-sm"><a class="font-body small-text muted-text hover-main transition"
+              data-path="privacy-policy" href="#">Privacy Policy</a><span class="text-outline-variant">•</span><a
+              class="font-body small-text muted-text hover-main transition" data-path="terms-of-service" href="#">Terms
+              of Service</a></div>
+        </div>
+        <div class="flex center gap-lg">
+          <div class="inline-flex center gap-2 px-3 py-1 round-full panel border border-soft-50">
+            <span class="w-2 h-2 round-full accent-bg animate-pulse"></span><span
+              class="font-code code-small main-text">Systems Operational</span>
+          </div>
+          <div class="flex center gap-sm"><a aria-label="Code repository" class="muted-text hover-accent transition p-1"
+              data-path="github-external" href="#"><span class="material-symbols-outlined size-20">code</span></a><a
+              aria-label="Professional network" class="muted-text hover-accent transition p-1"
+              data-path="network-external" href="#"><span class="material-symbols-outlined size-20">share</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 
 

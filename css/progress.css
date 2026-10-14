@@ -13,32 +13,16 @@
 
 .progress-page button {
   border: 0;
+  background: transparent;
   color: inherit;
   font: inherit;
   cursor: pointer;
 }
 
-.progress-page header {
-  position: fixed;
-  z-index: 50;
-  top: 0;
-  width: 100%;
-  background: rgb(10 14 22 / 80%);
-  box-shadow: 0 1px 8px rgb(0 0 0 / 25%);
-  backdrop-filter: blur(24px);
-}
-
 .progress-page main {
   width: 100%;
-  padding-top: 4rem;
   overflow-x: clip;
   background: var(--background);
-}
-
-.progress-page footer {
-  width: 100%;
-  margin-top: 2.5rem;
-  background: var(--surface-lowest);
 }
 
 .progress-page .flex { display: flex; }
@@ -286,6 +270,10 @@
 }
 
 @media (min-width: 768px) {
+  .progress-page footer .md-grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
   .progress-page .md\:flex { display: flex; }
   .progress-page .md\:flex-row { flex-direction: row; }
   .progress-page .md\:items-end { align-items: flex-end; }
