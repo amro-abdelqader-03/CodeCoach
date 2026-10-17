@@ -436,6 +436,7 @@
   cursor: pointer;
   transition: background .2s, color .2s;
 }
+.transition-transform { transition: transform .3s ease; }
 .copy-button:hover { background: var(--surface-variant); color: var(--on-surface); }
 .py-0-5 { padding-top: .125rem; padding-bottom: .125rem; }
 @media (min-width: 640px) {
