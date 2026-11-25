@@ -1,56 +1,45 @@
-# CodeCoach 🚀
+# CodeCoach
 
-A web application designed to help developers practice coding challenges, improve their problem-solving skills, and receive structured feedback.
+CodeCoach is a frontend practice platform built with Laravel 12, Blade, Tailwind CSS 4, and Vite.
 
-## 🔗 Live Demo
-Access the live application here: **[CodeCoach Live](https://amro-abdelqader-03.github.io/CodeCoach/)**
+## Run locally
 
----
+From the Laravel application directory:
 
-## 📌 Project Overview
-CodeCoach is built to streamline coding practice and interactive learning. Whether preparing for technical interviews or sharpening core programming skills, the platform provides a clear, structured interface to engage with practice problems and track progress.
-
----
-
-## 🛠 Project Structure
-
-```text
-CodeCoach/
-│
-├── index.html        # Main HTML layout and entry point
-├── styles/           # CSS stylesheets for application styling
-├── scripts/          # JavaScript files handling interactive logic & functionality
-└── assets/           # Media assets (images, icons, etc.)
+```bash
+cd backend
+composer install
+npm install
 ```
 
----
+Start Laravel and Vite in separate terminals:
 
-## 💻 Tech Stack
-- **HTML5** – Semantic markup and page architecture
-- **CSS3** – Custom styling and responsive design
-- **JavaScript (ES6+)** – Dynamic interaction and application logic
-- **GitHub Pages** – Deployment and hosting
+```bash
+php artisan serve
+npm run dev
+```
 
----
+To build production assets:
 
-## 🚦 Getting Started Locally
+```bash
+npm run build
+```
 
-To run this project locally on your machine, follow these steps:
+## Pages
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/amro-abdelqader-03/CodeCoach.git
-   ```
+Public pages are defined in `backend/routes/web.php` and rendered from `backend/resources/views/pages` with the shared `layouts/app.blade.php` layout. The admin area uses `layouts/admin.blade.php` and includes a page for every sidebar item.
 
-2. **Navigate to the project directory:**
-   ```bash
-   cd CodeCoach
-   ```
+| Page | Route |
+| --- | --- |
+| Home | `/` |
+| How it works | `/how-it-works` |
+| Gamification | `/gamification` |
+| Challenges | `/challenges` |
+| Create a challenge | `/challenges/create` |
+| Challenge details | `/challenges/{challenge}` |
+| AI evaluation | `/ai-evaluation` |
+| Profile | `/profile` |
+| Admin dashboard | `/admin` |
+| Admin sections | `/admin/users`, `/admin/challenges`, `/admin/evaluations`, `/admin/appointments`, `/admin/reports`, `/admin/settings` |
 
-3. **Open the application:**
-   Open `index.html` directly in your browser or run it using a local server (e.g., Live Server extension in VS Code).
-
----
-
-## 🤝 Contributing
-Contributions, issues, and feature requests are welcome! Feel free to check the repository issues or submit a pull request.
+The original static HTML files remain in `frontend/` as design references. Shared image assets are served from `backend/public/images`.
