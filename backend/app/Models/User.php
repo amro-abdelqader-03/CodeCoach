@@ -13,6 +13,15 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
+    protected static function booted(): void
+    {
+        static::creating(function (User $user): void {
+            if ($user->evaluation_points === null) {
+                $user->evaluation_points = 5;
+            }
+        });
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,6 +31,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role', 'level', 'xp', 'coins', 'evaluation_points', 'plan', 'profile_pic',
     ];
 
     /**
@@ -46,4 +56,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function challenges() { return $this->hasMany(Challenge::class); }
+    public function appointments() { return $this->hasMany(Appointment::class); }
+    public function evaluations() { return $this->hasMany(Appointment::class, 'evaluator_id'); }
 }

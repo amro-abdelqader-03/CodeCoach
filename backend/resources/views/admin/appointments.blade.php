@@ -4,14 +4,54 @@
 @section('page-heading', 'Appointments')
 
 @section('content')
-<div class="mx-auto w-full max-w-[1720px] space-y-6 px-4 py-6 sm:px-6 lg:px-8">
-    <section class="flex flex-col justify-between gap-4 rounded-xl bg-surface-container-low p-6 sm:flex-row sm:items-center"><div><p class="mb-2 text-xs font-semibold uppercase tracking-wider text-secondary">Human review</p><h1 class="font-headline-xl text-headline-xl font-semibold">Appointments</h1><p class="mt-1 text-on-surface-variant">Coordinate mentor sessions and peer evaluation slots.</p></div><button class="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-inverse-primary px-4 py-2.5 font-medium text-on-primary"><span class="material-symbols-outlined text-[18px]">add</span>Schedule session</button></section>
-    <section class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">@foreach ([['28','Today','today'],['146','This week','date_range'],['18','Awaiting confirmation','pending_actions'],['91%','Attendance rate','event_available']] as [$value,$label,$icon])<div class="rounded-xl bg-surface-container-low p-5"><div class="flex items-center justify-between text-sm text-on-surface-variant"><span>{{ $label }}</span><span class="material-symbols-outlined text-secondary">{{ $icon }}</span></div><p class="mt-3 font-headline-xl text-headline-xl font-semibold">{{ $value }}</p></div>@endforeach</section>
-    <section class="grid gap-6 xl:grid-cols-[1.5fr_1fr]">
-        <div class="overflow-hidden rounded-xl bg-surface-container-low"><div class="flex items-center justify-between border-b border-white/5 p-5"><div><h2 class="font-headline-sm text-headline-sm font-semibold">Upcoming sessions</h2><p class="mt-1 text-sm text-on-surface-variant">Thursday, March 20</p></div><button class="rounded-lg bg-surface-container-high px-3 py-2 text-sm">View calendar</button></div><div class="divide-y divide-white/5">
-            @foreach ([['09:30 AM','Alex Chen','Linear SaaS Landing Page','Sam Rivera','Confirmed'],['10:15 AM','Jordan Lee','Analytics Dashboard','Nina Patel','Confirmed'],['11:00 AM','Maya Patel','Portfolio Website','Chris Wong','Pending'],['02:30 PM','David Miller','E-Commerce Product Page','Taylor Smith','Confirmed'],['03:45 PM','Sarah Lin','Restaurant Website','Sam Rivera','Pending']] as [$time,$member,$challenge,$mentor,$status])<article class="flex flex-col gap-3 p-5 sm:flex-row sm:items-center sm:justify-between"><div class="flex items-start gap-4"><span class="min-w-20 rounded-lg bg-surface-container-high px-2 py-2 text-center font-label-mono text-xs text-secondary">{{ $time }}</span><div><h3 class="font-medium">{{ $member }}</h3><p class="mt-1 text-sm text-on-surface-variant">{{ $challenge }} <span class="text-outline">· with {{ $mentor }}</span></p></div></div><span class="w-fit rounded-full bg-secondary/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-secondary">{{ $status }}</span></article>@endforeach
-        </div></div>
-        <div class="space-y-6"><section class="rounded-xl bg-surface-container-low p-5"><div class="mb-4 flex items-center justify-between"><h2 class="font-headline-sm text-headline-sm font-semibold">Availability</h2><span class="material-symbols-outlined text-secondary">calendar_month</span></div><div class="grid grid-cols-7 gap-2 text-center text-xs text-on-surface-variant">@foreach (['M','T','W','T','F','S','S'] as $day)<span>{{ $day }}</span>@endforeach @foreach (range(16, 36) as $date)<span @class(['rounded-lg py-2', 'bg-primary-container font-semibold text-on-primary-container' => $date === 20, 'bg-surface-container-high text-secondary' => in_array($date, [18,19,21,24,25,27], true), 'text-outline' => ! in_array($date, [18,19,20,21,24,25,27], true)])>{{ $date > 31 ? $date - 31 : $date }}</span>@endforeach</div><div class="mt-4 flex gap-4 text-xs text-on-surface-variant"><span class="flex items-center gap-1.5"><i class="h-2 w-2 rounded-full bg-secondary"></i>Has sessions</span><span class="flex items-center gap-1.5"><i class="h-2 w-2 rounded-full bg-primary-container"></i>Selected day</span></div></section><section class="rounded-xl bg-surface-container-low p-5"><h2 class="font-headline-sm text-headline-sm font-semibold">Mentor capacity</h2><div class="mt-4 space-y-4">@foreach ([['Sam Rivera',78],['Nina Patel',62],['Taylor Smith',45]] as [$mentor,$capacity])<div><div class="mb-2 flex justify-between text-sm"><span>{{ $mentor }}</span><span class="font-label-mono text-secondary">{{ $capacity }}%</span></div><div class="h-2 rounded-full bg-surface-container-high"><div class="h-2 rounded-full bg-gradient-to-r from-primary-container to-secondary" style="width: {{ $capacity }}%"></div></div></div>@endforeach</div></section></div>
+<div class="admin-page">
+    <header class="admin-page-header">
+        <div>
+            <p class="admin-eyebrow">Coaching schedule</p>
+            <h1 class="admin-page-heading">Appointments</h1>
+            <p class="admin-page-description">Schedule non-overlapping evaluation sessions.</p>
+        </div>
+        <a class="admin-link-button admin-link-button--primary" href="{{ route('admin.appointments.create') }}">
+            <span class="material-symbols-outlined text-lg" aria-hidden="true">event_available</span>
+            Create appointment
+        </a>
+    </header>
+
+    <section class="admin-panel" aria-labelledby="appointments-table-heading">
+        <div class="admin-panel-header">
+            <div>
+                <h2 id="appointments-table-heading" class="admin-panel-title">Scheduled sessions</h2>
+                <p class="admin-panel-copy">{{ $appointments->total() }} sessions in the schedule</p>
+            </div>
+        </div>
+        <div class="admin-table-scroll">
+            <table class="admin-table min-w-[780px]">
+                <thead><tr><th>Date and time</th><th>Evaluator</th><th>User</th><th>Duration</th><th>Actions</th></tr></thead>
+                <tbody>
+                    @forelse ($appointments as $appointment)
+                        <tr>
+                            <td><span class="block font-medium">{{ $appointment->start_date->format('M j, Y') }}</span><span class="mt-1 block text-xs text-on-surface-variant">{{ $appointment->start_date->format('H:i') }} – {{ $appointment->end_date->format('H:i') }}</span></td>
+                            <td>{{ $appointment->evaluator?->name ?? '—' }}</td>
+                            <td>{{ $appointment->user?->name ?? '—' }}</td>
+                            <td><span class="admin-badge">{{ $appointment->start_date->diffInMinutes($appointment->end_date) }} min</span></td>
+                            <td>
+                                <div class="admin-actions">
+                                    <a class="admin-link-button admin-link-button--secondary admin-link-button--small" href="{{ route('admin.appointments.show', $appointment) }}">View</a>
+                                    <a class="admin-link-button admin-link-button--secondary admin-link-button--small" href="{{ route('admin.appointments.edit', $appointment) }}">Edit</a>
+                                    <form class="admin-inline-form" method="post" action="{{ route('admin.appointments.destroy', $appointment) }}" onsubmit="return confirm('Delete this appointment?')">
+                                        @csrf @method('DELETE')
+                                        <button class="admin-button admin-button--danger admin-button--small" type="submit">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr><td colspan="5" class="admin-empty">No appointments yet. Schedule an evaluation session to get started.</td></tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+        @if ($appointments->hasPages())<div class="border-t border-white/10 px-5 py-4">{{ $appointments->links() }}</div>@endif
     </section>
 </div>
 @endsection

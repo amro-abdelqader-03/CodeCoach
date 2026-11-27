@@ -3,161 +3,307 @@
 @section('title', 'Create a Challenge')
 
 @section('content')
-<div class="flex flex-col w-full">
-<section class="relative w-full max-w-3xl mx-auto px-6 lg:px-12 py-space-xl lg:py-20">
-<div class="pointer-events-none absolute top-8 left-1/2 -translate-x-1/2 w-[34rem] h-[18rem] rounded-full bg-primary-container/10 blur-3xl"></div>
-<div class="relative flex flex-col items-center text-center mb-space-xl">
-<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container-high shadow-[0_0_20px_rgba(77,142,255,0.22)] mb-space-lg">
-<span class="font-caption-caps text-caption-caps uppercase tracking-wider text-secondary">✦ AI CHALLENGE GENERATOR</span>
-</div>
-<h1 class="font-display-hero text-display-hero text-on-surface mb-space-md">
-        Create a <span class="text-secondary">Challenge</span>
-</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-        Bring any website to life. Upload screenshots or paste a URL, and let AI turn it into your next frontend challenge.
-      </p>
-</div>
-<div class="relative w-full bg-surface-container/80 backdrop-blur-xl rounded-xl p-space-lg md:p-space-xl shadow-[0_24px_48px_-12px_rgba(0,0,0,0.6),0_0_32px_-8px_rgba(77,142,255,0.18)] flex flex-col gap-space-lg">
-<div class="flex flex-col">
-<div class="group rounded-xl bg-surface-container-lowest/75 p-space-xl text-center cursor-pointer transition-all duration-200 shadow-[inset_0_0_0_1px_rgba(123,208,255,0.2)] hover:bg-surface-container-low hover:shadow-[inset_0_0_0_1px_rgba(123,208,255,0.45),0_0_28px_-4px_rgba(77,142,255,0.28)]" id="drop-zone">
-<div class="w-14 h-14 rounded-full bg-primary-container/15 text-primary flex items-center justify-center mx-auto mb-space-md shadow-[0_0_20px_rgba(77,142,255,0.2)] group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[28px]">cloud_upload</span>
-</div>
-<p class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">
-            Drop your website screenshots here
-          </p>
-<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
-            Drag and drop images or browse files
-          </p>
-<span class="inline-flex items-center px-space-sm py-1 rounded-full bg-surface-container-high font-label-mono text-label-mono text-secondary">
-            PNG, JPG, JPEG, WEBP
-          </span>
-<input accept="image/png,image/jpeg,image/webp" class="hidden" id="file-input" multiple="" type="file"/>
-</div>
-<div class="hidden grid grid-cols-2 sm:grid-cols-3 gap-space-md mt-space-md" id="preview-grid"></div>
-</div>
-<div class="flex items-center gap-space-md">
-<div class="h-px flex-1 bg-surface-container-highest"></div>
-<span class="font-caption-caps text-caption-caps uppercase text-outline">OR</span>
-<div class="h-px flex-1 bg-surface-container-highest"></div>
-</div>
-<div class="flex flex-col gap-space-sm">
-<div class="bg-surface-container-lowest/90 rounded-lg flex items-center gap-space-sm px-space-md py-3.5 shadow-[inset_0_0_0_1px_rgba(140,144,159,0.2)] focus-within:shadow-[0_0_0_2px_rgba(77,142,255,0.45)] transition-all">
-<span class="material-symbols-outlined text-outline text-[20px]">language</span>
-<input class="w-full bg-transparent font-label-mono text-label-mono text-on-surface placeholder:text-outline focus:outline-none" id="url-input" placeholder="https://example.com" type="url"/>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-          Either screenshots, a URL, or both are sufficient to generate your challenge.
+<section class="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <div class="mx-auto max-w-3xl text-center">
+        <span class="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[.14em] text-secondary">
+            <span class="material-symbols-outlined text-base" aria-hidden="true">auto_awesome</span>
+            AI challenge generator
+        </span>
+        <h1 class="mt-5 font-headline-xl text-4xl font-semibold tracking-tight sm:text-5xl">Turn a website into a <span class="text-secondary">challenge</span></h1>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-on-surface-variant">
+            Add a public website URL and local Ollama will draft a focused frontend rebuild challenge for you to review. Screenshots need a vision model configured on the server.
         </p>
-</div>
-<button class="w-full py-4 px-space-lg rounded-xl bg-gradient-to-b from-primary-container to-secondary-container text-on-primary-container font-headline-sm text-headline-sm font-semibold shadow-[0_0_24px_-2px_rgba(77,142,255,0.45)] hover:shadow-[0_0_32px_rgba(77,142,255,0.65)] active:scale-[0.99] transition-all flex items-center justify-center gap-space-sm cursor-pointer" id="generate-btn" type="button">
-<span>Generate Challenge</span>
-<span>✦</span>
-</button>
-</div>
+    </div>
+
+    <div class="generator-card mx-auto mt-9 max-w-4xl p-4 sm:p-7 lg:p-8">
+        <form id="generation-form" class="space-y-6" data-endpoint="{{ route('challenges.generate') }}">
+            @csrf
+            <div>
+                <div class="mb-3 flex flex-wrap items-end justify-between gap-2">
+                    <div>
+                        <h2 class="text-base font-semibold">Reference screenshots</h2>
+                        <p class="mt-1 text-sm text-on-surface-variant">Upload up to three PNG, JPG, or WEBP images, up to 2 MB each.</p>
+                    </div>
+                    <span id="file-count" class="text-xs text-outline">0 of 3 added</span>
+                </div>
+
+                <div id="drop-zone" class="generator-dropzone cursor-pointer" role="button" tabindex="0" aria-controls="file-input" aria-label="Choose or drop website screenshots">
+                    <div>
+                        <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-container/15 text-primary">
+                            <span class="material-symbols-outlined text-2xl" aria-hidden="true">cloud_upload</span>
+                        </span>
+                        <p class="mt-3 font-medium">Drop screenshots here or <span class="text-secondary underline underline-offset-4">browse files</span></p>
+                        <p class="mt-1 text-xs text-on-surface-variant">Desktop, tablet, and mobile screenshots work well.</p>
+                    </div>
+                </div>
+                <input id="file-input" class="sr-only" accept="image/png,image/jpeg,image/webp" multiple type="file">
+                <div id="preview-grid" class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" aria-label="Selected screenshots"></div>
+            </div>
+
+            <div class="flex items-center gap-4 text-xs font-semibold uppercase tracking-[.16em] text-outline" aria-hidden="true">
+                <span class="h-px flex-1 bg-outline-variant/40"></span><span>and / or</span><span class="h-px flex-1 bg-outline-variant/40"></span>
+            </div>
+
+            <div class="grid gap-2">
+                <label class="text-sm font-semibold" for="url-input">Public website URL</label>
+                <input id="url-input" name="website_url" class="form-control" type="url" inputmode="url" placeholder="https://example.com" autocomplete="url">
+                <p class="form-help">The page must be publicly accessible. Pages behind a sign-in or paywall need screenshots instead.</p>
+            </div>
+
+            <div id="generation-message" class="hidden rounded-xl border px-4 py-3 text-sm" role="status" aria-live="polite"></div>
+
+            <button id="generate-btn" class="admin-button admin-button--primary min-h-12 w-full text-sm" type="submit">
+                <span class="material-symbols-outlined text-lg" aria-hidden="true">auto_awesome</span>
+                <span>Generate challenge</span>
+            </button>
+        </form>
+    </div>
+
+    <section id="generator-result" class="generator-result mx-auto mt-9 hidden max-w-4xl" aria-labelledby="result-heading">
+        <div class="mb-4">
+            <p class="admin-eyebrow">Draft challenge</p>
+            <h2 id="result-heading" class="mt-1 text-2xl font-semibold tracking-tight">Review and edit before saving</h2>
+            <p class="mt-2 text-sm text-on-surface-variant">Ollama has prepared three tasks. Adjust the wording and skill tags to suit your learners.</p>
+        </div>
+
+        <form method="post" action="{{ route('challenges.store') }}" enctype="multipart/form-data" class="generator-card p-4 sm:p-7" id="challenge-result-form">
+            @csrf
+            <div class="mb-5 grid gap-3">
+                <label class="grid gap-2 text-sm font-semibold" for="result-cover">Challenge cover image <span class="font-normal text-on-surface-variant">(optional)</span>
+                    <input class="form-control" id="result-cover" name="image" type="file" accept="image/png,image/jpeg,image/webp">
+                </label>
+                <div id="result-cover-preview" class="hidden"><img class="max-h-64 w-full rounded-xl object-cover" alt="Generated challenge cover preview"></div>
+            </div>
+            <div class="admin-form-grid">
+                <label class="admin-form-field admin-form-field--wide">
+                    <span class="admin-form-label">Challenge title</span>
+                    <input class="form-control" name="title" id="result-title" maxlength="255" required>
+                </label>
+                <label class="admin-form-field">
+                    <span class="admin-form-label">Difficulty</span>
+                    <select class="form-control" name="difficulty" id="result-difficulty" required>
+                        <option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option>
+                    </select>
+                </label>
+                <label class="admin-form-field admin-form-field--wide">
+                    <span class="admin-form-label">Challenge brief</span>
+                    <textarea class="form-control" name="description" id="result-description" maxlength="12000" required></textarea>
+                </label>
+            </div>
+
+            <div class="admin-form-section">
+                <h3 class="admin-form-section-heading">Build tasks</h3>
+                <p class="admin-form-section-copy">Keep the tasks small and ordered so learners can build the page in clear steps.</p>
+                <div class="grid gap-3">
+                    @for ($index = 0; $index < 3; $index++)
+                        <fieldset class="generator-task grid gap-3">
+                            <legend class="px-1 text-sm font-semibold text-secondary">Task {{ $index + 1 }}</legend>
+                            <label class="admin-form-field">
+                                <span class="admin-form-label">Task description</span>
+                                <textarea class="form-control" name="tasks[{{ $index }}][description]" id="result-task-{{ $index }}" maxlength="1200" rows="3" required></textarea>
+                            </label>
+                            <label class="admin-form-field">
+                                <span class="admin-form-label">Skills</span>
+                                <input class="form-control" name="tasks[{{ $index }}][skills]" id="result-skills-{{ $index }}" maxlength="500" placeholder="HTML, CSS, responsive design">
+                                <span class="form-help">Separate skills with commas.</span>
+                            </label>
+                        </fieldset>
+                    @endfor
+                </div>
+            </div>
+
+            <div class="admin-form-actions">
+                <button class="admin-button admin-button--primary" type="submit">
+                    <span class="material-symbols-outlined text-lg" aria-hidden="true">save</span>
+                    Save challenge
+                </button>
+                <button class="admin-button admin-button--secondary" id="generate-again" type="button">Generate another draft</button>
+            </div>
+        </form>
+    </section>
 </section>
-<script>
-    (function () {
-      const dropZone = document.getElementById('drop-zone');
-      const fileInput = document.getElementById('file-input');
-      const previewGrid = document.getElementById('preview-grid');
-      const generateBtn = document.getElementById('generate-btn');
-      const urlInput = document.getElementById('url-input');
-
-      let uploadedFiles = [];
-
-      function renderPreviews() {
-        previewGrid.innerHTML = '';
-        if (uploadedFiles.length === 0) {
-          previewGrid.classList.add('hidden');
-          return;
-        }
-        previewGrid.classList.remove('hidden');
-
-        uploadedFiles.forEach((item, index) => {
-          const card = document.createElement('div');
-          card.className = 'relative group rounded-lg overflow-hidden bg-surface-container-lowest aspect-video shadow-md';
-
-          const img = document.createElement('img');
-          img.src = item.url;
-          img.alt = item.file.name;
-          img.className = 'w-full h-full object-cover';
-
-          const removeBtn = document.createElement('button');
-          removeBtn.type = 'button';
-          removeBtn.innerHTML = '&times;';
-          removeBtn.setAttribute('aria-label', 'Remove image');
-          removeBtn.className = 'absolute top-2 right-2 w-6 h-6 rounded-full bg-surface-container-lowest/90 text-on-surface hover:bg-error hover:text-on-error flex items-center justify-center font-body-md text-body-md transition-colors cursor-pointer shadow-sm';
-          removeBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            URL.revokeObjectURL(item.url);
-            uploadedFiles.splice(index, 1);
-            renderPreviews();
-          });
-
-          card.appendChild(img);
-          card.appendChild(removeBtn);
-          previewGrid.appendChild(card);
-        });
-      }
-
-      function handleFiles(files) {
-        const validTypes = ['image/png', 'image/jpeg', 'image/webp'];
-        Array.from(files).forEach((file) => {
-          if (validTypes.includes(file.type)) {
-            uploadedFiles.push({
-              file,
-              url: URL.createObjectURL(file)
-            });
-          }
-        });
-        renderPreviews();
-      }
-
-      dropZone.addEventListener('click', () => {
-        fileInput.click();
-      });
-
-      fileInput.addEventListener('change', (e) => {
-        if (e.target.files.length) {
-          handleFiles(e.target.files);
-          fileInput.value = '';
-        }
-      });
-
-      dropZone.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        dropZone.classList.add('bg-surface-container-low', 'shadow-[inset_0_0_0_1px_rgba(123,208,255,0.6),0_0_32px_-4px_rgba(77,142,255,0.4)]');
-      });
-
-      dropZone.addEventListener('dragleave', () => {
-        dropZone.classList.remove('bg-surface-container-low', 'shadow-[inset_0_0_0_1px_rgba(123,208,255,0.6),0_0_32px_-4px_rgba(77,142,255,0.4)]');
-      });
-
-      dropZone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        dropZone.classList.remove('bg-surface-container-low', 'shadow-[inset_0_0_0_1px_rgba(123,208,255,0.6),0_0_32px_-4px_rgba(77,142,255,0.4)]');
-        if (e.dataTransfer.files.length) {
-          handleFiles(e.dataTransfer.files);
-        }
-      });
-
-      generateBtn.addEventListener('click', () => {
-        const hasUrl = urlInput.value.trim().length > 0;
-        const hasFiles = uploadedFiles.length > 0;
-        if (!hasUrl && !hasFiles) {
-          urlInput.focus();
-          return;
-        }
-        generateBtn.innerHTML = '<span>Generating Challenge...</span>';
-        generateBtn.classList.add('opacity-80');
-        setTimeout(() => {
-          generateBtn.innerHTML = '<span>Generate Challenge</span><span>&#10022;</span>';
-          generateBtn.classList.remove('opacity-80');
-        }, 1200);
-      });
-    })();
-  </script>
-</div>
 @endsection
 
+@push('scripts')
+<script>
+(() => {
+    const form = document.getElementById('generation-form');
+    if (!form) return;
+
+    const fileInput = document.getElementById('file-input');
+    const dropZone = document.getElementById('drop-zone');
+    const previewGrid = document.getElementById('preview-grid');
+    const fileCount = document.getElementById('file-count');
+    const urlInput = document.getElementById('url-input');
+    const generateButton = document.getElementById('generate-btn');
+    const message = document.getElementById('generation-message');
+    const result = document.getElementById('generator-result');
+    const allowedTypes = ['image/png', 'image/jpeg', 'image/webp'];
+    function previewGeneratedCover(dataUri) {
+        if (!dataUri) return;
+        const preview = document.getElementById('result-cover-preview');
+        preview.querySelector('img').src = dataUri;
+        preview.classList.remove('hidden');
+    }
+    const maxFileSize = 2 * 1024 * 1024;
+    let screenshots = [];
+    const previewUrls = [];
+
+    function showMessage(text, isError = false) {
+        message.textContent = text;
+        message.classList.remove('hidden', 'border-error/25', 'bg-error-container/20', 'text-error', 'border-secondary/20', 'bg-secondary/10', 'text-secondary');
+        message.classList.add(...(isError
+            ? ['border-error/25', 'bg-error-container/20', 'text-error']
+            : ['border-secondary/20', 'bg-secondary/10', 'text-secondary']));
+    }
+
+    function renderFiles() {
+        previewUrls.forEach((url) => URL.revokeObjectURL(url));
+        previewUrls.length = 0;
+        previewGrid.replaceChildren();
+        fileCount.textContent = `${screenshots.length} of 3 added`;
+
+        screenshots.forEach((file, index) => {
+            const card = document.createElement('article');
+            card.className = 'generator-preview relative';
+
+            const image = document.createElement('img');
+            image.src = URL.createObjectURL(file);
+            previewUrls.push(image.src);
+            image.alt = `Screenshot ${index + 1}: ${file.name}`;
+
+            const footer = document.createElement('div');
+            footer.className = 'flex items-center justify-between gap-2 px-3 py-2';
+
+            const name = document.createElement('span');
+            name.className = 'min-w-0 truncate text-xs text-on-surface-variant';
+            name.textContent = file.name;
+
+            const remove = document.createElement('button');
+            remove.type = 'button';
+            remove.className = 'rounded-md px-2 py-1 text-xs font-medium text-error hover:bg-error-container/20';
+            remove.textContent = 'Remove';
+            remove.setAttribute('aria-label', `Remove ${file.name}`);
+            remove.addEventListener('click', () => {
+                screenshots.splice(index, 1);
+                renderFiles();
+            });
+
+            footer.append(name, remove);
+            card.append(image, footer);
+            previewGrid.append(card);
+        });
+    }
+
+    function addFiles(fileList) {
+        const incoming = Array.from(fileList || []);
+        const rejected = incoming.filter((file) => !allowedTypes.includes(file.type) || file.size > maxFileSize);
+
+        if (rejected.length) {
+            showMessage('Use PNG, JPG, or WEBP images up to 2 MB each.', true);
+        }
+
+        const accepted = incoming.filter((file) => allowedTypes.includes(file.type) && file.size <= maxFileSize);
+        const remainingSlots = 3 - screenshots.length;
+        screenshots.push(...accepted.slice(0, remainingSlots));
+
+        if (accepted.length > remainingSlots) {
+            showMessage('You can add up to three screenshots.', true);
+        }
+
+        renderFiles();
+    }
+
+    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            fileInput.click();
+        }
+    });
+    fileInput.addEventListener('change', () => {
+        addFiles(fileInput.files);
+        fileInput.value = '';
+    });
+    dropZone.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        dropZone.classList.add('is-dragging');
+    });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('is-dragging'));
+    dropZone.addEventListener('drop', (event) => {
+        event.preventDefault();
+        dropZone.classList.remove('is-dragging');
+        addFiles(event.dataTransfer.files);
+    });
+
+    async function generateChallenge() {
+        const websiteUrl = urlInput.value.trim();
+        if (!websiteUrl && screenshots.length === 0) {
+            showMessage('Add a public website URL, upload a screenshot, or use both.', true);
+            urlInput.focus();
+            return;
+        }
+
+        const payload = new FormData();
+        payload.append('website_url', websiteUrl);
+        screenshots.forEach((file) => payload.append('screenshots[]', file, file.name));
+        message.classList.add('hidden');
+        result.classList.add('hidden');
+        generateButton.disabled = true;
+        generateButton.innerHTML = '<span class="material-symbols-outlined animate-spin text-lg" aria-hidden="true">progress_activity</span><span>Analyzing the reference…</span>';
+
+        try {
+            const response = await fetch(form.dataset.endpoint, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': form.querySelector('[name="_token"]').value,
+                },
+                body: payload,
+            });
+            let data;
+            try {
+                data = await response.json();
+            } catch {
+                throw new Error('The response could not be read. Try again with smaller screenshots.');
+            }
+
+            if (!response.ok) {
+                const firstError = Object.values(data.errors || {}).flat()[0];
+                throw new Error(firstError || data.message || 'Challenge generation failed. Please try again.');
+            }
+
+            const challenge = data.challenge;
+            previewGeneratedCover(challenge.cover_image);
+            document.getElementById('result-title').value = challenge.title || '';
+            document.getElementById('result-description').value = challenge.description || '';
+            document.getElementById('result-difficulty').value = challenge.difficulty || 'medium';
+            for (let index = 0; index < 3; index++) {
+                const task = challenge.tasks?.[index] || {};
+                const skills = Array.isArray(task.skills) ? task.skills.join(', ') : (task.skills || '');
+                document.getElementById(`result-task-${index}`).value = task.description || '';
+                document.getElementById(`result-skills-${index}`).value = skills;
+            }
+            result.classList.remove('hidden');
+            result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            showMessage(data.notice ? `${data.notice} Review the draft below and save when ready.` : 'Challenge draft generated. Review it below, make any edits, then save.');
+        } catch (error) {
+            showMessage(error.message || 'Challenge generation failed. Please try again.', true);
+        } finally {
+            generateButton.disabled = false;
+            generateButton.innerHTML = '<span class="material-symbols-outlined text-lg" aria-hidden="true">auto_awesome</span><span>Generate challenge</span>';
+        }
+    }
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        generateChallenge();
+    });
+
+    document.getElementById('generate-again').addEventListener('click', () => {
+        result.classList.add('hidden');
+        generateChallenge();
+    });
+})();
+</script>
+@endpush
