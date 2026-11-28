@@ -38,7 +38,7 @@
         </div>
     </form>
 
-    <form method="post" action="{{ $editing ? route('admin.challenges.update', $challenge) : route('admin.challenges.store') }}" enctype="multipart/form-data" class="admin-panel admin-form-card">
+    <form method="post" action="{{ $editing ? route('api.admin.challenges.update', $challenge) : route('api.admin.challenges.store') }}" data-api-form data-success-redirect="{{ route('admin.challenges') }}" enctype="multipart/form-data" class="admin-panel admin-form-card">
         @csrf
         @if ($editing) @method('PUT') @endif
 
@@ -64,6 +64,16 @@
                         @endforeach
                     </select>
                     @error('difficulty')<span class="form-error">{{ $message }}</span>@enderror
+                </label>
+                <label class="admin-form-field">
+                    <span class="admin-form-label">Visibility</span>
+                    <select class="form-control" name="status">
+                        @foreach (['draft', 'published', 'archived'] as $status)
+                            <option value="{{ $status }}" @selected(old('status', $challenge->status ?? 'draft') === $status)>{{ ucfirst($status) }}</option>
+                        @endforeach
+                    </select>
+                    <span class="form-help">Only published challenges appear in the learner library.</span>
+                    @error('status')<span class="form-error">{{ $message }}</span>@enderror
                 </label>
                 <label class="admin-form-field">
                     <span class="admin-form-label">Owner</span>
@@ -110,7 +120,7 @@
                             <label class="admin-form-field">
                                 <span class="admin-form-label">Status</span>
                                 <select class="form-control" name="tasks[{{ $index }}][status]" required>
-                                    @foreach (['incomplete', 'complete', 'publish'] as $status)
+                                    @foreach (['incomplete', 'complete'] as $status)
                                         <option value="{{ $status }}" @selected(old("tasks.{$index}.status", $task?->status ?? 'incomplete') === $status)>{{ ucfirst($status) }}</option>
                                     @endforeach
                                 </select>

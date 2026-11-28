@@ -15,7 +15,7 @@
         </div>
     </header>
 
-    <form method="post" action="{{ $editing ? route('admin.appointments.update', $appointment) : route('admin.appointments.store') }}" class="admin-panel admin-form-card">
+    <form method="post" action="{{ $editing ? route('api.admin.appointments.update', $appointment) : route('api.admin.appointments.store') }}" data-api-form data-success-redirect="{{ route('admin.appointments') }}" class="admin-panel admin-form-card">
         @csrf
         @if ($editing) @method('PUT') @endif
 

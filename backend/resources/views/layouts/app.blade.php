@@ -22,13 +22,30 @@
             <nav class="hidden items-center gap-1 md:flex" aria-label="Main navigation">
                 <a href="{{ route('challenges.index') }}" @class(['rounded-full px-3 py-2 transition-colors hover:bg-surface-container-high hover:text-on-surface', 'bg-primary-container text-on-primary-container font-semibold' => request()->routeIs('challenges.*'), 'text-on-surface-variant' => ! request()->routeIs('challenges.*')])>Challenges</a>
                 <a href="{{ route('how-it-works') }}" @class(['rounded-full px-3 py-2 transition-colors hover:bg-surface-container-high hover:text-on-surface', 'bg-primary-container text-on-primary-container font-semibold' => request()->routeIs('how-it-works'), 'text-on-surface-variant' => ! request()->routeIs('how-it-works')])>How it works</a>
-                <a href="{{ route('gamification') }}" @class(['rounded-full px-3 py-2 transition-colors hover:bg-surface-container-high hover:text-on-surface', 'bg-primary-container text-on-primary-container font-semibold' => request()->routeIs('gamification'), 'text-on-surface-variant' => ! request()->routeIs('gamification')])>Gamification</a>
+                @auth
+                    @if (auth()->user()->role === 'user')
+                        <a href="{{ route('challenges.index') }}#my-challenges" class="rounded-full px-3 py-2 text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-on-surface">My challenges</a>
+                        <a href="{{ route('peer-evaluations.index') }}" @class(['rounded-full px-3 py-2 transition-colors hover:bg-surface-container-high hover:text-on-surface', 'bg-primary-container text-on-primary-container font-semibold' => request()->routeIs('peer-evaluations.*'), 'text-on-surface-variant' => ! request()->routeIs('peer-evaluations.*')])>Peer reviews</a>
+                        <a href="{{ route('gamification') }}" @class(['rounded-full px-3 py-2 transition-colors hover:bg-surface-container-high hover:text-on-surface', 'bg-primary-container text-on-primary-container font-semibold' => request()->routeIs('gamification'), 'text-on-surface-variant' => ! request()->routeIs('gamification')])>Progress</a>
+                    @else
+                        <a href="{{ route('admin.dashboard') }}" class="rounded-full px-3 py-2 text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-on-surface">Admin dashboard</a>
+                    @endif
+                @endauth
                 <a href="{{ route('ai-evaluation') }}" @class(['rounded-full px-3 py-2 transition-colors hover:bg-surface-container-high hover:text-on-surface', 'bg-primary-container text-on-primary-container font-semibold' => request()->routeIs('ai-evaluation'), 'text-on-surface-variant' => ! request()->routeIs('ai-evaluation')])>AI Coach</a>
-                <a href="{{ route('profile') }}" @class(['rounded-full px-3 py-2 transition-colors hover:bg-surface-container-high hover:text-on-surface', 'bg-primary-container text-on-primary-container font-semibold' => request()->routeIs('profile'), 'text-on-surface-variant' => ! request()->routeIs('profile')])>Profile</a>
             </nav>
             <div class="flex shrink-0 items-center gap-3">
-                <a href="{{ route('challenges.create') }}" class="rounded-lg bg-gradient-to-r from-primary-container to-secondary-container px-4 py-2 font-medium text-on-primary-container shadow-[0_0_18px_-2px_rgba(77,142,255,0.35)] transition hover:brightness-110">Get started</a>
-                <a href="{{ route('profile') }}" aria-label="Profile" class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-on-primary"><span class="material-symbols-outlined text-[19px]">person</span></a>
+                @auth
+                    @if (auth()->user()->role === 'user')
+                        <a href="{{ route('challenges.create') }}" class="rounded-lg bg-gradient-to-r from-primary-container to-secondary-container px-4 py-2 font-medium text-on-primary-container shadow-[0_0_18px_-2px_rgba(77,142,255,0.35)] transition hover:brightness-110">Create challenge</a>
+                        <a href="{{ route('profile') }}" aria-label="{{ auth()->user()->name }} profile" title="{{ auth()->user()->name }}" class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-on-primary"><span class="material-symbols-outlined text-[19px]" aria-hidden="true">person</span></a>
+                    @else
+                        <a href="{{ route('admin.dashboard') }}" class="rounded-lg bg-surface-container-high px-4 py-2 text-sm font-medium text-on-surface">Admin</a>
+                    @endif
+                    <form method="post" action="{{ route('logout') }}">@csrf<button class="rounded-lg px-3 py-2 text-sm text-on-surface-variant transition hover:bg-surface-container-high hover:text-on-surface" type="submit">Sign out</button></form>
+                @else
+                    <a href="{{ route('login') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-on-surface-variant transition hover:bg-surface-container-high hover:text-on-surface">Sign in</a>
+                    <a href="{{ route('register') }}" class="rounded-lg bg-gradient-to-r from-primary-container to-secondary-container px-4 py-2 font-medium text-on-primary-container shadow-[0_0_18px_-2px_rgba(77,142,255,0.35)] transition hover:brightness-110">Create account</a>
+                @endauth
             </div>
         </div>
     </header>

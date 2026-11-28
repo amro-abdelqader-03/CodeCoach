@@ -38,7 +38,7 @@
                                 <div class="admin-actions">
                                     <a class="admin-link-button admin-link-button--secondary admin-link-button--small" href="{{ route('admin.appointments.show', $appointment) }}">View</a>
                                     <a class="admin-link-button admin-link-button--secondary admin-link-button--small" href="{{ route('admin.appointments.edit', $appointment) }}">Edit</a>
-                                    <form class="admin-inline-form" method="post" action="{{ route('admin.appointments.destroy', $appointment) }}" onsubmit="return confirm('Delete this appointment?')">
+                                    <form class="admin-inline-form" method="post" action="{{ route('api.admin.appointments.destroy', $appointment) }}" data-api-form data-success-redirect="{{ route('admin.appointments') }}" onsubmit="return confirm('Delete this appointment?')">
                                         @csrf @method('DELETE')
                                         <button class="admin-button admin-button--danger admin-button--small" type="submit">Delete</button>
                                     </form>

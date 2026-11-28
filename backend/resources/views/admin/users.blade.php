@@ -45,7 +45,7 @@
                                 <div class="admin-actions">
                                     <a class="admin-link-button admin-link-button--secondary admin-link-button--small" href="{{ route('admin.users.show', $user) }}">View</a>
                                     <a class="admin-link-button admin-link-button--secondary admin-link-button--small" href="{{ route('admin.users.edit', $user) }}">Edit</a>
-                                    <form class="admin-inline-form" method="post" action="{{ route('admin.users.destroy', $user) }}" onsubmit="return confirm('Delete this user?')">
+                                    <form class="admin-inline-form" method="post" action="{{ route('api.admin.users.destroy', $user) }}" data-api-form data-success-redirect="{{ route('admin.users') }}" onsubmit="return confirm('Delete this user?')">
                                         @csrf @method('DELETE')
                                         <button class="admin-button admin-button--danger admin-button--small" type="submit">Delete</button>
                                     </form>

@@ -15,7 +15,7 @@
         </div>
     </header>
 
-    <form method="post" action="{{ $editing ? route('admin.items.update', $item) : route('admin.items.store') }}" enctype="multipart/form-data" class="admin-panel admin-form-card">
+    <form method="post" action="{{ $editing ? route('api.admin.items.update', $item) : route('api.admin.items.store') }}" data-api-form data-success-redirect="{{ route('admin.items') }}" enctype="multipart/form-data" class="admin-panel admin-form-card">
         @csrf
         @if ($editing) @method('PUT') @endif
 
@@ -58,6 +58,7 @@
                 <div class="admin-form-field admin-form-field--wide"><span class="admin-form-label">Current image</span><img src="{{ asset('storage/'.$item->image) }}" alt="Current image for {{ $item->name }}" class="h-28 w-28 rounded-xl border border-white/10 object-cover"></div>
             @endif
             <label class="form-check-row admin-form-field--wide rounded-xl border border-white/10 bg-surface-container/60 p-4">
+                <input type="hidden" name="is_active" value="0">
                 <input type="checkbox" name="is_active" value="1" @checked(old('is_active', $item->is_active ?? true))>
                 <span><span class="block font-medium">Available in the shop</span><span class="mt-1 block text-xs text-on-surface-variant">Hide this item from learners while keeping it in the catalog.</span></span>
             </label>

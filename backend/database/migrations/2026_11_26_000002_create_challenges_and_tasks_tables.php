@@ -14,6 +14,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('difficulty');
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
             $table->string('image')->nullable();
             $table->timestamps();
         });
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->foreignId('challenge_id')->constrained()->cascadeOnDelete();
             $table->text('description');
             $table->json('skills');
-            $table->enum('status', ['incomplete', 'complete', 'publish'])->default('incomplete');
+            $table->enum('status', ['incomplete', 'complete'])->default('incomplete');
             $table->timestamps();
         });
     }

@@ -7,11 +7,12 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected static function booted(): void
     {
@@ -60,4 +61,6 @@ class User extends Authenticatable
     public function challenges() { return $this->hasMany(Challenge::class); }
     public function appointments() { return $this->hasMany(Appointment::class); }
     public function evaluations() { return $this->hasMany(Appointment::class, 'evaluator_id'); }
+    public function submissions() { return $this->hasMany(ChallengeSubmission::class); }
+    public function evaluationSlots() { return $this->hasMany(EvaluationSlot::class, 'evaluator_id'); }
 }

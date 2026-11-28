@@ -38,7 +38,7 @@
                                 <div class="admin-actions">
                                     <a class="admin-link-button admin-link-button--secondary admin-link-button--small" href="{{ route('admin.items.show', $item) }}">View</a>
                                     <a class="admin-link-button admin-link-button--secondary admin-link-button--small" href="{{ route('admin.items.edit', $item) }}">Edit</a>
-                                    <form class="admin-inline-form" method="post" action="{{ route('admin.items.destroy', $item) }}" onsubmit="return confirm('Delete this shop item?')">
+                                    <form class="admin-inline-form" method="post" action="{{ route('api.admin.items.destroy', $item) }}" data-api-form data-success-redirect="{{ route('admin.items') }}" onsubmit="return confirm('Delete this shop item?')">
                                         @csrf @method('DELETE')
                                         <button class="admin-button admin-button--danger admin-button--small" type="submit">Delete</button>
                                     </form>

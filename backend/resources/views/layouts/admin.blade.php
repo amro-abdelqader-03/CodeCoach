@@ -48,7 +48,7 @@
         </div>
         <div class="space-y-1 border-t border-white/5 p-2">
             <a href="{{ route('home') }}" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-on-surface-variant transition-colors hover:bg-surface-container hover:text-on-surface"><span class="material-symbols-outlined text-[18px]">open_in_new</span><span>View site</span></a>
-            <form method="post" action="{{ route('logout') }}">@csrf<button class="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-error transition-colors hover:bg-error-container/20"><span class="material-symbols-outlined text-[18px]">logout</span><span>Sign out</span></button></form>
+            <form method="post" action="{{ route('api.admin.logout') }}" data-api-form data-success-redirect="{{ route('admin.login') }}">@csrf<button class="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-error transition-colors hover:bg-error-container/20"><span class="material-symbols-outlined text-[18px]">logout</span><span>Sign out</span></button></form>
         </div>
     </aside>
     <button id="admin-sidebar-backdrop" class="fixed inset-0 z-40 hidden bg-black/60 backdrop-blur-[2px] md:hidden" type="button" aria-label="Close navigation"></button>
@@ -86,6 +86,72 @@
         sidebar?.querySelectorAll('nav a').forEach((link) => link.addEventListener('click', () => setSidebarOpen(false)));
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') setSidebarOpen(false);
+        });
+    </script>
+    <script>
+        document.querySelectorAll('form[data-api-form]').forEach((form) => {
+            form.addEventListener('submit', async (event) => {
+                if (event.defaultPrevented) return;
+
+                event.preventDefault();
+
+                const submitButton = form.querySelector('[type="submit"]');
+                const previousDisabled = submitButton?.disabled ?? false;
+                let errorBox = form.querySelector('[data-api-error]');
+
+                if (!errorBox) {
+                    errorBox = document.createElement('div');
+                    errorBox.dataset.apiError = '';
+                    errorBox.className = 'mb-4 rounded-xl border border-error/20 bg-error-container/20 px-4 py-3 text-sm text-error';
+                    errorBox.setAttribute('role', 'alert');
+                    errorBox.hidden = true;
+                    form.prepend(errorBox);
+                }
+
+                errorBox.hidden = true;
+                errorBox.textContent = '';
+                if (submitButton) submitButton.disabled = true;
+
+                const data = new FormData(form);
+                for (const [name, value] of [...data.entries()]) {
+                    const skillsField = name.match(/^tasks\[(\d+)\]\[skills\]$/);
+                    if (!skillsField) continue;
+
+                    data.delete(name);
+                    value.split(',').map((skill) => skill.trim()).filter(Boolean).forEach((skill) => {
+                        data.append(`tasks[${skillsField[1]}][skills][]`, skill);
+                    });
+                }
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: data,
+                        headers: {
+                            Accept: 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest',
+                        },
+                    });
+                    const result = await response.json().catch(() => ({}));
+
+                    if (!response.ok) {
+                        const messages = Object.values(result.errors ?? {}).flat();
+                        errorBox.textContent = [result.message, ...messages].filter(Boolean).join(' ')
+                            || `The request failed (${response.status}). Please try again.`;
+                        errorBox.hidden = false;
+                        return;
+                    }
+
+                    if (form.dataset.successRedirect) {
+                        window.location.assign(form.dataset.successRedirect);
+                    }
+                } catch {
+                    errorBox.textContent = 'The request could not reach the server. Check your connection and try again.';
+                    errorBox.hidden = false;
+                } finally {
+                    if (submitButton) submitButton.disabled = previousDisabled;
+                }
+            });
         });
     </script>
     @stack('scripts')

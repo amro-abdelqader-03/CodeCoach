@@ -15,7 +15,7 @@
         </div>
     </header>
 
-    <form method="post" action="{{ $editing ? route('admin.users.update', $user) : route('admin.users.store') }}" enctype="multipart/form-data" class="admin-panel admin-form-card">
+    <form method="post" action="{{ $editing ? route('api.admin.users.update', $user) : route('api.admin.users.store') }}" data-api-form data-success-redirect="{{ route('admin.users') }}" enctype="multipart/form-data" class="admin-panel admin-form-card">
         @csrf
         @if ($editing) @method('PUT') @endif
 

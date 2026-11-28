@@ -1,426 +1,53 @@
 @extends('layouts.app')
 
-@section('title', 'AI Evaluation')
+@section('title', isset($submission) ? 'AI evaluation' : 'AI Coach')
 
 @section('content')
-<div class="flex flex-col w-full">
-<div class="relative w-full overflow-hidden">
-<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[340px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
-<div class="absolute top-48 right-12 w-[380px] h-[280px] bg-secondary/10 rounded-full blur-[100px] pointer-events-none"></div>
-<div class="max-w-7xl mx-auto px-6 lg:px-12 py-space-xl flex flex-col gap-space-xl relative z-10">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-center justify-between flex-wrap gap-space-sm">
-<a class="inline-flex items-center gap-space-xs text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm group" data-path="challenges" href="{{ route('challenges.index') }}">
-<span class="material-symbols-outlined text-[16px] transition-transform group-hover:-translate-x-1">arrow_back</span>
-<span>Challenge Details: Linear Minimalist SaaS Landing Page</span>
-</a>
-<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high text-secondary font-label-mono text-label-mono shadow-sm">
-<span class="relative flex h-2 w-2">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
-</span>
-<span>✦ AI RUNTIME EVALUATION REPORT</span>
-</div>
-</div>
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-<div class="flex flex-col gap-space-xs">
-<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">AI Evaluation Results</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-              Autonomous AST &amp; Computer Vision layout analysis for <span class="text-primary font-medium">Linear Minimalist SaaS Landing Page</span>.
-            </p>
-</div>
-<div class="flex items-center gap-space-xs text-outline font-label-mono text-label-mono">
-<span>RUN #8491-CV</span>
-<span>•</span>
-<span>LATENCY 412ms</span>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
-<div class="lg:col-span-4 bg-surface-container/80 backdrop-blur-xl rounded-xl p-space-lg flex flex-col items-center justify-between shadow-xl relative overflow-hidden">
-<div class="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-secondary/15 to-transparent rounded-bl-full pointer-events-none"></div>
-<div class="w-full flex items-center justify-between mb-space-sm">
-<span class="font-caption-caps text-caption-caps uppercase text-outline tracking-wider font-semibold">Overall Composite</span>
-<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-mono text-label-mono">AST + Vision</span>
-</div>
-<div class="relative w-48 h-48 my-space-sm flex items-center justify-center">
-<svg class="w-full h-full -rotate-90 transform" viewbox="0 0 160 160">
-<circle class="text-surface-container-highest" cx="80" cy="80" fill="transparent" r="68" stroke="currentColor" stroke-width="12"></circle>
-<circle class="text-secondary transition-all duration-1000 ease-out" cx="80" cy="80" fill="transparent" r="68" stroke="currentColor" stroke-dasharray="427.25" stroke-dashoffset="51.27" stroke-linecap="round" stroke-width="12"></circle>
-</svg>
-<div class="absolute inset-0 flex flex-col items-center justify-center">
-<div class="flex items-baseline">
-<span class="font-display-hero text-display-hero text-on-surface tracking-tight">88</span>
-<span class="font-headline-sm text-headline-sm text-on-surface-variant font-medium">/100</span>
-</div>
-<span class="px-space-sm py-0.5 rounded-full bg-secondary/15 text-secondary font-body-sm text-body-sm font-medium mt-1">Great Job!</span>
-</div>
-</div>
-<div class="w-full flex items-center justify-between pt-space-sm text-center">
-<div class="flex flex-col">
-<span class="font-caption-caps text-caption-caps uppercase text-outline">Target</span>
-<span class="font-label-mono text-label-mono text-on-surface font-semibold">&gt;= 80 pts</span>
-</div>
-<div class="h-6 w-px bg-surface-container-highest"></div>
-<div class="flex flex-col">
-<span class="font-caption-caps text-caption-caps uppercase text-outline">Rank Tier</span>
-<span class="font-label-mono text-label-mono text-primary font-semibold">Tier 1 Master</span>
-</div>
-<div class="h-6 w-px bg-surface-container-highest"></div>
-<div class="flex flex-col">
-<span class="font-caption-caps text-caption-caps uppercase text-outline">Delta</span>
-<span class="font-label-mono text-label-mono text-secondary font-semibold">+8.4%</span>
-</div>
-</div>
-</div>
-<div class="lg:col-span-4 flex flex-col gap-space-md">
-<div class="bg-surface-container/70 backdrop-blur-xl rounded-xl p-space-md flex flex-col gap-space-sm shadow-md">
-<div class="flex items-center justify-between">
-<span class="font-body-md text-body-md font-medium text-on-surface flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-[18px] text-secondary">grid_view</span>
-                Layout Fidelity
-              </span>
-<span class="font-label-mono text-label-mono text-secondary font-semibold">92%</span>
-</div>
-<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
-<div class="bg-gradient-to-r from-primary-container to-secondary h-full rounded-full" style="width: 92%;"></div>
-</div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Grid alignment, metric card order &amp; flex containers match specifications.</span>
-</div>
-<div class="bg-surface-container/70 backdrop-blur-xl rounded-xl p-space-md flex flex-col gap-space-sm shadow-md">
-<div class="flex items-center justify-between">
-<span class="font-body-md text-body-md font-medium text-on-surface flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-[18px] text-primary">palette</span>
-                Color &amp; Contrast
-              </span>
-<span class="font-label-mono text-label-mono text-primary font-semibold">95%</span>
-</div>
-<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
-<div class="bg-gradient-to-r from-primary-container to-primary h-full rounded-full" style="width: 95%;"></div>
-</div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">WCAG AAA compliant text contrast, specular borders, dark gradient depths.</span>
-</div>
-<div class="bg-surface-container/70 backdrop-blur-xl rounded-xl p-space-md flex flex-col gap-space-sm shadow-md">
-<div class="flex items-center justify-between">
-<span class="font-body-md text-body-md font-medium text-on-surface flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-[18px] text-tertiary">devices</span>
-                Responsive Mechanics
-              </span>
-<span class="font-label-mono text-label-mono text-tertiary font-semibold">78%</span>
-</div>
-<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
-<div class="bg-gradient-to-r from-primary to-tertiary-container h-full rounded-full" style="width: 78%;"></div>
-</div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Minor flexbox overflow discovered under compact viewports (&lt; 400px).</span>
-</div>
-</div>
-<div class="lg:col-span-4 bg-gradient-to-b from-surface-container-high/90 to-surface-container/90 backdrop-blur-xl rounded-xl p-space-lg flex flex-col justify-between shadow-xl relative overflow-hidden">
-<div class="absolute -right-10 -bottom-10 w-44 h-44 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
-<div class="flex items-center justify-between">
-<span class="font-caption-caps text-caption-caps uppercase text-outline tracking-wider font-semibold">Rewards Unlocked</span>
-<div class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-secondary/15 text-secondary font-label-mono text-label-mono">
-<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
-<span>7-Day Streak</span>
-</div>
-</div>
-<div class="flex flex-col gap-space-md my-space-md">
-<div class="flex items-center gap-space-md p-space-md rounded-lg bg-surface-container-lowest/70 backdrop-blur-md">
-<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container shadow-md">
-<span class="material-symbols-outlined text-[24px]">bolt</span>
-</div>
-<div class="flex flex-col">
-<div class="flex items-baseline gap-space-xs">
-<span class="font-headline-lg text-headline-lg text-on-surface font-semibold">+100</span>
-<span class="font-headline-sm text-headline-sm text-primary font-medium">XP</span>
-</div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Applied to Frontend Mastery path</span>
-</div>
-</div>
-<div class="flex items-center gap-space-md p-space-md rounded-lg bg-surface-container-lowest/70 backdrop-blur-md">
-<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-md">
-<span class="material-symbols-outlined text-[24px]">toll</span>
-</div>
-<div class="flex flex-col">
-<div class="flex items-baseline gap-space-xs">
-<span class="font-headline-lg text-headline-lg text-on-surface font-semibold">+100</span>
-<span class="font-headline-sm text-headline-sm text-secondary font-medium">Points</span>
-</div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Credited to Smart Coach store balance</span>
-</div>
-</div>
-</div>
-<div class="p-space-sm rounded-lg bg-surface-container-high/60 flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Credited to your profile &amp; streak maintained (7-day streak active).</span>
-</div>
-</div>
-</div>
-<div class="bg-surface-container/70 backdrop-blur-xl rounded-xl p-space-lg flex flex-col gap-space-lg shadow-xl relative overflow-hidden">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary shadow-md">
-<span class="material-symbols-outlined text-[22px]">neurology</span>
-</div>
-<div class="flex flex-col">
-<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">AI Evaluation Summary</h2>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Neural AST parsing &amp; Pixel Diff v2.4 analysis</span>
-</div>
-</div>
-<div class="flex items-center gap-space-sm">
-<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container-high text-primary font-label-mono text-label-mono">
-<span class="material-symbols-outlined text-[16px]">memory</span>
-<span>Athena v2.4 Vision Engine</span>
-</div>
-<div class="inline-flex items-center gap-space-xs px-space-sm py-1.5 rounded-full bg-secondary/10 text-secondary font-label-mono text-label-mono">
-<span>88% Match Confidence</span>
-</div>
-</div>
-</div>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-          Your solution replicates the core visual hierarchy and luminescent aesthetics of the <span class="text-on-surface font-medium">Linear Minimalist SaaS landing page</span> remarkably well. The hero gradient and dark container contrast closely align with the reference spec. Subtle deviations in flexbox gap spacing and mobile breakpoint wrapping were detected.
-        </p>
-<div class="flex flex-col gap-space-sm bg-surface-container-lowest/60 rounded-xl p-space-md">
-<div class="flex items-center justify-between text-body-sm font-body-sm">
-<div class="flex items-center gap-space-md">
-<span class="flex items-center gap-1.5 text-on-surface-variant">
-<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
-<span>Reference Target Specification</span>
-</span>
-<span class="flex items-center gap-1.5 text-on-surface-variant">
-<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
-<span>Your Submitted Build (Commit #f7a29)</span>
-</span>
-</div>
-<span class="font-label-mono text-label-mono text-secondary">Visual Diff Similarity: 88.4%</span>
-</div>
-<div class="relative w-full h-3 rounded-full bg-surface-container-highest overflow-hidden">
-<div class="absolute left-0 top-0 h-full bg-gradient-to-r from-primary-container via-primary to-secondary rounded-full" style="width: 88.4%;"></div>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm pt-space-xs font-label-mono text-label-mono text-on-surface-variant">
-<div class="flex items-center justify-between p-space-xs rounded bg-surface-container/50">
-<span>Viewport 1440px</span>
-<span class="text-on-surface font-medium">96% match</span>
-</div>
-<div class="flex items-center justify-between p-space-xs rounded bg-surface-container/50">
-<span>Viewport 1024px</span>
-<span class="text-on-surface font-medium">92% match</span>
-</div>
-<div class="flex items-center justify-between p-space-xs rounded bg-surface-container/50">
-<span>Viewport 768px</span>
-<span class="text-on-surface font-medium">87% match</span>
-</div>
-<div class="flex items-center justify-between p-space-xs rounded bg-surface-container/50">
-<span>Viewport 375px</span>
-<span class="text-tertiary font-medium">78% match</span>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
-<div class="flex flex-col gap-space-xs">
-<div class="flex items-center justify-between">
-<span class="font-caption-caps text-caption-caps uppercase text-outline">Reference Target Spec</span>
-<span class="font-label-mono text-label-mono text-secondary">Figma Master v2</span>
-</div>
-<div class="h-44 rounded-lg bg-surface-container-lowest overflow-hidden relative flex items-center justify-center shadow-inner">
-<div class="absolute inset-0 bg-gradient-to-tr from-surface-container-lowest via-surface-container to-surface-container-high flex flex-col p-4 justify-between opacity-80">
-<div class="flex justify-between items-center">
-<div class="h-3 w-16 bg-outline-variant/60 rounded"></div>
-<div class="flex gap-2">
-<div class="h-2 w-8 bg-outline-variant/40 rounded"></div>
-<div class="h-2 w-8 bg-outline-variant/40 rounded"></div>
-</div>
-</div>
-<div class="flex flex-col items-center gap-2 text-center my-auto">
-<div class="h-5 w-40 bg-on-surface/80 rounded"></div>
-<div class="h-2.5 w-60 bg-outline-variant/60 rounded"></div>
-</div>
-<div class="grid grid-cols-4 gap-2">
-<div class="h-6 bg-surface-container-highest rounded"></div>
-<div class="h-6 bg-surface-container-highest rounded"></div>
-<div class="h-6 bg-surface-container-highest rounded"></div>
-<div class="h-6 bg-surface-container-highest rounded"></div>
-</div>
-</div>
-<div class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-surface-container-lowest/80 text-[11px] font-label-mono text-secondary">Baseline Reference</div>
-</div>
-</div>
-<div class="flex flex-col gap-space-xs">
-<div class="flex items-center justify-between">
-<span class="font-caption-caps text-caption-caps uppercase text-outline">Your Submitted Build</span>
-<span class="font-label-mono text-label-mono text-primary">Chromium Headless Render</span>
-</div>
-<div class="h-44 rounded-lg bg-surface-container-lowest overflow-hidden relative flex items-center justify-center shadow-inner">
-<div class="absolute inset-0 bg-gradient-to-tr from-surface-container-lowest via-surface-container to-surface-container-high flex flex-col p-4 justify-between">
-<div class="flex justify-between items-center">
-<div class="h-3 w-16 bg-outline-variant/60 rounded"></div>
-<div class="flex gap-2">
-<div class="h-2 w-8 bg-outline-variant/40 rounded"></div>
-<div class="h-2 w-8 bg-outline-variant/40 rounded"></div>
-</div>
-</div>
-<div class="flex flex-col items-center gap-2 text-center my-auto">
-<div class="h-5 w-40 bg-on-surface/80 rounded"></div>
-<div class="h-2.5 w-56 bg-outline-variant/60 rounded"></div>
-</div>
-<div class="grid grid-cols-4 gap-2">
-<div class="h-6 bg-surface-container-highest rounded"></div>
-<div class="h-6 bg-surface-container-highest rounded"></div>
-<div class="h-6 bg-surface-container-highest rounded"></div>
-<div class="h-6 bg-surface-container-highest rounded"></div>
-</div>
-</div>
-<div class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-surface-container-lowest/80 text-[11px] font-label-mono text-primary">Your Implementation</div>
-</div>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
-<div class="bg-surface-container/70 backdrop-blur-xl rounded-xl p-space-lg flex flex-col gap-space-md shadow-xl">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-space-sm">
-<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary shadow-md">
-<span class="material-symbols-outlined text-[20px]">check_circle</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Strengths &amp; Accuracies</h3>
-</div>
-<span class="px-space-xs py-0.5 rounded-full bg-secondary/15 text-secondary font-label-mono text-label-mono">4 Passed</span>
-</div>
-<div class="flex flex-col gap-space-sm">
-<div class="p-space-md rounded-lg bg-surface-container-low/70 flex items-start gap-space-md">
-<div class="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center text-secondary shrink-0 mt-0.5">
-<span class="material-symbols-outlined text-[16px]">done</span>
-</div>
-<div class="flex flex-col gap-space-xs">
-<span class="font-body-md text-body-md text-on-surface font-medium">Accurate Color Palette &amp; Glow Effects</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                  Precise recreation of dark luminescent surfaces, specular cyan borders, and deep background tokens matching the Linear design language.
-                </p>
-</div>
-</div>
-<div class="p-space-md rounded-lg bg-surface-container-low/70 flex items-start gap-space-md">
-<div class="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center text-secondary shrink-0 mt-0.5">
-<span class="material-symbols-outlined text-[16px]">done</span>
-</div>
-<div class="flex flex-col gap-space-xs">
-<span class="font-body-md text-body-md text-on-surface font-medium">Solid Layout Hierarchy</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                  Clean execution of the 4-column balanced metrics row and hero header typography scale with immaculate vertical rhythm.
-                </p>
-</div>
-</div>
-<div class="p-space-md rounded-lg bg-surface-container-low/70 flex items-start gap-space-md">
-<div class="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center text-secondary shrink-0 mt-0.5">
-<span class="material-symbols-outlined text-[16px]">done</span>
-</div>
-<div class="flex flex-col gap-space-xs">
-<span class="font-body-md text-body-md text-on-surface font-medium">Clean &amp; Organized CSS Architecture</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                  Semantic classes, well-structured utility variables, and modular component breakdown without dead selectors or style leaks.
-                </p>
-</div>
-</div>
-<div class="p-space-md rounded-lg bg-surface-container-low/70 flex items-start gap-space-md">
-<div class="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center text-secondary shrink-0 mt-0.5">
-<span class="material-symbols-outlined text-[16px]">done</span>
-</div>
-<div class="flex flex-col gap-space-xs">
-<span class="font-body-md text-body-md text-on-surface font-medium">Asset Integrity</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                  Correct vector icon alignments, crisp stroke weights, and sharp imagery rendering under retina display densities.
-                </p>
-</div>
-</div>
-</div>
-</div>
-<div class="bg-surface-container/70 backdrop-blur-xl rounded-xl p-space-lg flex flex-col gap-space-md shadow-xl">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-space-sm">
-<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary shadow-md">
-<span class="material-symbols-outlined text-[20px]">warning</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Areas for Refinement</h3>
-</div>
-<span class="px-space-xs py-0.5 rounded-full bg-tertiary/15 text-tertiary font-label-mono text-label-mono">3 Suggestions</span>
-</div>
-<div class="flex flex-col gap-space-sm">
-<div class="p-space-md rounded-lg bg-surface-container-low/70 flex items-start gap-space-md">
-<div class="w-6 h-6 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary shrink-0 mt-0.5">
-<span class="material-symbols-outlined text-[16px]">straighten</span>
-</div>
-<div class="flex flex-col gap-space-xs w-full">
-<div class="flex items-center justify-between">
-<span class="font-body-md text-body-md text-on-surface font-medium">Spacing &amp; Vertical Rhythm Diff</span>
-<span class="font-label-code-inline text-label-code-inline text-tertiary">-16px delta</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                  Margin below the stats bar differs from reference by 16px (measured <code class="font-label-code-inline text-label-code-inline px-1 py-0.5 rounded bg-surface-container-highest text-primary">32px</code> vs <code class="font-label-code-inline text-label-code-inline px-1 py-0.5 rounded bg-surface-container-highest text-secondary">48px</code> spec).
-                </p>
-<div class="mt-space-xs p-space-xs rounded bg-surface-container-lowest font-label-mono text-label-mono text-on-surface-variant flex items-center justify-between">
-<span>Fix hint: Change <code class="text-tertiary">mb-8</code> to <code class="text-secondary">mb-12</code> in metrics wrapper</span>
-</div>
-</div>
-</div>
-<div class="p-space-md rounded-lg bg-surface-container-low/70 flex items-start gap-space-md">
-<div class="w-6 h-6 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary shrink-0 mt-0.5">
-<span class="material-symbols-outlined text-[16px]">stay_current_portrait</span>
-</div>
-<div class="flex flex-col gap-space-xs w-full">
-<div class="flex items-center justify-between">
-<span class="font-body-md text-body-md text-on-surface font-medium">Mobile Breakpoint Wrapping</span>
-<span class="font-label-code-inline text-label-code-inline text-tertiary">&lt; 400px</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                  Metric cards collide on viewports below 400px; recommend switching to single-column flex-col layout.
-                </p>
-<div class="mt-space-xs p-space-xs rounded bg-surface-container-lowest font-label-mono text-label-mono text-on-surface-variant flex items-center justify-between">
-<span>Fix hint: Use <code class="text-secondary">grid-cols-1 sm:grid-cols-2 lg:grid-cols-4</code></span>
-</div>
-</div>
-</div>
-<div class="p-space-md rounded-lg bg-surface-container-low/70 flex items-start gap-space-md">
-<div class="w-6 h-6 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary shrink-0 mt-0.5">
-<span class="material-symbols-outlined text-[16px]">format_size</span>
-</div>
-<div class="flex flex-col gap-space-xs w-full">
-<div class="flex items-center justify-between">
-<span class="font-body-md text-body-md text-on-surface font-medium">Typography Weight Discrepancy</span>
-<span class="font-label-code-inline text-label-code-inline text-tertiary">weight 400</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                  Hero subheading font-weight is set to <code class="font-label-code-inline text-label-code-inline px-1 py-0.5 rounded bg-surface-container-highest text-primary">font-normal</code> instead of <code class="font-label-code-inline text-label-code-inline px-1 py-0.5 rounded bg-surface-container-highest text-secondary">font-medium (500)</code>, slightly reducing scannability.
-                </p>
-<div class="mt-space-xs p-space-xs rounded bg-surface-container-lowest font-label-mono text-label-mono text-on-surface-variant flex items-center justify-between">
-<span>Fix hint: Apply <code class="text-secondary">font-medium</code> to &lt;p class="hero-sub"&gt;</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md shadow-2xl">
-<div class="flex flex-col gap-space-xs text-center md:text-left">
-<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Ready for your next engineering milestone?</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Submit for peer evaluation to unlock community bonus multiplier, or iterate code to achieve a 95%+ score badge.
-          </p>
-</div>
-<div class="flex flex-wrap items-center justify-center gap-space-sm shrink-0">
-<a class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-highest hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-body-md text-body-md transition-colors" data-path="challenges" href="{{ route('challenges.index') }}">
-<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-<span>Explore Next Challenge</span>
-</a>
-<a class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-md text-body-md transition-all shadow-md" data-path="challenges" href="{{ route('challenges.index') }}">
-<span class="material-symbols-outlined text-secondary text-[18px]">terminal</span>
-<span>Review Diff &amp; Iterate</span>
-</a>
-<a class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-lg bg-gradient-to-b from-primary-container to-secondary-container text-on-primary-container font-body-md text-body-md font-medium shadow-[0_0_20px_-2px_rgba(59,130,246,0.35)] hover:shadow-[0_0_24px_rgba(59,130,246,0.5)] transition-all" data-path="challenges" href="{{ route('challenges.index') }}">
-<span class="material-symbols-outlined text-[18px]">groups</span>
-<span>Submit for Peer Review</span>
-</a>
-</div>
-</div>
-</div>
-</div>
+<div class="mx-auto max-w-5xl space-y-7 px-4 py-10 sm:px-6 lg:px-8">
+    @if (! isset($submission))
+        <section class="rounded-2xl border border-secondary/20 bg-gradient-to-br from-surface-container-high to-surface-container-low p-6 sm:p-10">
+            <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary/10 text-secondary"><span class="material-symbols-outlined text-2xl" aria-hidden="true">neurology</span></span>
+            <p class="admin-eyebrow mt-6">Coming soon</p>
+            <h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">AI Coach is in progress</h1>
+            <p class="mt-4 max-w-2xl leading-7 text-on-surface-variant">The conversational AI Coach is being built. You can already upload a source file for each challenge task and receive an automated score, strengths, and improvement suggestions.</p>
+            <a class="admin-link-button admin-link-button--primary mt-6" href="{{ route('challenges.index') }}">Explore challenges</a>
+        </section>
+    @else
+        <a href="{{ route('challenges.show', $submission->challenge) }}" class="inline-flex items-center gap-2 text-sm font-medium text-secondary hover:text-primary"><span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_back</span>{{ $submission->challenge->title }}</a>
+        <header><p class="admin-eyebrow">AI code review</p><h1 class="mt-2 text-3xl font-semibold tracking-tight">Task evaluation</h1><p class="mt-2 text-on-surface-variant">{{ $submission->challenge->title }} · {{ $submission->task?->description }} · Submitted {{ $submission->created_at->diffForHumans() }}</p></header>
+
+        @if (session('evaluation_error'))
+            <div role="alert" class="rounded-xl border border-error/25 bg-error-container/20 p-4 text-sm text-error">{{ session('evaluation_error') }} Your code is saved; you can retry the review.</div>
+        @endif
+
+        <details class="rounded-xl border border-white/10 bg-surface-container-low"><summary class="cursor-pointer px-4 py-3 text-sm font-medium">Uploaded file: {{ $submission->submission_file_name ?? 'Source file' }}</summary><pre class="max-h-96 overflow-auto whitespace-pre-wrap break-words border-t border-white/5 p-4 text-xs leading-5 text-on-surface-variant"><code>{{ $submission->submission_file_content }}</code></pre></details>
+
+        @if ($submission->status === 'ai_failed')
+            <div class="rounded-xl border border-tertiary/25 bg-tertiary/10 p-5"><h2 class="font-semibold">Evaluation not available yet</h2><p class="mt-2 text-sm text-on-surface-variant">The local AI service could not complete the review. Your submission has been saved.</p><form method="post" action="{{ route('submissions.evaluate', $submission) }}" class="mt-4">@csrf<button class="admin-button admin-button--primary" type="submit">Try again</button></form></div>
+        @elseif ($submission->ai_score !== null)
+            <section class="rounded-2xl border border-white/10 bg-surface-container-low p-5 sm:p-7">
+                <div class="flex flex-wrap items-start justify-between gap-5"><div><p class="admin-eyebrow">AI score</p><p class="mt-2 text-5xl font-semibold tracking-tight text-secondary">{{ $submission->ai_score }}<span class="text-2xl text-on-surface-variant"> / 100</span></p></div><span class="admin-badge {{ $submission->ai_score > 80 ? 'admin-badge--accent' : '' }}">{{ $submission->status === 'completed' ? 'Peer review complete' : ($submission->appointment ? 'Peer review booked' : ($submission->ai_score > 80 ? 'Peer review unlocked' : 'AI review complete')) }}</span></div>
+                <p class="mt-5 leading-7 text-on-surface-variant">{{ $submission->ai_description }}</p>
+                <p class="mt-4 text-xs text-outline">Reviewed {{ $submission->ai_evaluated_at?->format('M j, Y H:i') }} · Static source review by the configured Ollama model.</p>
+            </section>
+
+            <div class="grid gap-5 lg:grid-cols-2">
+                <section class="rounded-2xl border border-secondary/15 bg-surface-container-low p-5 sm:p-6" aria-labelledby="strengths-heading"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary" aria-hidden="true">check_circle</span><h2 id="strengths-heading" class="text-lg font-semibold">Strengths</h2></div><ul class="mt-4 space-y-3">@foreach ($submission->ai_strengths ?? [] as $strength)<li class="flex items-start gap-3 text-sm leading-6 text-on-surface-variant"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-secondary"></span><span>{{ $strength }}</span></li>@endforeach</ul></section>
+                <section class="rounded-2xl border border-tertiary/15 bg-surface-container-low p-5 sm:p-6" aria-labelledby="weaknesses-heading"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary" aria-hidden="true">lightbulb</span><h2 id="weaknesses-heading" class="text-lg font-semibold">Areas to improve</h2></div><ul class="mt-4 space-y-3">@foreach ($submission->ai_weaknesses ?? [] as $weakness)<li class="flex items-start gap-3 text-sm leading-6 text-on-surface-variant"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-tertiary"></span><span>{{ $weakness }}</span></li>@endforeach</ul></section>
+            </div>
+
+            @if ($submission->status === 'peer_review' && ! $submission->appointment)
+                <section class="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-secondary/20 bg-secondary/10 p-5"><div><h2 class="font-semibold">You unlocked peer evaluation</h2><p class="mt-1 text-sm text-on-surface-variant">Your score is above 80. Book an open slot with a colleague to get a human review.</p></div><a class="admin-link-button admin-link-button--primary" href="{{ route('peer-evaluations.index') }}">Find an evaluation slot</a></section>
+            @endif
+
+            @if ($submission->appointment?->status === 'booked')
+                <section class="rounded-xl border border-secondary/20 bg-secondary/10 p-5"><h2 class="font-semibold">Peer evaluation booked</h2><p class="mt-2 text-sm text-on-surface-variant">{{ $submission->appointment->start_date->timezone(config('app.timezone'))->format('D, M j, Y · H:i') }}–{{ $submission->appointment->end_date->timezone(config('app.timezone'))->format('H:i') }} with {{ $submission->appointment->evaluator?->name ?? 'a colleague' }}.</p></section>
+            @endif
+
+            @if ($submission->appointment?->status === 'completed')
+                <section class="rounded-xl border border-white/10 bg-surface-container-low p-5"><div class="flex flex-wrap items-center justify-between gap-3"><h2 class="text-lg font-semibold">Peer evaluation</h2><span class="admin-badge admin-badge--accent">{{ $submission->appointment->human_score }}/100</span></div><p class="mt-2 text-sm text-on-surface-variant">Reviewed by {{ $submission->appointment->evaluator?->name ?? 'a colleague' }}</p><p class="mt-4 whitespace-pre-line leading-7">{{ $submission->appointment->feedback }}</p></section>
+            @endif
+        @endif
+    @endif
 </div>
 @endsection
-
